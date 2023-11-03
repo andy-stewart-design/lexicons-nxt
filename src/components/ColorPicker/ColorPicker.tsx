@@ -5,7 +5,6 @@ import { Root as ColorPickerRoot } from '@radix-ui/react-popover';
 import ColorPickerInputs from './ColorPickerInputs';
 import ColorPickerPopper from './ColorPickerPopper';
 import { useSlider } from '@/hooks/use-input';
-import classes from './component.module.css';
 
 export interface ColorPickerProps {
   primaryColor: string;
@@ -33,7 +32,7 @@ export default function ColorPicker({ primaryColor, secondaryColor }: ColorPicke
   }, [hue, chroma, lightness, primaryColor, secondaryColor]);
 
   return (
-    <div className={classes['container']}>
+    <div className="input-container">
       <ColorPickerRoot>
         <p className="label">Accent Color</p>
         <ColorPickerInputs

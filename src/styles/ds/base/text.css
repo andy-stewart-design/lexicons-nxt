@@ -1,7 +1,7 @@
 @layer theme {
   label,
   .label {
-    font-size: 0.875rem;
+    font-size: var(--font-size-xs);
     font-weight: 520;
     line-height: 1;
   }

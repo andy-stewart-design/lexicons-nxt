@@ -12,8 +12,13 @@
     --input-padding-inline: var(--size-8);
     --input-padding-block: 0;
 
-    --input-font-size: 0.875rem;
+    --input-font-size: var(--font-size-sm);
     --input-font-weight: 520;
+  }
+
+  .input-container {
+    display: grid;
+    gap: var(--size-16);
   }
 
   input[type='text'],
@@ -46,7 +51,8 @@
     }
 
     &::selection {
-      background-color: oklch(var(--accent-color-oklch) / 3px);
+      background-color: oklch(var(--accent-color-oklch) / 30%);
+      /* background-color: blue; */
     }
   }
 
@@ -88,12 +94,12 @@
   }
 
   input[type='range'] {
-    --slider-height: var(--size-32);
+    --slider-height: var(--size-40);
 
     --thumb-width: var(--size-3);
     --thumb-height: var(--slider-height);
     --thumb-offset: calc((var(--thumb-height) - var(--track-height)) / 2 * -1);
-    --thumb-color: var(--foreground);
+    --thumb-color: transparent;
     --thumb-border: none;
     --thumb-border-radius: 0;
     --thumb-shadow: none;
@@ -115,6 +121,7 @@
     all: unset;
     flex-grow: 1;
     height: var(--slider-height);
+    width: 100%;
     background: var(--input-background) !important;
     border: var(--input-border);
     border-radius: var(--track-border-radius);

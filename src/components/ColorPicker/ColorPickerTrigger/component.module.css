@@ -1,5 +1,5 @@
 .trigger {
-  --button-size: var(--size-40);
+  --button-size: var(--size-44);
 
   width: var(--button-size);
   height: var(--button-size);

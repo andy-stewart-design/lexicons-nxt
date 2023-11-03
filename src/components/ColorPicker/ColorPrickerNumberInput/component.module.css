@@ -9,7 +9,7 @@
     left: var(--size-8);
     translate: 0 -50%;
 
-    font-size: 0.875rem;
+    font-size: var(--input-font-size);
     font-weight: 520;
     line-height: 1;
 

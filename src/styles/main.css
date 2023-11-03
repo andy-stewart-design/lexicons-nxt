@@ -11,7 +11,8 @@
 @import './ds/primitives/text.css';
 
 /* base theme styles */
+@import './ds/base/buttons.css';
+@import './ds/base/inputs.css';
 @import './ds/base/layout.css';
 @import './ds/base/text.css';
 @import './ds/base/theme.css';
-@import './ds/base/inputs.css';

@@ -1,5 +1,5 @@
 .section {
   display: grid;
-  grid-template-columns: var(--size-320) auto;
+  grid-template-columns: var(--size-344) auto;
   background-color: var(--background);
 }

@@ -1,18 +1,17 @@
 .container {
-  --content-width: 320px;
+  --content-width: var(--size-296);
+  --popper-border-radius: var(--size-6);
 
   position: relative;
   display: flex;
   flex-direction: column-reverse;
-  gap: var(--size-16);
   width: var(--content-width);
-  padding: var(--size-16);
+
   background: var(--gray-850);
-  border-radius: var(--size-6);
-  overflow: hidden;
+  border-radius: var(--popper-border-radius);
   transform-origin: top left;
   box-shadow: var(--shadow-3);
-  animation-duration: 200ms;
+  animation-duration: 500ms;
   animation-timing-function: var(--ease-out-5);
 
   &[data-state='open'] {
@@ -24,22 +23,25 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    right: 0;
+    bottom: 0;
     border: 2px solid oklch(var(--gray-50-oklch) / 5%);
     border-radius: inherit;
     pointer-events: none;
   }
 }
 
-@keyframes triggerEnter {
-  from {
-    scale: 0.5;
-    opacity: 0;
-  }
-}
-
 .slider-container {
   display: grid;
   gap: var(--size-16);
+  padding: var(--size-16);
+}
+
+@keyframes triggerEnter {
+  from {
+    /* translate: 0 var(--size-16);  */
+    /* rotate: 0.25rad; */
+    scale: 0.5;
+    opacity: 0;
+  }
 }
