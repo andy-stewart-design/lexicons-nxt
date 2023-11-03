@@ -1,4 +1,4 @@
-@layer ds {
+@layer theme {
   :where(html) {
     --app-padding-inline: var(--size-24);
     --app-padding-block: var(--app-padding-inline);

@@ -1,6 +1,18 @@
-@layer module {
-  .main {
-    display: grid;
-    background-color: var(--background);
-  }
+.main {
+  --gradient-stripe-size: var(--size-10);
+
+  display: grid;
+  background-color: var(--background);
+}
+
+.gradient-stripe {
+  position: sticky;
+  top: 0;
+  background: var(--accent-color);
+  background-image: linear-gradient(
+    to right in oklab,
+    var(--accent-color) 0%,
+    var(--analogous-color) 100%
+  );
+  height: var(--gradient-stripe-size);
 }

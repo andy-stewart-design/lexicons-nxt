@@ -16,6 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={inter.className}>
         <main className={classes['main']}>
+          <div className={classes['gradient-stripe']} />
           <Nav />
           {children}
         </main>

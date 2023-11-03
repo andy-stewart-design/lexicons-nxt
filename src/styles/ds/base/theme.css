@@ -1,4 +1,4 @@
-@layer ds {
+@layer theme {
   :where(html) {
     --foreground: var(--gray-50);
     --background: var(--gray-950);
@@ -19,11 +19,6 @@
 
   html {
     background-color: var(--gray-950);
-    /* background-image: linear-gradient(
-      to bottom right in oklab,
-      var(--accent-color) 0%,
-      var(--analogous-color) 100%
-    ); */
     min-height: 100dvh;
   }
 

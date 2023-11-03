@@ -1,12 +1,12 @@
 import { type ComponentProps, useId } from 'react';
-import RangeSlider from '@components/RangeSlider';
-import classes from './styles.module.css';
+import RangeInput from '@/components/RangeInput';
+import classes from './component.module.css';
 
 interface SliderProps extends ComponentProps<'input'> {
   label: string;
 }
 
-export default function ColorPickerSlider({ label, value, ...delegated }: SliderProps) {
+export default function ColorPickerRangeInput({ label, value, ...delegated }: SliderProps) {
   const id = useId();
 
   return (
@@ -17,7 +17,7 @@ export default function ColorPickerSlider({ label, value, ...delegated }: Slider
         </label>
         <span className="label">{value}</span>
       </div>
-      <RangeSlider
+      <RangeInput
         {...delegated}
         value={value}
         type="range"

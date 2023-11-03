@@ -1,4 +1,4 @@
-@layer ds {
+@layer theme {
   :where(html) {
     --input-background-opacity: 30%;
     --input-background-oklch: var(--gray-800-oklch);
@@ -9,7 +9,7 @@
     --input-border-opacity: 7%;
     --input-border-radius: var(--size-4);
 
-    --input-padding-inline: var(--size-4);
+    --input-padding-inline: var(--size-8);
     --input-padding-block: 0;
 
     --input-font-size: 0.875rem;

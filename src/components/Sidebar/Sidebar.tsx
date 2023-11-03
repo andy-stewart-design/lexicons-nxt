@@ -1,5 +1,5 @@
 import ColorPicker from '@components/ColorPicker';
-import classes from './styles.module.css';
+import classes from './component.module.css';
 
 export default function Sidebar() {
   return (

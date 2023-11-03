@@ -1,7 +1,5 @@
-@layer module {
-  .section {
-    display: grid;
-    grid-template-columns: var(--size-320) auto;
-    background-color: var(--background);
-  }
+.section {
+  display: grid;
+  grid-template-columns: var(--size-320) auto;
+  background-color: var(--background);
 }

@@ -1,7 +1,7 @@
 import { map } from '@utils/math';
 import type { ComponentProps } from 'react';
 
-export default function RangeSlider({
+export default function RangeInput({
   value,
   min,
   max,

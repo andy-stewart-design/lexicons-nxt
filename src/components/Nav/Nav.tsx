@@ -1,5 +1,5 @@
-import classes from "./styles.module.css";
+import classes from './component.module.css';
 
 export default function Nav() {
-  return <nav className={classes["nav"]}></nav>;
+  return <nav className={classes['nav']}></nav>;
 }

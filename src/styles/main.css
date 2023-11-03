@@ -1,13 +1,16 @@
-@layer reset, ds, module, override;
+@layer reset, ds, theme;
 
+/* reset */
 @import './ds/base/reset.css';
 
+/* design system tokens */
 @import './ds/primitives/color.css';
 @import './ds/primitives/ease.css';
 @import './ds/primitives/shadow.css';
 @import './ds/primitives/size.css';
 @import './ds/primitives/text.css';
 
+/* base theme styles */
 @import './ds/base/layout.css';
 @import './ds/base/text.css';
 @import './ds/base/theme.css';

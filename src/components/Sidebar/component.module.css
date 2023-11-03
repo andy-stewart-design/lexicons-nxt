@@ -1,0 +1,11 @@
+.sidebar {
+  border-right: var(--border-light);
+  height: 400vh;
+}
+
+.sticky {
+  position: sticky;
+  top: var(--gradient-stripe-size);
+  padding-inline: var(--app-padding-inline);
+  padding-block: var(--app-padding-block);
+}
