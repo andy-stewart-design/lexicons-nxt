@@ -1,0 +1,37 @@
+@layer ds {
+  :where(html) {
+    --foreground: var(--gray-50);
+    --background: var(--gray-950);
+
+    --surface-1: var(--gray-700);
+    --surface-2: var(--gray-800);
+    --surface-3: var(--gray-850);
+    --surface-4: var(--gray-900);
+
+    --hue: 200;
+    --lightness: 85%;
+    --accent-color-oklch: 85% 0.4 200;
+    --accent-color: oklch(var(--accent-color-oklch));
+
+    --analogous-color-oklch: 50% 0.19 260;
+    --analogous-color: oklch(var(--analogous-color-oklch));
+  }
+
+  html {
+    background-color: var(--gray-950);
+    /* background-image: linear-gradient(
+      to bottom right in oklab,
+      var(--accent-color) 0%,
+      var(--analogous-color) 100%
+    ); */
+    min-height: 100dvh;
+  }
+
+  body {
+    --body-padding: var(--size-24);
+
+    color: var(--gray-50);
+    /* padding: var(--body-padding); */
+    min-height: 100dvh;
+  }
+}

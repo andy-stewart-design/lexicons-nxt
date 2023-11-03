@@ -1,0 +1,9 @@
+@layer ds {
+  :where(html) {
+    --app-padding-inline: var(--size-24);
+    --app-padding-block: var(--app-padding-inline);
+
+    --border-xlight: 1px solid oklch(100% 0 0 / 7%);
+    --border-light: 1px solid oklch(100% 0 0 / 10%);
+  }
+}

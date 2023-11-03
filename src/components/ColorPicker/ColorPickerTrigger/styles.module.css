@@ -1,0 +1,9 @@
+.trigger {
+  --button-size: var(--size-48);
+
+  width: var(--button-size);
+  height: var(--button-size);
+  background-color: var(--accent-color);
+  border: 2px solid oklch(var(--gray-950-oklch) / 25%);
+  border-radius: var(--button-size);
+}

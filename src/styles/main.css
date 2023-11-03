@@ -1,0 +1,14 @@
+@layer reset, ds, module, override;
+
+@import './ds/base/reset.css';
+
+@import './ds/primitives/color.css';
+@import './ds/primitives/ease.css';
+@import './ds/primitives/shadow.css';
+@import './ds/primitives/size.css';
+@import './ds/primitives/text.css';
+
+@import './ds/base/layout.css';
+@import './ds/base/text.css';
+@import './ds/base/theme.css';
+@import './ds/base/inputs.css';

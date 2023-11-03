@@ -1,0 +1,4 @@
+.gallery {
+  padding-inline: var(--app-padding-inline);
+  padding-block: var(--app-padding-block);
+}
