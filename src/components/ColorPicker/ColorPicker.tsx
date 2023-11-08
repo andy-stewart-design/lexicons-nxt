@@ -12,8 +12,6 @@ export interface ColorPickerProps {
 }
 
 export default function ColorPicker({ primaryColor, secondaryColor }: ColorPickerProps) {
-  console.log('picker rendering');
-
   const [hue, setHue, restHueProps] = useSlider(200, 0, 360, 0.1);
   const [chroma, setChroma, restChromaProps] = useSlider(0.4, 0, 0.5, 0.01);
   const [lightness, setLightness, restLightnessProps] = useSlider(85, 0, 100, 0.1);

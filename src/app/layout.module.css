@@ -1,11 +1,11 @@
-.main {
+/* .main {
   --gradient-stripe-size: var(--size-10);
 
   display: grid;
   background-color: var(--background);
-}
+} */
 
-.gradient-stripe {
+/* .gradient-stripe {
   position: sticky;
   top: 0;
   background: var(--accent-color);
@@ -15,4 +15,4 @@
     var(--analogous-color) 100%
   );
   height: var(--gradient-stripe-size);
-}
+} */

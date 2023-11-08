@@ -1,18 +1,19 @@
 .container {
   --content-width: var(--size-296);
-  --popper-border-radius: var(--size-6);
 
   position: relative;
   display: flex;
   flex-direction: column-reverse;
   width: var(--content-width);
 
-  background: var(--gray-850);
-  border-radius: var(--popper-border-radius);
+  background: var(--gray-800);
+  border-radius: var(--input-border-radius);
   transform-origin: top left;
   box-shadow: var(--shadow-3);
-  animation-duration: 500ms;
+  animation-duration: 300ms;
   animation-timing-function: var(--ease-out-5);
+
+  overflow: hidden;
 
   &[data-state='open'] {
     animation-name: triggerEnter;

@@ -1,4 +1,7 @@
-@layer reset, ds, theme;
+/* @layer reset, ds, theme; */
+
+/* layer */
+@import './ds/primitives/layers.css';
 
 /* reset */
 @import './ds/base/reset.css';

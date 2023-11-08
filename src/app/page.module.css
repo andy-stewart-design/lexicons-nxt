@@ -1,5 +1,10 @@
-.section {
-  display: grid;
-  grid-template-columns: var(--size-344) auto;
-  background-color: var(--background);
+@layer module {
+  .section {
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100dvh;
+    /* display: grid;
+    grid-template-columns: var(--size-344) auto;
+    background-color: var(--background); */
+  }
 }

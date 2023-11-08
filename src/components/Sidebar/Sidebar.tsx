@@ -1,20 +1,41 @@
 'use client';
 
 import ColorPicker from '@components/ColorPicker';
-import classes from './component.module.css';
-import RangeInput from '../RangeInput';
-import { useSlider } from '@/hooks/use-input';
-import { useId } from 'react';
 import ComboNumericInput from '../ComboNumericInput';
+import Select from '@components/Select';
+import { useSlider } from '@/hooks/use-input';
+import classes from './component.module.css';
+import { CSSProperties, ComponentProps } from 'react';
 
-export default function Sidebar() {
+const iconStyles = [
+  {
+    value: 'outline',
+    label: 'Outline',
+  },
+  {
+    value: 'solid',
+    label: 'Solid',
+  },
+  {
+    value: 'two_tone',
+    label: 'Two-tone',
+  },
+];
+
+interface SidebarProps extends ComponentProps<'div'> {
+  isOpen: boolean;
+}
+
+export default function Sidebar({ isOpen }: SidebarProps) {
   const [size, setSize, restSizeProps] = useSlider(32, 24, 48, 2);
-  const id = useId();
+
+  const style = { '--offset-x': isOpen ? '0%' : '100%' };
 
   return (
-    <div className={classes['sidebar']}>
+    <div className={classes['sidebar']} style={style as CSSProperties}>
       <div className={classes['sticky']}>
         <section>
+          <Select options={iconStyles} defaultValue="outline" />
           <ComboNumericInput
             label="Optical Size"
             value={size}

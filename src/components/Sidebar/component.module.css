@@ -1,15 +1,28 @@
-.sidebar {
-  border-right: var(--border-light);
-  height: 400vh;
-}
+@layer module {
+  .sidebar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100dvh;
+    width: 90%;
 
-.sticky {
-  position: sticky;
-  top: var(--gradient-stripe-size);
+    translate: var(--offset-x) 0;
+    transition: translate 400ms var(--ease-out-4);
 
-  section {
-    padding-inline: var(--app-padding-inline);
-    padding-block: var(--app-padding-block) calc(var(--app-padding-block) + var(--size-4));
-    border-bottom: var(--border-light);
+    background-color: var(--gray-900);
+    border-left: var(--border-light);
+  }
+
+  .sticky {
+    position: sticky;
+    top: var(--gradient-stripe-size);
+
+    section {
+      display: grid;
+      gap: var(--size-24);
+      padding-inline: var(--app-padding-inline);
+      padding-block: var(--app-padding-block) calc(var(--app-padding-block) + var(--size-4));
+      border-bottom: var(--border-light);
+    }
   }
 }
