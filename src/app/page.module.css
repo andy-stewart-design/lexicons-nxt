@@ -1,18 +1,10 @@
 @layer module {
   .main {
-    position: relative;
-    /* overflow-x: hidden; */
+    overflow-x: clip;
     min-height: 100dvh;
-    /* display: grid;
-    grid-template-columns: var(--size-344) auto;
-    background-color: var(--background); */
   }
 
   .section {
-    /* display: grid;
-    gap: 0;
-    grid-template-columns: 1fr;
-    transition: grid-template-columns 400ms var(--ease-out-4); */
     display: grid;
     grid-template-columns: 0 1fr;
     transition: grid-template-columns 400ms var(--ease-out-5);

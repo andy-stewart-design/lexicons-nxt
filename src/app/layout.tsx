@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import '@/styles/main.css';
-// import classes from './layout.module.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -11,10 +10,6 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  // const res = await fetch('https://dummyjson.com/products');
-  // const data = await res.json();
-  // console.log(data);
-
   return (
     <html lang="en">
       <body className={inter.className}>{children}</body>

@@ -4,8 +4,8 @@ import ColorPicker from '@components/ColorPicker';
 import ComboNumericInput from '../ComboNumericInput';
 import Select from '@components/Select';
 import { useSlider } from '@/hooks/use-input';
+import type { CSSProperties, ComponentProps } from 'react';
 import classes from './component.module.css';
-import { CSSProperties, ComponentProps } from 'react';
 
 const iconStyles = [
   {
@@ -29,13 +29,7 @@ interface SidebarProps extends ComponentProps<'div'> {
 export default function Sidebar({ isOpen }: SidebarProps) {
   const [size, setSize, restSizeProps] = useSlider(32, 24, 48, 2);
 
-  const style: CSSProperties =
-    isOpen === null
-      ? {}
-      : {
-          translate: isOpen ? '0%' : '-100%',
-          visibility: isOpen ? 'visible' : 'hidden',
-        };
+  const style = getComputedStyle(isOpen);
 
   return (
     <div className={classes['sidebar']} style={style}>
@@ -58,4 +52,13 @@ export default function Sidebar({ isOpen }: SidebarProps) {
       </div>
     </div>
   );
+}
+
+function getComputedStyle(isOpen: boolean | null) {
+  if (isOpen === null) return {};
+  else
+    return {
+      translate: isOpen ? '0%' : '-100%',
+      visibility: isOpen ? 'visible' : 'hidden',
+    } as CSSProperties;
 }

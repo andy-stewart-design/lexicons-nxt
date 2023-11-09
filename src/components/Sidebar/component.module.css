@@ -1,10 +1,10 @@
 @layer module {
   .sidebar {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     height: 100%;
-    width: 100%;
+    width: 100dvh;
     max-width: var(--size-344);
 
     translate: -100%;
@@ -17,6 +17,7 @@
 
     @media (--screen-md) {
       position: absolute;
+      width: 100%;
       translate: 0%;
       background-color: var(--gray-950);
     }

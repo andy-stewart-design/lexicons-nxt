@@ -1,6 +1,10 @@
 .nav {
   display: flex;
   justify-content: flex-end;
+
+  padding-inline: var(--app-padding-inline);
+  padding-block: var(--app-padding-block);
+
   border-bottom: var(--border-light);
   min-height: var(--size-80);
 }

@@ -1,3 +1,12 @@
+:where(html) {
+  --screen-xs: 480;
+  --screen-sm: 640;
+  --screen-md: 920;
+  --screen-lg: 1024;
+  --screen-xl: 1280;
+  --screen-2xl: 1536;
+}
+
 @custom-media --screen-xs (width >= 480px);
 @custom-media --screen-sm (width >= 640px);
 @custom-media --screen-md (width >= 920px);

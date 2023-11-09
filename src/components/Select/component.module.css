@@ -40,6 +40,11 @@
     --input-background-opacity: 100%;
     --input-border-opacity: 15%;
   }
+
+  &[aria-expanded='true'] {
+    --input-border-color: var(--accent-color-oklch);
+    --input-border-opacity: 0.75;
+  }
 }
 
 .base-select-content {

@@ -1,7 +1,8 @@
 /* @layer reset, ds, theme; */
 
-/* layer */
+/* setup */
 @import './ds/primitives/layers.css';
+@import './ds/primitives/mediaqueries.css';
 
 /* reset */
 @import './ds/base/reset.css';

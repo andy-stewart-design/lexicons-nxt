@@ -5,7 +5,7 @@ type UseMenuToggleReturn = [boolean | null, () => void, boolean | null];
 
 type MenuToggleSetupHook = (breakpoint: number) => UseMenuToggleReturn;
 
-export const useMenuToggle: MenuToggleSetupHook = (breakpoint) => {
+export const useMenuToggle: MenuToggleSetupHook = () => {
   const [isOpen, setIsOpen] = useState<boolean | null>(null);
   const [isWidescreen, setIsWidescreen] = useState<boolean | null>(null);
   const windowWidth = useRef(0);
@@ -19,6 +19,10 @@ export const useMenuToggle: MenuToggleSetupHook = (breakpoint) => {
   );
 
   useEffect(() => {
+    const breakpoint = Number(
+      getComputedStyle(document.documentElement).getPropertyValue('--screen-md')
+    );
+
     const __isWidescreen = window.innerWidth >= breakpoint;
     setIsOpen(__isWidescreen);
     setIsWidescreen(true);
@@ -45,7 +49,7 @@ export const useMenuToggle: MenuToggleSetupHook = (breakpoint) => {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [breakpoint]);
+  }, []);
 
   return [isOpen, toggleIsOpen, isWidescreen];
 };

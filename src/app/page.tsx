@@ -9,14 +9,13 @@ import { useMenuToggle } from '@hooks/use-menu-toggle';
 export default function Home() {
   const [showSidebar, toggleShowSidebar, isWidescreen] = useMenuToggle(920);
 
-  const style = computeStyle(showSidebar, isWidescreen);
-  console.log({ showSidebar, isWidescreen });
+  const sectionStyle = getComputedStyle(showSidebar, isWidescreen);
 
   return (
     <main className={classes['main']}>
       {/* <div className={classes['gradient-stripe']} /> */}
       <Nav toggleSidebar={toggleShowSidebar} />
-      <section className={classes['section']} style={style}>
+      <section className={classes['section']} style={sectionStyle}>
         <Sidebar isOpen={showSidebar} />
         <IconGallery />
       </section>
@@ -24,7 +23,7 @@ export default function Home() {
   );
 }
 
-function computeStyle(showSidebar: boolean | null, isWidescreen: boolean | null) {
+function getComputedStyle(showSidebar: boolean | null, isWidescreen: boolean | null) {
   if (showSidebar === null) {
     return {};
   } else if (showSidebar && isWidescreen) {
