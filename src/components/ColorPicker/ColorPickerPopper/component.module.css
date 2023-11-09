@@ -1,5 +1,5 @@
 .container {
-  --content-width: var(--size-296);
+  --content-width: var(--space-296);
 
   position: relative;
   display: flex;
@@ -35,13 +35,13 @@
 
 .slider-container {
   display: grid;
-  gap: var(--size-16);
-  padding: var(--size-16);
+  gap: var(--space-16);
+  padding: var(--space-16);
 }
 
 @keyframes triggerEnter {
   from {
-    /* translate: 0 var(--size-16);  */
+    /* translate: 0 var(--space-16);  */
     /* rotate: 0.25rad; */
     scale: 0.5;
     opacity: 0;

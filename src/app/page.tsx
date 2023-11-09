@@ -29,7 +29,7 @@ function getComputedStyle(showSidebar: boolean | null, isWidescreen: boolean | n
   } else if (showSidebar && isWidescreen) {
     return {};
   } else if (isWidescreen && showSidebar) {
-    return { gridTemplateColumns: 'var(--size-344) 1fr' };
+    return { gridTemplateColumns: 'var(--space-344) 1fr' };
   } else {
     return { gridTemplateColumns: '0 1fr' };
   }

@@ -17,7 +17,7 @@
   --select-border-radius: var(--input-border-radius);
 
   display: flex;
-  gap: var(--size-4);
+  gap: var(--space-4);
   align-items: center;
   justify-content: space-between;
 
@@ -25,7 +25,7 @@
   border: var(--input-border);
   border-radius: var(--input-border-radius);
 
-  min-height: var(--size-48);
+  min-height: var(--space-48);
   padding-inline: var(--input-padding-inline);
   padding-block: var(--input-padding-block);
 
@@ -50,14 +50,14 @@
 .base-select-content {
   --input-border: var(--input-border-width) var(--input-border-style)
     oklch(var(--input-border-color) / var(--input-border-opacity));
-  --content-width: var(--size-296);
+  --content-width: var(--space-296);
 
   background: var(--gray-800);
   border: var(--input-border);
   border-radius: var(--input-border-radius);
 
   width: var(--content-width);
-  padding: var(--size-6);
+  padding: var(--space-6);
   box-shadow: var(--shadow-3);
   overflow: hidden;
 
@@ -73,9 +73,9 @@
 
 .base-select-item {
   position: relative;
-  padding-inline: var(--size-10);
-  padding-block: var(--size-12);
-  border-radius: var(--size-1);
+  padding-inline: var(--space-10);
+  padding-block: var(--space-12);
+  border-radius: var(--space-1);
 
   user-select: none;
 
@@ -92,7 +92,7 @@
 
 @keyframes triggerEnter {
   from {
-    translate: 0 var(--size-6);
+    translate: 0 var(--space-6);
     /* rotate: 0.25rad; */
     /* scale: 0.5; */
     opacity: 0;

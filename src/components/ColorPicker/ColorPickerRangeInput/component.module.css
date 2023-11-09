@@ -1,6 +1,6 @@
 .slider-group {
   display: grid;
-  gap: var(--size-10);
+  gap: var(--space-10);
 }
 
 .label-wrapper {
@@ -20,8 +20,8 @@
 .slider {
   --thumb-width: var(--track-height);
   --thumb-height: var(--thumb-width);
-  --thumb-border: var(--size-12) solid transparent;
-  --thumb-border-radius: var(--size-24);
+  --thumb-border: var(--space-12) solid transparent;
+  --thumb-border-radius: var(--space-24);
   --thumb-color: white;
   --thumb-shadow: none;
   --thumb-filter: drop-shadow(0px 2px 8px oklch(var(--gray-950-oklch) / 50%));

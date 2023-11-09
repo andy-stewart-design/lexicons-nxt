@@ -7,9 +7,9 @@
     --input-border-style: solid;
     --input-border-color: var(--gray-50-oklch);
     --input-border-opacity: 7%;
-    --input-border-radius: var(--size-4);
+    --input-border-radius: var(--space-4);
 
-    --input-padding-inline: var(--size-16);
+    --input-padding-inline: var(--space-16);
     --input-padding-block: 0;
 
     --input-font-size: var(--font-size-sm);
@@ -18,7 +18,7 @@
 
   .input-container {
     display: grid;
-    gap: var(--size-16);
+    gap: var(--space-16);
   }
 
   input[type='text'],
@@ -57,7 +57,7 @@
   }
 
   input[type='text'] {
-    min-height: var(--size-12);
+    min-height: var(--space-12);
 
     padding-inline: var(--input-padding-inline);
 
@@ -68,7 +68,7 @@
   input[type='number'] {
     width: 100%;
     height: 100%;
-    min-height: var(--size-4);
+    min-height: var(--space-4);
 
     padding-inline: var(--input-padding-inline);
 
@@ -94,9 +94,9 @@
   }
 
   input[type='range'] {
-    --slider-height: var(--size-40);
+    --slider-height: var(--space-40);
 
-    --thumb-width: var(--size-3);
+    --thumb-width: var(--space-3);
     --thumb-height: var(--slider-height);
     --thumb-offset: calc((var(--thumb-height) - var(--track-height)) / 2 * -1);
     --thumb-color: transparent;

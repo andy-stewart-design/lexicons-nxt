@@ -1,5 +1,5 @@
 /* .main {
-  --gradient-stripe-size: var(--size-10);
+  --gradient-stripe-size: var(--space-10);
 
   display: grid;
   background-color: var(--background);

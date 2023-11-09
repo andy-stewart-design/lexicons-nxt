@@ -23,7 +23,7 @@
   }
 
   body {
-    --body-padding: var(--size-24);
+    --body-padding: var(--space-24);
 
     color: var(--gray-50);
     /* padding: var(--body-padding); */
