@@ -59,6 +59,8 @@
   animation-duration: 300ms;
   animation-timing-function: var(--ease-out-5);
 
+  z-index: 1000;
+
   &[data-state='open'] {
     animation-name: triggerEnter;
   }

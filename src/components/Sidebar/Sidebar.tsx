@@ -23,16 +23,22 @@ const iconStyles = [
 ];
 
 interface SidebarProps extends ComponentProps<'div'> {
-  isOpen: boolean;
+  isOpen: boolean | null;
 }
 
 export default function Sidebar({ isOpen }: SidebarProps) {
   const [size, setSize, restSizeProps] = useSlider(32, 24, 48, 2);
 
-  const style = { '--offset-x': isOpen ? '0%' : '100%' };
+  const style: CSSProperties =
+    isOpen === null
+      ? {}
+      : {
+          translate: isOpen ? '0%' : '-100%',
+          visibility: isOpen ? 'visible' : 'hidden',
+        };
 
   return (
-    <div className={classes['sidebar']} style={style as CSSProperties}>
+    <div className={classes['sidebar']} style={style}>
       <div className={classes['sticky']}>
         <section>
           <Select options={iconStyles} defaultValue="outline" />

@@ -1,5 +1,5 @@
-import { useState, useCallback, useMemo } from "react";
-import type { ChangeEvent } from "react";
+import { useState, useCallback, useMemo } from 'react';
+import type { ChangeEvent } from 'react';
 
 // ------------------------------------------------------
 // Input: Slider ----------------------------------------
@@ -14,11 +14,7 @@ interface DelegatedSlideProps {
   step: number;
 }
 
-export type SliderSetupHookReturn = [
-  number,
-  SliderChangeEvent,
-  DelegatedSlideProps
-];
+export type SliderSetupHookReturn = [number, SliderChangeEvent, DelegatedSlideProps];
 
 type SliderSetupHook = (
   initialValue: number,
@@ -54,4 +50,22 @@ export const useSlider: SliderSetupHook = (
   }, [min, max, step]);
 
   return [value, onChange, delegatedProps];
+};
+
+// ------------------------------------------------------
+// Input: Toggle ----------------------------------------
+// ------------------------------------------------------
+
+type UseToggleReturn = [boolean, () => void];
+
+type ToggleSetupHook = (initialValue?: boolean) => UseToggleReturn;
+
+export const useToggle: ToggleSetupHook = (initialValue = true) => {
+  const [value, setValue] = useState(initialValue);
+
+  const toggleValue = useCallback(function () {
+    setValue((currentValue) => !currentValue);
+  }, []);
+
+  return [value, toggleValue];
 };

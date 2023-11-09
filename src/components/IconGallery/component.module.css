@@ -1,4 +1,5 @@
 .gallery {
   padding-inline: var(--app-padding-inline);
   padding-block: var(--app-padding-block);
+  grid-column: 2 / -1;
 }
