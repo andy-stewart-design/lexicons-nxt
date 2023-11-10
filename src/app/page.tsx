@@ -3,12 +3,17 @@
 import Nav from '@components/Nav';
 import Sidebar from '@components/Sidebar';
 import IconGallery from '@components/IconGallery';
-import classes from './page.module.css';
+import { useSelect, useSlider } from '@hooks/use-input';
 import { useMenuToggle } from '@hooks/use-menu-toggle';
+import { iconStyles } from '@constants/icon-styles';
+import classes from './page.module.css';
 
 export default function Home() {
   const [showSidebar, toggleShowSidebar, isWidescreen] = useMenuToggle(920);
+  const [size, setSize, restSizeProps] = useSlider(32, 24, 48, 2);
+  const [iconStyle, setIconStyle] = useSelect('outline');
 
+  const iconStyleLabel = iconStyles.filter((style) => style.value === iconStyle).at(0)?.label ?? '';
   const sectionStyle = getComputedStyle(showSidebar, isWidescreen);
 
   return (
@@ -17,11 +22,11 @@ export default function Home() {
       <Nav toggleSidebar={toggleShowSidebar} />
       <section className={classes['section']} style={sectionStyle}>
         <Sidebar
-          isOpen={showSidebar}
-          toggleSidebar={toggleShowSidebar}
-          isWidescreen={isWidescreen}
+          menuProps={[showSidebar, toggleShowSidebar, isWidescreen]}
+          sizeProps={[size, setSize, restSizeProps]}
+          iconStyleProps={[iconStyle, setIconStyle]}
         />
-        <IconGallery />
+        <IconGallery iconStyle={iconStyleLabel} size={size} />
       </section>
     </main>
   );

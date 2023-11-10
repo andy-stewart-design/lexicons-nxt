@@ -3,33 +3,22 @@
 import ColorPicker from '@components/ColorPicker';
 import ComboNumericInput from '../ComboNumericInput';
 import Select from '@components/Select';
-import { useSlider } from '@/hooks/use-input';
 import type { CSSProperties, ComponentProps } from 'react';
+import type { UseSliderReturn, UseSelectReturn } from '@hooks/use-input';
+import type { UseMenuToggleReturn } from '@hooks/use-menu-toggle';
+import { iconStyles } from '@constants/icon-styles';
 import classes from './component.module.css';
 
-const iconStyles = [
-  {
-    value: 'outline',
-    label: 'Outline',
-  },
-  {
-    value: 'solid',
-    label: 'Solid',
-  },
-  {
-    value: 'two_tone',
-    label: 'Two-tone',
-  },
-];
-
 interface SidebarProps extends ComponentProps<'div'> {
-  isOpen: boolean | null;
-  isWidescreen: boolean | null;
-  toggleSidebar: () => void;
+  menuProps: UseMenuToggleReturn;
+  sizeProps: UseSliderReturn;
+  iconStyleProps: UseSelectReturn;
 }
 
-export default function Sidebar({ isOpen, toggleSidebar, isWidescreen }: SidebarProps) {
-  const [size, setSize, restSizeProps] = useSlider(32, 24, 48, 2);
+export default function Sidebar({ menuProps, sizeProps, iconStyleProps }: SidebarProps) {
+  const [isOpen, toggleSidebar, isWidescreen] = menuProps;
+  const [size, setSize, restSizeProps] = sizeProps;
+  const [iconStyle, setIconStyle] = iconStyleProps;
 
   const sidebarStyle = getSidebarStyle(isOpen);
   const overlayStyle = !isOpen || isWidescreen ? {} : getOverlayStyle(isOpen);
@@ -40,7 +29,7 @@ export default function Sidebar({ isOpen, toggleSidebar, isWidescreen }: Sidebar
       <div className={classes['sidebar']} style={sidebarStyle}>
         <div className={classes['sticky']}>
           <section>
-            <Select options={iconStyles} defaultValue="outline" />
+            <Select value={iconStyle} onValueChange={setIconStyle} options={iconStyles} />
             <ComboNumericInput
               label="Optical Size"
               value={size}

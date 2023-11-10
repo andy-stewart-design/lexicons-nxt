@@ -2,14 +2,14 @@
 
 import { Portal, Content } from '@radix-ui/react-popover';
 import ColorPickerRangeInput from '../ColorPickerRangeInput';
-import { type SliderSetupHookReturn } from '@/hooks/use-input';
+import { type UseSliderReturn } from '@/hooks/use-input';
 import classes from './component.module.css';
 import ColorPickerPreview from '../ColorPickerPreview';
 
 export interface PopperProps {
-  hue: SliderSetupHookReturn;
-  chroma: SliderSetupHookReturn;
-  lightness: SliderSetupHookReturn;
+  hue: UseSliderReturn;
+  chroma: UseSliderReturn;
+  lightness: UseSliderReturn;
 }
 
 export default function ColorPickerPopper({

@@ -5,23 +5,22 @@ import type { ChangeEvent } from 'react';
 // Input: Slider ----------------------------------------
 // ------------------------------------------------------
 
-type SliderChangeEvent = (event: ChangeEvent<HTMLInputElement>) => void;
+export type SliderChangeEvent = (event: ChangeEvent<HTMLInputElement>) => void;
 
-interface DelegatedSlideProps {
-  //   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+export interface DelegatedSlideProps {
   min: number;
   max: number;
   step: number;
 }
 
-export type SliderSetupHookReturn = [number, SliderChangeEvent, DelegatedSlideProps];
+export type UseSliderReturn = [number, SliderChangeEvent, DelegatedSlideProps];
 
 type SliderSetupHook = (
   initialValue: number,
   min: number,
   max: number,
   step: number
-) => SliderSetupHookReturn;
+) => UseSliderReturn;
 
 export const useSlider: SliderSetupHook = (
   initialValue = 5,
@@ -56,9 +55,9 @@ export const useSlider: SliderSetupHook = (
 // Input: Toggle ----------------------------------------
 // ------------------------------------------------------
 
-type UseToggleReturn = [boolean, (e: ChangeEvent<HTMLInputElement>) => void];
+export type UseToggleReturn = [boolean, (e: ChangeEvent<HTMLInputElement>) => void];
 
-type ToggleSetupHook = (initialValue?: boolean) => UseToggleReturn;
+export type ToggleSetupHook = (initialValue?: boolean) => UseToggleReturn;
 
 export const useToggle: ToggleSetupHook = (initialValue = true) => {
   const [value, setValue] = useState(initialValue);
@@ -74,9 +73,9 @@ export const useToggle: ToggleSetupHook = (initialValue = true) => {
 // Input: Text ------------------------------------------
 // ------------------------------------------------------
 
-type UseTextInputReturn = [string, (arg: ChangeEvent<HTMLInputElement> | string) => void];
+export type UseTextInputReturn = [string, (arg: ChangeEvent<HTMLInputElement> | string) => void];
 
-type TextInputSetupHook = (initialValue?: string) => UseTextInputReturn;
+export type TextInputSetupHook = (initialValue?: string) => UseTextInputReturn;
 
 export const useTextInput: TextInputSetupHook = (initialValue = '') => {
   const [value, setValue] = useState(initialValue);
@@ -84,6 +83,24 @@ export const useTextInput: TextInputSetupHook = (initialValue = '') => {
   const updateValue = useCallback(function (arg: ChangeEvent<HTMLInputElement> | string) {
     if (typeof arg === 'string') setValue(arg);
     else setValue(arg.target.value);
+  }, []);
+
+  return [value, updateValue];
+};
+
+// ------------------------------------------------------
+// Input: Toggle ----------------------------------------
+// ------------------------------------------------------
+
+export type UseSelectReturn = [string, (value: string) => void];
+
+export type SelectSetupHook = (initialValue?: string) => UseSelectReturn;
+
+export const useSelect: SelectSetupHook = (initialValue = '') => {
+  const [value, setValue] = useState(initialValue);
+
+  const updateValue = useCallback(function (value: string) {
+    setValue(value);
   }, []);
 
   return [value, updateValue];

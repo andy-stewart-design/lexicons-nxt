@@ -1,9 +1,9 @@
 import { useEffect, useState, useCallback, useRef } from 'react';
 import debounce from 'just-debounce-it';
 
-type UseMenuToggleReturn = [boolean | null, () => void, boolean | null];
+export type UseMenuToggleReturn = [boolean | null, () => void, boolean | null];
 
-type MenuToggleSetupHook = (breakpoint: number) => UseMenuToggleReturn;
+export type MenuToggleSetupHook = (breakpoint: number) => UseMenuToggleReturn;
 
 export const useMenuToggle: MenuToggleSetupHook = () => {
   const [isOpen, setIsOpen] = useState<boolean | null>(null);

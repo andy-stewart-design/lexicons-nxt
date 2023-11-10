@@ -1,13 +1,13 @@
-import { type SliderSetupHookReturn } from '@/hooks/use-input';
+import { type UseSliderReturn } from '@/hooks/use-input';
 import { ColorPickerTrigger } from '../ColorPickerTrigger';
 import classes from './component.module.css';
 import VisuallyHidden from '@/components/VisuallyHidden';
 import ColorPrickerNumberInput from '@components/ColorPicker/ColorPrickerNumberInput';
 
 export interface InputsProps {
-  hue: SliderSetupHookReturn;
-  chroma: SliderSetupHookReturn;
-  lightness: SliderSetupHookReturn;
+  hue: UseSliderReturn;
+  chroma: UseSliderReturn;
+  lightness: UseSliderReturn;
 }
 
 export default function ColorPickerInputs({

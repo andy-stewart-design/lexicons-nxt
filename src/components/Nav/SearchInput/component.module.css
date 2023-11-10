@@ -5,7 +5,8 @@
   padding-inline: 0;
 
   &:has(input:focus) {
-    --input-background-opacity: 100%;
+    --input-background-oklch: var(--accent-color-oklch);
+    --input-background-opacity: 10%;
     --input-border-color: var(--accent-color-oklch);
     --input-border-opacity: 50%;
   }
@@ -33,6 +34,12 @@
 }
 
 .close {
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 1;
+  }
+
   &:disabled {
     opacity: 0;
   }
