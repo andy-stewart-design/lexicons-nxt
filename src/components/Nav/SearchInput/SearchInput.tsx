@@ -1,5 +1,5 @@
 import { useTextInput } from '@hooks/use-input';
-import { Search, Close } from '@icons/20';
+import { Search, CloseCircled } from '@icons/20';
 import classes from './component.module.css';
 
 export default function SearchInput() {
@@ -7,12 +7,12 @@ export default function SearchInput() {
 
   return (
     <div className={`${classes['input']} input-text`}>
-      <button>
+      <button className={classes['search']} disabled={!value}>
         <Search />
       </button>
       <input type="text" value={value} onChange={setValue} />
       <button className={classes['close']} disabled={!value} onClick={() => setValue('')}>
-        <Close />
+        <CloseCircled />
       </button>
     </div>
   );

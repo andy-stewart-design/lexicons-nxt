@@ -13,9 +13,9 @@
   button {
     padding-inline: var(--space-16);
     border-radius: var(--input-border-radius);
-    transition: color 300ms var(--ease-out-3);
+    transition: color 300ms var(--ease-out-3), opacity 300ms var(--ease-out-5);
 
-    &:hover {
+    &:not(:disabled):hover {
       color: var(--accent-color);
     }
   }
@@ -26,9 +26,13 @@
   }
 }
 
-.close {
-  transition: opacity 200ms var(--ease-out-5);
+.search {
+  &:disabled {
+    opacity: 0.5;
+  }
+}
 
+.close {
   &:disabled {
     opacity: 0;
   }

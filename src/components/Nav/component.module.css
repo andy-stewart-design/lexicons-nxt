@@ -39,7 +39,11 @@
   order: 1;
 
   svg {
-    width: 180px;
+    width: 160px;
+
+    @media (--screen-sm) {
+      width: 184px;
+    }
   }
 
   @media (--screen-md) {
