@@ -12,7 +12,7 @@
     @media (--screen-md) {
       display: grid;
       position: relative;
-      grid-template-columns: var(--space-344) 1fr;
+      grid-template-columns: var(--sidebar-max-width) 1fr;
     }
   }
 }

@@ -1,0 +1,35 @@
+.input {
+  display: flex;
+  height: var(--space-48);
+  flex-grow: 1;
+  padding-inline: 0;
+
+  &:has(input:focus) {
+    --input-background-opacity: 100%;
+    --input-border-color: var(--accent-color-oklch);
+    --input-border-opacity: 50%;
+  }
+
+  button {
+    padding-inline: var(--space-16);
+    border-radius: var(--input-border-radius);
+    transition: color 300ms var(--ease-out-3);
+
+    &:hover {
+      color: var(--accent-color);
+    }
+  }
+
+  input[type='text'] {
+    all: unset;
+    flex-grow: 1;
+  }
+}
+
+.close {
+  transition: opacity 200ms var(--ease-out-5);
+
+  &:disabled {
+    opacity: 0;
+  }
+}

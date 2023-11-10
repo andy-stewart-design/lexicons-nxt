@@ -56,7 +56,7 @@ export const useSlider: SliderSetupHook = (
 // Input: Toggle ----------------------------------------
 // ------------------------------------------------------
 
-type UseToggleReturn = [boolean, () => void];
+type UseToggleReturn = [boolean, (e: ChangeEvent<HTMLInputElement>) => void];
 
 type ToggleSetupHook = (initialValue?: boolean) => UseToggleReturn;
 
@@ -68,4 +68,23 @@ export const useToggle: ToggleSetupHook = (initialValue = true) => {
   }, []);
 
   return [value, toggleValue];
+};
+
+// ------------------------------------------------------
+// Input: Text ------------------------------------------
+// ------------------------------------------------------
+
+type UseTextInputReturn = [string, (arg: ChangeEvent<HTMLInputElement> | string) => void];
+
+type TextInputSetupHook = (initialValue?: string) => UseTextInputReturn;
+
+export const useTextInput: TextInputSetupHook = (initialValue = '') => {
+  const [value, setValue] = useState(initialValue);
+
+  const updateValue = useCallback(function (arg: ChangeEvent<HTMLInputElement> | string) {
+    if (typeof arg === 'string') setValue(arg);
+    else setValue(arg.target.value);
+  }, []);
+
+  return [value, updateValue];
 };

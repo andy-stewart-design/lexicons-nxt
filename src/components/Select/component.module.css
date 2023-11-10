@@ -56,7 +56,7 @@
   border: var(--input-border);
   border-radius: var(--input-border-radius);
 
-  width: var(--content-width);
+  width: var(--sidebar-popper-width);
   padding: var(--space-6);
   box-shadow: var(--shadow-3);
   overflow: hidden;
@@ -64,7 +64,7 @@
   animation-duration: 300ms;
   animation-timing-function: var(--ease-out-5);
 
-  z-index: 1000;
+  z-index: var(--z-3);
 
   &[data-state='open'] {
     animation-name: triggerEnter;

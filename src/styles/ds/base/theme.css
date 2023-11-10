@@ -1,5 +1,6 @@
 @layer theme {
   :where(html) {
+    /* -------- COLOR -------- */
     --foreground: var(--gray-50);
     --background: var(--gray-950);
 
@@ -15,6 +16,26 @@
 
     --analogous-color-oklch: 50% 0.19 260;
     --analogous-color: oklch(var(--analogous-color-oklch));
+
+    /* -------- SPACE -------- */
+    --app-padding-inline: var(--space-24);
+    --app-padding-block: var(--app-padding-inline);
+
+    /* -------- BORDERS -------- */
+    --border-transparent: 1px solid oklch(100% 0 0 / 0%);
+    --border-xlight: 1px solid oklch(100% 0 0 / 7%);
+    --border-light: 1px solid oklch(100% 0 0 / 10%);
+
+    --sidebar-width: 100vw;
+    --sidebar-max-width: var(--space-368);
+    --sidebar-content-width: calc(var(--sidebar-width) - var(--app-padding-inline) * 2);
+    --sidebar-content-max-width: calc(var(--sidebar-max-width) - var(--app-padding-inline) * 2);
+    --sidebar-popper-width: min(var(--sidebar-content-width), var(--sidebar-content-max-width));
+    --sidebar-popper-width: min(var(--sidebar-content-width), var(--sidebar-content-max-width));
+
+    @media (--screen-md) {
+      --app-padding-inline: var(--space-32);
+    }
   }
 
   html {

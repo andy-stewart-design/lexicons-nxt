@@ -16,7 +16,11 @@ export default function Home() {
       {/* <div className={classes['gradient-stripe']} /> */}
       <Nav toggleSidebar={toggleShowSidebar} />
       <section className={classes['section']} style={sectionStyle}>
-        <Sidebar isOpen={showSidebar} />
+        <Sidebar
+          isOpen={showSidebar}
+          toggleSidebar={toggleShowSidebar}
+          isWidescreen={isWidescreen}
+        />
         <IconGallery />
       </section>
     </main>

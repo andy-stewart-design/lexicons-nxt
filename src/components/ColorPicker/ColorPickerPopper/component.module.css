@@ -4,7 +4,8 @@
   position: relative;
   display: flex;
   flex-direction: column-reverse;
-  width: var(--content-width);
+  /* width: var(--content-width); */
+  width: var(--sidebar-popper-width);
 
   background: var(--gray-800);
   border-radius: var(--input-border-radius);
@@ -14,7 +15,7 @@
   animation-timing-function: var(--ease-out-5);
 
   overflow: hidden;
-  z-index: 1000;
+  z-index: var(--z-3);
 
   &[data-state='open'] {
     animation-name: triggerEnter;
