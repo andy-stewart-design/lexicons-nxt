@@ -1,3 +1,5 @@
+import IconCard from './IconCard';
+import { iconStyles } from '@constants/icon-styles';
 import classes from './component.module.css';
 
 interface IconGalleryProps {
@@ -5,135 +7,24 @@ interface IconGalleryProps {
   size: number;
 }
 
+const iconNumber = 100;
+
 export default function IconGallery({ size, iconStyle }: IconGalleryProps) {
+  const selectedIconStyle = iconStyles.filter((style) => style.value === iconStyle);
+  const iconStyleLabel = selectedIconStyle.at(0)?.label ?? '';
+
   return (
     <div className={classes['gallery']}>
-      <div>
-        <span className="label" style={{ marginRight: '0.5rem' }}>
-          Icon Style: {iconStyle}
-        </span>
-        <span className="label" style={{ marginRight: '0.5rem' }}>
-          ·
-        </span>
-        <span className="label" style={{ marginRight: '0.5rem' }}>
-          Size: {size}
-        </span>
-      </div>
-      <p style={{ opacity: 0.2, marginBottom: '1rem', color: 'var(--accent-color)' }}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita aliquam molestiae alias,
-        eligendi quam, earum, nobis itaque dolor asperiores voluptates esse ipsam perferendis eius
-        impedit dolore eaque officiis sunt! Consequuntur.
+      <p className="label" style={{ marginRight: '0.5rem' }}>
+        {iconNumber} icons · {iconStyleLabel} · {size} px
       </p>
-      <p style={{ opacity: 0.2, marginBottom: '1rem', color: 'var(--accent-color)' }}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita aliquam molestiae alias,
-        eligendi quam, earum, nobis itaque dolor asperiores voluptates esse ipsam perferendis eius
-        impedit dolore eaque officiis sunt! Consequuntur.
-      </p>
-      <p style={{ opacity: 0.2, marginBottom: '1rem', color: 'var(--accent-color)' }}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita aliquam molestiae alias,
-        eligendi quam, earum, nobis itaque dolor asperiores voluptates esse ipsam perferendis eius
-        impedit dolore eaque officiis sunt! Consequuntur.
-      </p>
-      <p style={{ opacity: 0.2, marginBottom: '1rem', color: 'var(--accent-color)' }}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita aliquam molestiae alias,
-        eligendi quam, earum, nobis itaque dolor asperiores voluptates esse ipsam perferendis eius
-        impedit dolore eaque officiis sunt! Consequuntur.
-      </p>
-      <p style={{ opacity: 0.2, marginBottom: '1rem', color: 'var(--accent-color)' }}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita aliquam molestiae alias,
-        eligendi quam, earum, nobis itaque dolor asperiores voluptates esse ipsam perferendis eius
-        impedit dolore eaque officiis sunt! Consequuntur.
-      </p>
-      <p style={{ opacity: 0.2, marginBottom: '1rem', color: 'var(--accent-color)' }}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita aliquam molestiae alias,
-        eligendi quam, earum, nobis itaque dolor asperiores voluptates esse ipsam perferendis eius
-        impedit dolore eaque officiis sunt! Consequuntur.
-      </p>
-      <p style={{ opacity: 0.2, marginBottom: '1rem', color: 'var(--accent-color)' }}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita aliquam molestiae alias,
-        eligendi quam, earum, nobis itaque dolor asperiores voluptates esse ipsam perferendis eius
-        impedit dolore eaque officiis sunt! Consequuntur.
-      </p>
-      <p style={{ opacity: 0.2, marginBottom: '1rem', color: 'var(--accent-color)' }}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita aliquam molestiae alias,
-        eligendi quam, earum, nobis itaque dolor asperiores voluptates esse ipsam perferendis eius
-        impedit dolore eaque officiis sunt! Consequuntur.
-      </p>
-      <p style={{ opacity: 0.2, marginBottom: '1rem', color: 'var(--accent-color)' }}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita aliquam molestiae alias,
-        eligendi quam, earum, nobis itaque dolor asperiores voluptates esse ipsam perferendis eius
-        impedit dolore eaque officiis sunt! Consequuntur.
-      </p>
-      <p style={{ opacity: 0.2, marginBottom: '1rem', color: 'var(--accent-color)' }}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita aliquam molestiae alias,
-        eligendi quam, earum, nobis itaque dolor asperiores voluptates esse ipsam perferendis eius
-        impedit dolore eaque officiis sunt! Consequuntur.
-      </p>
-      <p style={{ opacity: 0.2, marginBottom: '1rem', color: 'var(--accent-color)' }}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita aliquam molestiae alias,
-        eligendi quam, earum, nobis itaque dolor asperiores voluptates esse ipsam perferendis eius
-        impedit dolore eaque officiis sunt! Consequuntur.
-      </p>
-      <p style={{ opacity: 0.2, marginBottom: '1rem', color: 'var(--accent-color)' }}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita aliquam molestiae alias,
-        eligendi quam, earum, nobis itaque dolor asperiores voluptates esse ipsam perferendis eius
-        impedit dolore eaque officiis sunt! Consequuntur.
-      </p>
-      <p style={{ opacity: 0.2, marginBottom: '1rem', color: 'var(--accent-color)' }}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita aliquam molestiae alias,
-        eligendi quam, earum, nobis itaque dolor asperiores voluptates esse ipsam perferendis eius
-        impedit dolore eaque officiis sunt! Consequuntur.
-      </p>
-      <p style={{ opacity: 0.2, marginBottom: '1rem', color: 'var(--accent-color)' }}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita aliquam molestiae alias,
-        eligendi quam, earum, nobis itaque dolor asperiores voluptates esse ipsam perferendis eius
-        impedit dolore eaque officiis sunt! Consequuntur.
-      </p>
-      <p style={{ opacity: 0.2, marginBottom: '1rem', color: 'var(--accent-color)' }}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita aliquam molestiae alias,
-        eligendi quam, earum, nobis itaque dolor asperiores voluptates esse ipsam perferendis eius
-        impedit dolore eaque officiis sunt! Consequuntur.
-      </p>
-      <p style={{ opacity: 0.2, marginBottom: '1rem', color: 'var(--accent-color)' }}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita aliquam molestiae alias,
-        eligendi quam, earum, nobis itaque dolor asperiores voluptates esse ipsam perferendis eius
-        impedit dolore eaque officiis sunt! Consequuntur.
-      </p>
-      <p style={{ opacity: 0.2, marginBottom: '1rem', color: 'var(--accent-color)' }}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita aliquam molestiae alias,
-        eligendi quam, earum, nobis itaque dolor asperiores voluptates esse ipsam perferendis eius
-        impedit dolore eaque officiis sunt! Consequuntur.
-      </p>
-      <p style={{ opacity: 0.2, marginBottom: '1rem', color: 'var(--accent-color)' }}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita aliquam molestiae alias,
-        eligendi quam, earum, nobis itaque dolor asperiores voluptates esse ipsam perferendis eius
-        impedit dolore eaque officiis sunt! Consequuntur.
-      </p>
-      <p style={{ opacity: 0.2, marginBottom: '1rem', color: 'var(--accent-color)' }}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita aliquam molestiae alias,
-        eligendi quam, earum, nobis itaque dolor asperiores voluptates esse ipsam perferendis eius
-        impedit dolore eaque officiis sunt! Consequuntur.
-      </p>
-      <p style={{ opacity: 0.2, marginBottom: '1rem', color: 'var(--accent-color)' }}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita aliquam molestiae alias,
-        eligendi quam, earum, nobis itaque dolor asperiores voluptates esse ipsam perferendis eius
-        impedit dolore eaque officiis sunt! Consequuntur.
-      </p>
-      <p style={{ opacity: 0.2, marginBottom: '1rem', color: 'var(--accent-color)' }}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita aliquam molestiae alias,
-        eligendi quam, earum, nobis itaque dolor asperiores voluptates esse ipsam perferendis eius
-        impedit dolore eaque officiis sunt! Consequuntur.
-      </p>
-      <p style={{ opacity: 0.2, marginBottom: '1rem', color: 'var(--accent-color)' }}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita aliquam molestiae alias,
-        eligendi quam, earum, nobis itaque dolor asperiores voluptates esse ipsam perferendis eius
-        impedit dolore eaque officiis sunt! Consequuntur.
-      </p>
-      <p style={{ opacity: 0.2, marginBottom: '1rem', color: 'var(--accent-color)' }}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita aliquam molestiae alias,
-        eligendi quam, earum, nobis itaque dolor asperiores voluptates esse ipsam perferendis eius
-        impedit dolore eaque officiis sunt! Consequuntur.
-      </p>
+      {/* <div> */}
+      {new Array(100).fill('').map((_, i) => (
+        <IconCard size={size} iconStyle={iconStyle} key={i}>
+          {i}
+        </IconCard>
+      ))}
+      {/* </div> */}
     </div>
   );
 }

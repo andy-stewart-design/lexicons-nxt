@@ -2,11 +2,11 @@
   display: flex;
   flex-wrap: wrap;
   border-bottom: var(--border-light);
+  height: var(--space-96);
 
   & > * {
     display: flex;
     align-items: center;
-    height: var(--space-96);
 
     & > button {
       display: grid;
@@ -80,7 +80,6 @@
   padding-inline-start: var(--space-4);
   padding-inline-end: var(--app-padding-inline);
   order: 2;
-  /* background: violet; */
 
   @media (--screen-md) {
     order: 3;

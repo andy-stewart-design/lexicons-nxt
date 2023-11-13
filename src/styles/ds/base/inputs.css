@@ -1,11 +1,11 @@
 @layer theme {
   :where(html) {
     --input-background-opacity: 30%;
-    --input-background-oklch: var(--gray-800-oklch);
+    --input-background-oklch: var(--surface-2-oklch);
 
     --input-border-width: 1px;
     --input-border-style: solid;
-    --input-border-color: var(--gray-50-oklch);
+    --input-border-color: var(--foreground-oklch);
     --input-border-opacity: 7%;
     --input-border-radius: var(--space-4);
 

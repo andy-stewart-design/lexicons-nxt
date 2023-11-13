@@ -13,8 +13,7 @@ export default function Home() {
   const [size, setSize, restSizeProps] = useSlider(32, 24, 48, 2);
   const [iconStyle, setIconStyle] = useSelect('outline');
 
-  const iconStyleLabel = iconStyles.filter((style) => style.value === iconStyle).at(0)?.label ?? '';
-  const sectionStyle = getComputedStyle(showSidebar, isWidescreen);
+  const sectionStyle = getSectionStyle(showSidebar, isWidescreen);
 
   return (
     <main className={classes['main']}>
@@ -26,16 +25,14 @@ export default function Home() {
           sizeProps={[size, setSize, restSizeProps]}
           iconStyleProps={[iconStyle, setIconStyle]}
         />
-        <IconGallery iconStyle={iconStyleLabel} size={size} />
+        <IconGallery iconStyle={iconStyle} size={size} />
       </section>
     </main>
   );
 }
 
-function getComputedStyle(showSidebar: boolean | null, isWidescreen: boolean | null) {
-  if (showSidebar === null) {
-    return {};
-  } else if (showSidebar && isWidescreen) {
+function getSectionStyle(showSidebar: boolean | null, isWidescreen: boolean | null) {
+  if (showSidebar === null || (showSidebar && isWidescreen)) {
     return {};
   } else if (isWidescreen && showSidebar) {
     return { gridTemplateColumns: 'var(--space-344) 1fr' };

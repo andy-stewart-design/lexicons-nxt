@@ -1,5 +1,14 @@
 .gallery {
-  padding-inline: var(--app-padding-inline);
-  padding-block: var(--app-padding-block);
   grid-column: 2 / -1;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-16);
+
+  padding-inline: var(--app-padding-inline);
+  padding-block: calc(var(--app-padding-block) + var(--space-8));
+
+  & > :first-child {
+    grid-column: 1 / -1;
+  }
 }

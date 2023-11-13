@@ -25,7 +25,9 @@ export default function Sidebar({ menuProps, sizeProps, iconStyleProps }: Sideba
 
   return (
     <>
-      <div className={classes['overlay']} style={overlayStyle} onClick={toggleSidebar} />
+      {!isWidescreen && (
+        <div className={classes['overlay']} style={overlayStyle} onClick={toggleSidebar} />
+      )}
       <div className={classes['sidebar']} style={sidebarStyle}>
         <div className={classes['sticky']}>
           <section>
