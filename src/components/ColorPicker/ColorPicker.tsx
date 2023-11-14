@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { Root as ColorPickerRoot } from '@radix-ui/react-popover';
 import ColorPickerInputs from './ColorPickerInputs';
 import ColorPickerPopper from './ColorPickerPopper';
+import Tooltip from '@components/Tooltip';
 import { useSlider } from '@/hooks/use-input';
 
 export interface ColorPickerProps {
@@ -32,7 +33,10 @@ export default function ColorPicker({ primaryColor, secondaryColor }: ColorPicke
   return (
     <div className="input-container">
       <ColorPickerRoot>
-        <p className="label">Accent Color</p>
+        <p className="label flex flex-justify-start flex-align-center gap-6">
+          Accent Color
+          <Tooltip text="Adjust the hue, saturation, and lightness of the icons" />
+        </p>
         <ColorPickerInputs
           hue={[hue, setHue, restHueProps]}
           chroma={[chroma, setChroma, restChromaProps]}

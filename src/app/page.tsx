@@ -1,6 +1,6 @@
 'use client';
 
-// TODO: Tooltips
+// TODO: Simplify CSS
 // TODO: Light mode
 // TODO: Theme select
 // TODO: Info modal
@@ -33,6 +33,7 @@ export default function Home() {
   const [size, setSize, restSizeProps] = useSlider(32, 24, 48, 2);
   const [iconStyle, setIconStyle] = useSelect('outline') as [IconStyle, (value: string) => void];
   const [copyAsJSX, setCopyAsJSX] = useToggle(false);
+  const [fillCurrent, setFillCurrent] = useToggle(true);
 
   const sectionStyle = getSectionStyle(showSidebar, isWidescreen);
 
@@ -46,8 +47,15 @@ export default function Home() {
           sizeProps={[size, setSize, restSizeProps]}
           iconStyleProps={[iconStyle, setIconStyle]}
           copyProps={[copyAsJSX, setCopyAsJSX]}
+          fillCurrentProps={[fillCurrent, setFillCurrent]}
         />
-        <IconGallery icons={icons} iconStyle={iconStyle} size={size} copyAsJSX={copyAsJSX} />
+        <IconGallery
+          icons={icons}
+          iconStyle={iconStyle}
+          size={size}
+          copyAsJSX={copyAsJSX}
+          fillCurrent={fillCurrent}
+        />
       </section>
     </main>
   );

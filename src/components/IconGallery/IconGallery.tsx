@@ -7,26 +7,18 @@ interface IconGalleryProps {
   iconStyle: IconStyle;
   size: number;
   copyAsJSX: boolean;
+  fillCurrent: boolean;
 }
 
 const iconNumber = 100;
 
-export default function IconGallery({ icons, size, iconStyle, copyAsJSX }: IconGalleryProps) {
-  const selectedIconStyle = iconStyles.filter((style) => style.value === iconStyle);
-  const iconStyleLabel = selectedIconStyle.at(0)?.label ?? '';
-
+export default function IconGallery({ icons, ...delegated }: IconGalleryProps) {
   return (
     <div className={classes['gallery']}>
-      <ol className="label">
-        <li>
-          {iconNumber} {iconStyleLabel} {copyAsJSX ? 'JSX' : 'SVG'} Icons{' '}
-        </li>
-      </ol>
-      {/* <div> */}
+      <p className="label">Displaying {iconNumber} Icons</p>
       {icons.map((icon, i) => (
-        <IconCard key={i} icon={icon} size={size} iconStyle={iconStyle} copyAsJSX={copyAsJSX} />
+        <IconCard key={i} icon={icon} {...delegated} />
       ))}
-      {/* </div> */}
     </div>
   );
 }

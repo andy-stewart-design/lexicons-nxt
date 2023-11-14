@@ -1,0 +1,65 @@
+.tooltip-group {
+  --tooltip-offset: var(--space-6);
+
+  position: relative;
+  color: oklch(var(--foreground-oklch) / 60%);
+  border-radius: var(--space-96);
+
+  div[role='tooltip'] {
+    position: absolute;
+
+    padding-inline: var(--space-16);
+    padding-block: var(--space-12);
+    background: var(--surface-2);
+    inline-size: max-content;
+    max-inline-size: 25ch;
+    border-radius: var(--input-border-radius);
+    box-shadow: var(--shadow-4);
+
+    font-size: var(--font-2xs);
+    line-height: var(--leading-4);
+    text-align: center;
+    color: var(--foreground);
+
+    z-index: var(--z-3);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 200ms var(--ease-out-5);
+    transition-delay: 0ms;
+
+    &[data-position='top'],
+    .tooltip-top {
+      top: calc(var(--tooltip-offset) * -1);
+      left: 50%;
+      translate: -50% -100%;
+    }
+
+    &[data-position='right'],
+    .tooltip-right {
+      top: 50%;
+      left: calc(100% + var(--tooltip-offset));
+      translate: 0 -50%;
+    }
+
+    &[data-position='bottom'],
+    .tooltip-bottom {
+      top: calc(100% + var(--tooltip-offset));
+      left: 50%;
+      translate: -50% 0;
+    }
+
+    &[data-position='left'],
+    .tooltip-left {
+      top: 50%;
+      left: 0;
+      translate: calc(-100% - var(--tooltip-offset)) -50%;
+    }
+  }
+
+  &:is(:hover, :focus, :focus-visible) {
+    div[role='tooltip'] {
+      opacity: 1;
+      transition-delay: 200ms;
+    }
+  }
+}

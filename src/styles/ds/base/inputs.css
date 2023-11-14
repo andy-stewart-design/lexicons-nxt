@@ -12,7 +12,7 @@
     --input-padding-inline: var(--space-16);
     --input-padding-block: 0;
 
-    --input-font-size: var(--font-size-sm);
+    --input-font-size: var(--font-sm);
     --input-font-weight: 520;
   }
 

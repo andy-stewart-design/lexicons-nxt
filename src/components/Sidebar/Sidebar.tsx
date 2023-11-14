@@ -4,10 +4,11 @@ import ColorPicker from '@components/ColorPicker';
 import ComboNumericInput from '../ComboNumericInput';
 import Select from '@components/Select';
 import Switch from '@components/Switch';
+import Tooltip from '@components/Tooltip';
 import type { CSSProperties, ComponentProps } from 'react';
 import type { UseSliderReturn, UseSelectReturn, UseToggleReturn } from '@hooks/use-input';
 import type { UseMenuToggleReturn } from '@hooks/use-menu-toggle';
-import { iconStyles } from '@/constants/icons';
+import { iconStyles } from '@constants/icons';
 import classes from './component.module.css';
 
 interface SidebarProps extends ComponentProps<'div'> {
@@ -15,13 +16,21 @@ interface SidebarProps extends ComponentProps<'div'> {
   sizeProps: UseSliderReturn;
   iconStyleProps: UseSelectReturn;
   copyProps: UseToggleReturn;
+  fillCurrentProps: UseToggleReturn;
 }
 
-export default function Sidebar({ menuProps, sizeProps, iconStyleProps, copyProps }: SidebarProps) {
+export default function Sidebar({
+  menuProps,
+  sizeProps,
+  iconStyleProps,
+  copyProps,
+  fillCurrentProps,
+}: SidebarProps) {
   const [isOpen, toggleSidebar, isWidescreen] = menuProps;
   const [size, setSize, restSizeProps] = sizeProps;
   const [iconStyle, setIconStyle] = iconStyleProps;
   const [copyAsJSX, setCopyAsJSX] = copyProps;
+  const [currentColor, setCurrentColor] = fillCurrentProps;
 
   const sidebarStyle = getSidebarStyle(isOpen);
   const overlayStyle = !isOpen || isWidescreen ? {} : getOverlayStyle(isOpen);
@@ -52,7 +61,16 @@ export default function Sidebar({ menuProps, sizeProps, iconStyleProps, copyProp
 
           <section>
             <Switch checked={copyAsJSX} onChange={setCopyAsJSX}>
-              Save as JSX
+              <span className="flex flex-justify-start flex-align-center gap-6">
+                Save as JSX
+                <Tooltip text="Determines if icons should be copied/downloaded as SVG (HTML) or JSX (React)" />
+              </span>
+            </Switch>
+            <Switch checked={currentColor} onChange={setCurrentColor}>
+              <span className="flex flex-justify-start flex-align-center gap-6">
+                Use currentColor
+                <Tooltip text="Controls whether the exported icon's color should be hard-coded or inherited" />
+              </span>
             </Switch>
           </section>
 

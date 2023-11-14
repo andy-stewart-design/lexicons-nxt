@@ -9,10 +9,11 @@ interface CardProps extends ComponentProps<'div'> {
   iconStyle: IconStyle;
   size: number;
   copyAsJSX: boolean;
+  fillCurrent: boolean;
 }
 
 export default function IconCard(props: CardProps) {
-  const { icon, size, iconStyle, copyAsJSX } = props;
+  const { icon, size, iconStyle, copyAsJSX, fillCurrent } = props;
 
   return (
     <div className={classes['card']}>
@@ -23,11 +24,11 @@ export default function IconCard(props: CardProps) {
         <p className="label">Icon Name</p>
       </div>
       <div className={classes['button-container']}>
-        <button onClick={() => copySvg(icon, size, iconStyle, copyAsJSX)}>
+        <button onClick={() => copySvg(icon, size, iconStyle, copyAsJSX, fillCurrent)}>
           <Copy />
           Copy Code
         </button>
-        <button onClick={() => downloadSvg(icon, size, iconStyle, copyAsJSX)}>
+        <button onClick={() => downloadSvg(icon, size, iconStyle, copyAsJSX, fillCurrent)}>
           <Download />
           Download
         </button>

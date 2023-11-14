@@ -1,0 +1,15 @@
+.flex {
+  display: flex;
+}
+
+.flex-justify-start {
+  justify-content: flex-start;
+}
+
+.flex-align-center {
+  align-items: center;
+}
+
+.gap-6 {
+  gap: var(--space-6);
+}

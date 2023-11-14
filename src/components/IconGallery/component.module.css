@@ -9,7 +9,7 @@
   padding-inline: var(--app-padding-inline);
   padding-block: calc(var(--app-padding-block) + var(--space-8));
 
-  ol {
+  & > :first-child {
     grid-column: 1 / -1;
     display: flex;
     gap: var(--space-8);
