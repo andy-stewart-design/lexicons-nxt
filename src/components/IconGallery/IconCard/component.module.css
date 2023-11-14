@@ -11,7 +11,7 @@
   transition: background 300ms var(--ease-out-5);
 
   &:hover,
-  &:has(button:focus) {
+  &:has(button:focus-visible) {
     --opacity-increasing: 1;
     --opacity-decreasing: 0.4;
     --background-opacity: 0.4;
@@ -36,7 +36,7 @@
     -webkit-mask-composite: xor;
     mask-composite: exclude;
 
-    border: 2px solid transparent;
+    border: 1px solid transparent;
     border-radius: var(--input-border-radius);
     opacity: var(--opacity-increasing);
     transition: opacity 300ms var(--ease-out-5);
@@ -50,30 +50,7 @@
   padding-block-start: var(--space-40);
   padding-block-end: 0;
 
-  span {
-    --size: 32px;
-    --fill: 0;
-
-    position: relative;
-    border: 2px solid var(--accent-color);
-    width: calc(var(--size) - 2px);
-    height: calc(var(--size) - 2px);
-    border-radius: 50%;
-    opacity: var(--opacity-decreasing);
-    transition: opacity 300ms var(--ease-out-5);
-
-    &:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      background: var(--accent-color);
-      opacity: var(--fill);
-    }
-  }
+  color: var(--accent-color);
 }
 
 .text-container {
@@ -81,38 +58,80 @@
   padding-block: var(--space-24);
 
   p {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-4);
     text-align: center;
-    opacity: var(--opacity-decreasing);
+    opacity: min(0.75, var(--opacity-decreasing));
     transition: opacity 300ms var(--ease-out-5);
   }
 }
 
 .button-container {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 4px;
+  left: 4px;
+  bottom: 4px;
+  right: 4px;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: var(--space-8);
+  border-radius: var(--input-border-radius);
+  backdrop-filter: blur(4px);
+
   opacity: var(--opacity-increasing);
   transition: opacity 300ms var(--ease-out-5);
 
   button {
+    --child-border-opacity: 0;
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-8);
     background: var(--surface-4);
     padding-inline: var(--space-24);
     padding-block: var(--space-16);
+    min-width: var(--space-120);
     border: var(--border-light);
     border-radius: var(--space-96);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-5);
+    box-shadow: var(--shadow-5);
     transition: background 300ms var(--ease-out-5);
 
     &:hover,
-    &:focus {
+    &:focus-visible {
       background: var(--surface-2);
+      --child-border-opacity: 1;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      bottom: -1px;
+      right: -1px;
+
+      background: linear-gradient(
+          to bottom right in oklab,
+          var(--accent-color) 0%,
+          var(--analogous-color) 100%
+        )
+        border-box;
+      -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+
+      border: 1px solid transparent;
+      border-radius: var(--space-96);
+      opacity: var(--child-border-opacity);
+      transition: opacity 300ms var(--ease-out-5);
     }
   }
 }

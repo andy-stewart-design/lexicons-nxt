@@ -18,7 +18,7 @@ export default function SearchInput() {
         <Search />
         <VisuallyHidden>Search</VisuallyHidden>
       </button>
-      <input type="text" id={id} value={value} onChange={setValue} />
+      <input type="text" id={id} value={value} onChange={setValue} placeholder="Search icons" />
       <button className={classes['close']} disabled={!value} onClick={() => setValue('')}>
         <Delete />
         <VisuallyHidden>Clear text</VisuallyHidden>

@@ -66,6 +66,10 @@
 
     border: var(--input-border);
     border-radius: var(--input-border-radius);
+
+    &::placeholder {
+      opacity: 0.5;
+    }
   }
 
   input[type='number'] {

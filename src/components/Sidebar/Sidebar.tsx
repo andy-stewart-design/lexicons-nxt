@@ -6,7 +6,7 @@ import Select from '@components/Select';
 import type { CSSProperties, ComponentProps } from 'react';
 import type { UseSliderReturn, UseSelectReturn } from '@hooks/use-input';
 import type { UseMenuToggleReturn } from '@hooks/use-menu-toggle';
-import { iconStyles } from '@constants/icon-styles';
+import { iconStyles } from '@/constants/icons';
 import classes from './component.module.css';
 
 interface SidebarProps extends ComponentProps<'div'> {
