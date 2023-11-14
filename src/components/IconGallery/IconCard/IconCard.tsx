@@ -8,24 +8,28 @@ interface CardProps extends ComponentProps<'div'> {
   icon: IconData;
   iconStyle: IconStyle;
   size: number;
+  copyAsJSX: boolean;
 }
 
-export default function IconCard({ icon, size, iconStyle }: CardProps) {
+export default function IconCard(props: CardProps) {
+  const { icon, size, iconStyle, copyAsJSX } = props;
+
   return (
     <div className={classes['card']}>
       <div className={classes['icon-container']}>
-        <SVG icon={icon} iconStyle={iconStyle} size={size} />
+        <SVG {...props} />
       </div>
       <div className={classes['text-container']}>
         <p className="label">Icon Name</p>
       </div>
       <div className={classes['button-container']}>
-        <button onClick={() => copySvg(icon, size, iconStyle)}>
+        <button onClick={() => copySvg(icon, size, iconStyle, copyAsJSX)}>
           <Copy />
           Copy Code
         </button>
-        <button onClick={() => downloadSvg(icon, size, iconStyle)}>
-          <Download /> Download
+        <button onClick={() => downloadSvg(icon, size, iconStyle, copyAsJSX)}>
+          <Download />
+          Download
         </button>
       </div>
     </div>

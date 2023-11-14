@@ -1,6 +1,6 @@
 'use client';
 
-// TODO: JSX toggle
+// TODO: Tooltips
 // TODO: Light mode
 // TODO: Theme select
 // TODO: Info modal
@@ -11,7 +11,7 @@
 import Nav from '@components/Nav';
 import Sidebar from '@components/Sidebar';
 import IconGallery from '@components/IconGallery';
-import { useSelect, useSlider } from '@hooks/use-input';
+import { useSelect, useSlider, useToggle } from '@hooks/use-input';
 import { useMenuToggle } from '@hooks/use-menu-toggle';
 import type { IconData, IconStyle } from '@constants/icons';
 import classes from './page.module.css';
@@ -26,13 +26,13 @@ const icon: IconData = {
   path_solid:
     'M17.9506 15.1222C18.461 14.1538 18.75 13.0475 18.75 11.875V11H17.25V11.875C17.25 12.63 17.0985 13.347 16.8255 13.9971L17.9506 15.1222ZM15.6579 12.8295C15.7182 12.5627 15.75 12.2851 15.75 12V5C15.75 2.92893 14.0711 1.25 12 1.25C9.92894 1.25 8.25 2.92893 8.25 5V5.42157L9 6.17157L9.75 6.92157L14.25 11.4216L14.9954 12.167L15.6579 12.8295ZM12.8295 15.6579C12.5627 15.7182 12.2851 15.75 12 15.75C9.92894 15.75 8.25 14.0711 8.25 12V11.0784L12.8295 15.6579ZM14.0121 16.8405L15.1365 17.9649C14.4099 18.354 13.6046 18.6121 12.75 18.7081V21.25H16V22.75H8V21.25H11.25V18.7081C7.86376 18.3277 5.25 15.401 5.25 11.875V11H6.75V11.875C6.75 14.8582 9.11501 17.25 12 17.25C12.7116 17.25 13.3915 17.1045 14.0121 16.8405ZM21.4697 22.5303L1.46967 2.53033L2.53033 1.46967L22.5303 21.4697L21.4697 22.5303Z',
 };
-
 const icons: IconData[] = new Array(100).fill(icon);
 
 export default function Home() {
   const [showSidebar, toggleShowSidebar, isWidescreen] = useMenuToggle(920);
   const [size, setSize, restSizeProps] = useSlider(32, 24, 48, 2);
   const [iconStyle, setIconStyle] = useSelect('outline') as [IconStyle, (value: string) => void];
+  const [copyAsJSX, setCopyAsJSX] = useToggle(false);
 
   const sectionStyle = getSectionStyle(showSidebar, isWidescreen);
 
@@ -45,8 +45,9 @@ export default function Home() {
           menuProps={[showSidebar, toggleShowSidebar, isWidescreen]}
           sizeProps={[size, setSize, restSizeProps]}
           iconStyleProps={[iconStyle, setIconStyle]}
+          copyProps={[copyAsJSX, setCopyAsJSX]}
         />
-        <IconGallery icons={icons} iconStyle={iconStyle} size={size} />
+        <IconGallery icons={icons} iconStyle={iconStyle} size={size} copyAsJSX={copyAsJSX} />
       </section>
     </main>
   );

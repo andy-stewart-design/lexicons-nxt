@@ -6,24 +6,25 @@ interface IconGalleryProps {
   icons: IconData[];
   iconStyle: IconStyle;
   size: number;
+  copyAsJSX: boolean;
 }
 
 const iconNumber = 100;
 
-export default function IconGallery({ icons, size, iconStyle }: IconGalleryProps) {
+export default function IconGallery({ icons, size, iconStyle, copyAsJSX }: IconGalleryProps) {
   const selectedIconStyle = iconStyles.filter((style) => style.value === iconStyle);
   const iconStyleLabel = selectedIconStyle.at(0)?.label ?? '';
 
   return (
     <div className={classes['gallery']}>
       <ol className="label">
-        <li>{iconNumber} icons </li>
-        <li>{iconStyleLabel} </li>
-        <li>{size}px</li>
+        <li>
+          {iconNumber} {iconStyleLabel} {copyAsJSX ? 'JSX' : 'SVG'} Icons{' '}
+        </li>
       </ol>
       {/* <div> */}
       {icons.map((icon, i) => (
-        <IconCard key={i} icon={icon} size={size} iconStyle={iconStyle} />
+        <IconCard key={i} icon={icon} size={size} iconStyle={iconStyle} copyAsJSX={copyAsJSX} />
       ))}
       {/* </div> */}
     </div>

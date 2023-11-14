@@ -3,8 +3,9 @@
 import ColorPicker from '@components/ColorPicker';
 import ComboNumericInput from '../ComboNumericInput';
 import Select from '@components/Select';
+import Switch from '@components/Switch';
 import type { CSSProperties, ComponentProps } from 'react';
-import type { UseSliderReturn, UseSelectReturn } from '@hooks/use-input';
+import type { UseSliderReturn, UseSelectReturn, UseToggleReturn } from '@hooks/use-input';
 import type { UseMenuToggleReturn } from '@hooks/use-menu-toggle';
 import { iconStyles } from '@/constants/icons';
 import classes from './component.module.css';
@@ -13,12 +14,14 @@ interface SidebarProps extends ComponentProps<'div'> {
   menuProps: UseMenuToggleReturn;
   sizeProps: UseSliderReturn;
   iconStyleProps: UseSelectReturn;
+  copyProps: UseToggleReturn;
 }
 
-export default function Sidebar({ menuProps, sizeProps, iconStyleProps }: SidebarProps) {
+export default function Sidebar({ menuProps, sizeProps, iconStyleProps, copyProps }: SidebarProps) {
   const [isOpen, toggleSidebar, isWidescreen] = menuProps;
   const [size, setSize, restSizeProps] = sizeProps;
   const [iconStyle, setIconStyle] = iconStyleProps;
+  const [copyAsJSX, setCopyAsJSX] = copyProps;
 
   const sidebarStyle = getSidebarStyle(isOpen);
   const overlayStyle = !isOpen || isWidescreen ? {} : getOverlayStyle(isOpen);
@@ -45,6 +48,12 @@ export default function Sidebar({ menuProps, sizeProps, iconStyleProps }: Sideba
               primaryColor="--accent-color-oklch"
               secondaryColor="--analogous-color-oklch"
             />
+          </section>
+
+          <section>
+            <Switch checked={copyAsJSX} onChange={setCopyAsJSX}>
+              Save as JSX
+            </Switch>
           </section>
 
           <section>

@@ -1,0 +1,97 @@
+.toggle {
+  --input-background: oklch(var(--input-background-oklch) / var(--input-background-opacity));
+  --input-border: var(--input-border-width) var(--input-border-style)
+    oklch(var(--input-border-color) / var(--input-border-opacity));
+
+  --group-width: 100%;
+  --layout-direction: row; /* row or row-reverse */
+
+  --thumb-size: var(--space-32);
+  --thumb-color: var(--gray-50);
+
+  --track-size: calc(var(--thumb-size) * 1.75);
+  --track-color: var(--input-background);
+  --track-color-active: var(--accent-color);
+  --track-padding: 3px;
+
+  --transition-duration: 300ms;
+  --transition-ease: var(--ease-out-5);
+
+  /* ------------------------------------------ */
+  /* ------------------------------------------ */
+  /* ------------------------------------------ */
+
+  display: inline-flex;
+  flex-direction: var(--layout-direction);
+  align-items: center;
+  justify-content: space-between;
+  gap: 2ch;
+  width: var(--group-width);
+  cursor: pointer;
+
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+
+  font-weight: 500;
+
+  &:hover {
+    --input-background-opacity: 100%;
+    --input-border-opacity: 15%;
+  }
+
+  input {
+    --thumb-position: 0%;
+
+    appearance: none;
+
+    inline-size: var(--track-size);
+    block-size: calc(var(--thumb-size) + 2px);
+    background: var(--track-color);
+    border: var(--input-border);
+    border-radius: var(--thumb-size);
+    cursor: inherit;
+
+    flex-shrink: 0;
+    display: grid;
+    align-items: center;
+    grid: [track] 1fr / [track] 1fr;
+    overflow: hidden;
+    margin: 0;
+
+    transition: background var(--transition-duration) var(--transition-ease);
+
+    &::before {
+      box-sizing: border-box;
+      content: '';
+      grid-area: track;
+
+      inline-size: var(--thumb-size);
+      block-size: var(--thumb-size);
+      aspect-ratio: 1/1;
+      background: var(--thumb-color);
+      border: var(--track-padding) solid transparent;
+      background-clip: padding-box;
+      border-radius: var(--thumb-size);
+
+      transform: translateX(var(--thumb-position));
+      transition: transform var(--transition-duration) var(--transition-ease),
+        border var(--transition-duration) var(--transition-ease),
+        background var(--transition-duration) var(--transition-ease);
+    }
+
+    &:checked {
+      --thumb-position: calc(var(--track-size) - 100% - 1px);
+
+      background: var(--track-color-active);
+
+      /* &::before {
+        border: var(--track-padding) solid var(--track-color-active);
+      } */
+    }
+
+    &:focus-visible {
+      outline: 2px solid oklch(var(--accent-color-oklch) / 60%);
+      outline-offset: 2px;
+    }
+  }
+}
