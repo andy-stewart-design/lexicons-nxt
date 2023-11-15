@@ -62,7 +62,7 @@ export default function Sidebar({
           <section>
             <Switch checked={copyAsJSX} onChange={setCopyAsJSX}>
               <span className="flex flex-justify-start flex-align-center gap-6">
-                Save as JSX
+                Export as JSX
                 <Tooltip text="Determines if icons should be copied/downloaded as SVG (HTML) or JSX (React)" />
               </span>
             </Switch>

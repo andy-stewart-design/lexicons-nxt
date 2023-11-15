@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   border-bottom: var(--border-light);
-  height: var(--space-96);
+  height: var(--space-184);
 
   & > * {
     display: flex;
@@ -27,6 +27,7 @@
   }
 
   @media (--screen-md) {
+    height: var(--space-96);
     flex-wrap: nowrap;
   }
 }
@@ -35,7 +36,7 @@
   display: flex;
   align-items: center;
   flex-grow: 1;
-  padding-inline: var(--app-padding-inline);
+  padding-inline: var(--padding-inline-start) var(--padding-inline-end);
   order: 1;
 
   svg {
@@ -57,28 +58,28 @@
   align-items: center;
   gap: var(--space-8);
   border-top: var(--border-light);
-  padding-inline: var(--app-padding-inline);
+  padding-inline: var(--padding-inline-start) var(--padding-inline-end);
 
   flex-grow: 1;
   flex-basis: 100%;
   order: 3;
 
   @media (--screen-md) {
+    --padding-inline-end: 0;
+
     gap: var(--space-16);
     flex-basis: auto;
     order: 2;
     border-top: none;
-
-    padding-inline-start: var(--app-padding-inline);
-    padding-inline-end: 0;
   }
 }
 
 .contact-container {
+  --padding-inline-start: var(--space-2xs);
+
   display: flex;
   gap: var(--space-4);
-  padding-inline-start: var(--space-4);
-  padding-inline-end: var(--app-padding-inline);
+  padding-inline: var(--padding-inline-start) var(--padding-inline-end);
   order: 2;
 
   @media (--screen-md) {

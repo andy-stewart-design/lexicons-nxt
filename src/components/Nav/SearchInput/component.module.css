@@ -4,26 +4,33 @@
   flex-grow: 1;
   padding-inline: 0;
 
-  &:has(input:focus) {
-    --input-background-oklch: var(--accent-color-oklch);
-    --input-background-opacity: 10%;
-    --input-border-color: var(--accent-color-oklch);
-    --input-border-opacity: 50%;
-  }
-
-  button {
-    padding-inline: var(--space-16);
-    border-radius: var(--input-border-radius);
-    transition: color 300ms var(--ease-out-3), opacity 300ms var(--ease-out-5);
-
-    &:not(:disabled):hover {
-      color: var(--accent-color);
-    }
-  }
-
   input[type='text'] {
     all: unset;
     flex-grow: 1;
+  }
+
+  &:has(input:focus) {
+    --background-color-oklch: var(--active-background-color-oklch);
+    --background-opacity: var(--active-background-opacity);
+    --border-color-oklch: var(--active-border-color-oklch);
+    --border-opacity: var(--active-border-opacity);
+  }
+
+  &:has(input:focus-visible) {
+    outline: var(--outline-size) var(--outline-style)
+      oklch(var(--outline-color-oklch) / var(--outline-opacity));
+    outline-offset: var(--outline-offset);
+  }
+}
+
+.search,
+.close {
+  padding-inline: var(--space-16);
+  border-radius: var(--input-border-radius);
+  transition: color 300ms var(--ease-out-3), opacity 300ms var(--ease-out-5);
+
+  &:not(:disabled):hover {
+    color: var(--accent-color);
   }
 }
 

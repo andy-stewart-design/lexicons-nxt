@@ -1,0 +1,10 @@
+@layer theme {
+  label,
+  .label {
+    font-size: var(--font-xs);
+    font-weight: 520;
+    line-height: 1;
+    cursor: pointer;
+    user-select: none;
+  }
+}

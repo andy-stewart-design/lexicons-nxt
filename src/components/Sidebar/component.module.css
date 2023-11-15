@@ -5,7 +5,7 @@
     left: 0;
     height: 100%;
     min-height: calc(100vh - var(--space-96));
-    width: 100vw;
+    width: var(--sidebar-width);
     max-width: var(--sidebar-max-width);
 
     translate: -100%;
@@ -35,12 +35,15 @@
     overflow-y: scroll;
 
     section {
+      --padding-block-start: var(--space-xl);
+      --padding-block-end: var(--space-xl);
+
       order: 2;
       position: relative;
       display: grid;
       gap: var(--space-24);
-      padding-inline: var(--app-padding-inline);
-      padding-block: calc(var(--app-padding-block) + var(--space-8));
+      padding-inline: var(--padding-inline-start) var(--padding-inline-end);
+      padding-block: var(--padding-block-start) var(--padding-block-end);
       border-top: var(--border-light);
 
       &:first-of-type {
@@ -50,11 +53,13 @@
       }
 
       &:last-of-type {
+        --padding-block-start: var(--space-md);
+        --padding-block-end: var(--space-md);
+
         order: 1;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding-block: calc(var(--app-padding-block) - var(--space-8));
 
         button {
           display: grid;

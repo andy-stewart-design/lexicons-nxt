@@ -1,0 +1,49 @@
+@layer theme {
+  input[type='text'],
+  .input-text {
+    background-color: var(--background-color);
+    border: var(--border);
+    border-radius: var(--border-radius);
+
+    padding-inline: var(--padding-inline-start) var(--padding-inline-end);
+    min-height: var(--min-height);
+
+    font-size: var(--font-size);
+    font-weight: var(--font-weight);
+    line-height: var(--line-height);
+
+    transition: background-color var(--transition-timing) var(--transition-ease),
+      border var(--transition-timing) var(--transition-ease);
+
+    &:hover {
+      --background-opacity: var(--hover-background-opacity);
+      --border-opacity: var(--hover-border-opacity);
+    }
+
+    &:focus {
+      --background-color-oklch: var(--active-background-color-oklch);
+      --background-opacity: var(--active-background-opacity);
+      --border-color-oklch: var(--active-border-color-oklch);
+      --border-opacity: var(--active-border-opacity);
+      outline: none;
+    }
+
+    &:focus-visible {
+      outline: var(--outline-size) var(--outline-style)
+        oklch(var(--outline-color-oklch) / var(--outline-opacity));
+      outline-offset: var(--outline-offset);
+    }
+
+    &::selection {
+      background-color: oklch(var(--selection-color-oklch) / var(--selection-opacity));
+    }
+
+    &::-moz-selection {
+      background-color: oklch(var(--selection-color-oklch) / var(--selection-opacity));
+    }
+
+    &::placeholder {
+      opacity: 0.5;
+    }
+  }
+}

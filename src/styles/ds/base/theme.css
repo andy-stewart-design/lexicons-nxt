@@ -27,25 +27,41 @@
     --analogous-color-oklch: 50% 0.19 260;
     --analogous-color: oklch(var(--analogous-color-oklch));
 
+    /* @media (prefers-color-scheme: dark) {
+      --foreground-oklch: var(--gray-50-oklch);
+      --background-oklch: var(--gray-950-oklch);
+    } */
+
     /* -------- SPACE -------- */
-    --app-padding-inline: var(--space-24);
-    --app-padding-block: var(--app-padding-inline);
+    --space-2xs: var(--space-4);
+    --space-xs: var(--space-8);
+    --space-sm: var(--space-12);
+    --space-md: var(--space-16);
+    --space-lg: var(--space-24);
+    --space-xl: var(--space-32);
+    --space-2xl: var(--space-40);
+
+    --padding-inline-start: var(--space-lg);
+    --padding-inline-end: var(--padding-inline-start);
+    --padding-block-start: var(--padding-inline-start);
+    --padding-block-end: var(--padding-block-start);
+
+    @media (--screen-md) {
+      --padding-inline-start: var(--space-xl);
+    }
 
     /* -------- BORDERS -------- */
     --border-transparent: 1px solid oklch(100% 0 0 / 0%);
     --border-xlight: 1px solid oklch(100% 0 0 / 7%);
     --border-light: 1px solid oklch(100% 0 0 / 10%);
 
+    /* -------- SIDEBAR POPOVER STYLES -------- */
     --sidebar-width: 100vw;
     --sidebar-max-width: var(--space-368);
-    --sidebar-content-width: calc(var(--sidebar-width) - var(--app-padding-inline) * 2);
-    --sidebar-content-max-width: calc(var(--sidebar-max-width) - var(--app-padding-inline) * 2);
+    --sidebar-content-width: calc(var(--sidebar-width) - var(--padding-inline-start) * 2);
+    --sidebar-content-max-width: calc(var(--sidebar-max-width) - var(--padding-inline-start) * 2);
     --sidebar-popper-width: min(var(--sidebar-content-width), var(--sidebar-content-max-width));
     --sidebar-popper-width: min(var(--sidebar-content-width), var(--sidebar-content-max-width));
-
-    @media (--screen-md) {
-      --app-padding-inline: var(--space-32);
-    }
   }
 
   html {

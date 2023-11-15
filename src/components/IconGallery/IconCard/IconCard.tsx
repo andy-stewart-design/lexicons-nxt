@@ -21,7 +21,7 @@ export default function IconCard(props: CardProps) {
         <SVG {...props} />
       </div>
       <div className={classes['text-container']}>
-        <p className="label">Icon Name</p>
+        <p className="label">{icon.name}</p>
       </div>
       <div className={classes['button-container']}>
         <button onClick={() => copySvg(icon, size, iconStyle, copyAsJSX, fillCurrent)}>

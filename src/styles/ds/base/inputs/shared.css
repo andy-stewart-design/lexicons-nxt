@@ -1,0 +1,76 @@
+@layer theme {
+  :where(html) {
+    --input-background-opacity: 30%;
+    --input-background-oklch: var(--surface-2-oklch);
+
+    --input-border-width: 1px;
+    --input-border-style: solid;
+    --input-border-color: var(--foreground-oklch);
+    --input-border-opacity: 7%;
+    --input-border-radius: var(--space-4);
+
+    --input-padding-inline: var(--space-16);
+    --input-padding-block: 0;
+
+    --input-font-size: var(--font-sm);
+    --input-font-weight: 520;
+  }
+
+  input[type='text'],
+  .input-text,
+  input[type='number'],
+  .input-number,
+  input[type='range'],
+  [role='combobox'],
+  [data-radix-popper-content-wrapper],
+  [data-switch-group],
+  [role='switch'] {
+    --background-color-oklch: var(--surface-2-oklch);
+    --background-opacity: 40%;
+
+    --border-width: 1px;
+    --border-style: solid;
+    --border-color-oklch: var(--foreground-oklch);
+    --border-opacity: 10%;
+    --border-radius: var(--space-2xs);
+
+    --padding-inline-start: var(--space-md);
+    --padding-inline-end: var(--padding-inline-start);
+    --padding-block-start: 0;
+    --padding-block-end: var(--padding-block-start);
+    --min-height: var(--space-sm);
+
+    --font-size: var(--font-sm);
+    --font-weight: 520;
+    --line-height: 1;
+
+    --transition-ease: var(--ease-out-3);
+    --transition-timing: 250ms;
+
+    --hover-background-opacity: 100%;
+    --hover-border-opacity: 15%;
+
+    --active-background-color-oklch: var(--accent-color-oklch);
+    --active-background-opacity: 10%;
+    --active-border-color-oklch: var(--accent-color-oklch);
+    --active-border-opacity: 50%;
+
+    --outline-color-oklch: var(--accent-color-oklch);
+    --outline-opacity: 25%;
+    --outline-size: var(--space-2);
+    --outline-style: solid;
+    --outline-offset: var(--space-2);
+
+    --selection-color-oklch: var(--accent-color-oklch);
+    --selection-opacity: 30%;
+
+    --background-color: oklch(var(--background-color-oklch) / var(--background-opacity));
+    --border: var(--border-width) var(--border-style)
+      oklch(var(--border-color-oklch) / var(--border-opacity));
+  }
+
+  .input-container {
+    display: grid;
+    gap: var(--space-md);
+  }
+}

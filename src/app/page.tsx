@@ -1,8 +1,8 @@
 'use client';
 
-// TODO: Simplify CSS
 // TODO: Light mode
 // TODO: Theme select
+// TODO: Pull out button component
 // TODO: Info modal
 // TODO: Icon Database
 // TODO: Social media accounts

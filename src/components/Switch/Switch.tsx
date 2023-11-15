@@ -1,15 +1,13 @@
 import { ComponentProps, useId } from 'react';
-import classes from './component.module.css';
 
-function Switch({ children, className, ...delegated }: ComponentProps<'input'>) {
+function Switch({ children, ...delegated }: ComponentProps<'input'>) {
   const id = useId();
-  const appliedClassname = `${classes['toggle']} ${className}`.trim();
 
   return (
-    <label htmlFor={id} className={appliedClassname}>
-      {children}
+    <div data-switch-group>
+      <label htmlFor={id}>{children}</label>
       <input type="checkbox" role="switch" id={id} {...delegated} />
-    </label>
+    </div>
   );
 }
 

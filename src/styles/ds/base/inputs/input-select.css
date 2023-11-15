@@ -1,0 +1,92 @@
+[role='combobox'] {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: var(--background-color);
+  border: var(--border);
+  border-radius: var(--border-radius);
+
+  min-height: var(--space-48);
+  padding-inline: var(--padding-inline-start) var(--padding-inline-end);
+  padding-block: var(--padding-block-start) var(--padding-block-end);
+
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+  line-height: var(--line-height);
+  user-select: none;
+
+  transition: background-color 0.25s var(--ease-out-3), border 0.25s var(--ease-out-3);
+
+  &:hover,
+  &[aria-expanded='true'] {
+    --background-opacity: var(--hover-background-opacity);
+    --border-opacity: var(--hover-border-opacity);
+  }
+
+  &[aria-expanded='true'] {
+    --background-color-oklch: var(--active-background-color-oklch);
+    --background-opacity: var(--active-background-opacity);
+    --border-color-oklch: var(--active-border-color-oklch);
+    --border-opacity: var(--active-border-opacity);
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: var(--outline-size) var(--outline-style)
+      oklch(var(--outline-color-oklch) / var(--outline-opacity));
+    outline-offset: var(--outline-offset);
+  }
+}
+
+[data-radix-popper-content-wrapper] {
+  [role='listbox'] {
+    --background-color: var(--surface-2);
+    --content-width: var(--space-296);
+
+    background-color: var(--background-color);
+    border: var(--border);
+    border-radius: var(--border-radius);
+
+    width: var(--sidebar-popper-width);
+    padding: var(--space-2xs);
+    box-shadow: var(--shadow-3);
+    overflow: hidden;
+
+    animation-duration: 300ms;
+    animation-timing-function: var(--ease-out-5);
+
+    z-index: var(--z-3);
+
+    &[data-state='open'] {
+      animation-name: triggerEnter;
+    }
+  }
+
+  [role='option'] {
+    position: relative;
+    padding-inline: var(--space-10);
+    padding-block: var(--space-12);
+    border-radius: calc(var(--border-radius) / 2);
+
+    user-select: none;
+
+    font-size: var(--input-font-size);
+    font-weight: var(--input-font-weight);
+    line-height: 1;
+
+    &[data-highlighted] {
+      color: var(--gray-950);
+      background: var(--accent-color);
+      outline: none;
+    }
+  }
+}
+
+@keyframes triggerEnter {
+  from {
+    translate: 0 var(--space-6);
+    opacity: 0;
+  }
+}

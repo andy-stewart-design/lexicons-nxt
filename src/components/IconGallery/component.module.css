@@ -1,4 +1,7 @@
 .gallery {
+  --padding-block-start: var(--space-xl);
+  --padding-block-end: var(--space-xl);
+
   grid-column: 2 / -1;
 
   display: grid;
@@ -6,22 +9,15 @@
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: var(--space-16);
 
-  padding-inline: var(--app-padding-inline);
-  padding-block: calc(var(--app-padding-block) + var(--space-8));
+  padding-inline: var(--padding-inline-start) var(--padding-inline-end);
+  padding-block: var(--padding-block-start) var(--padding-block-end);
 
   & > :first-child {
     grid-column: 1 / -1;
-    display: flex;
-    gap: var(--space-8);
+  }
 
-    li:before {
-      content: '·';
-      margin-inline-end: var(--space-8);
-    }
-
-    li:first-child::before {
-      content: '';
-      margin-inline-end: 0;
-    }
+  @media (--screen-md) {
+    --padding-block-start: var(--space-2xl);
+    --padding-block-end: var(--space-2xl);
   }
 }
