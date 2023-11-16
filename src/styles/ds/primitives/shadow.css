@@ -3,7 +3,7 @@
     --shadow-black-color: var(--black-oklch);
     --shadow-black-strength: 1%;
 
-    @media (--is-dark) {
+    &:has([data-theme='dark']) {
       --shadow-black-strength: 20%;
     }
 

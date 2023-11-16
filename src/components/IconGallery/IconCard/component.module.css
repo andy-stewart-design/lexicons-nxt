@@ -12,7 +12,7 @@
   border-radius: var(--brad);
   transition: background 300ms var(--ease-out-5), box-shadow 300ms var(--ease-out-5);
 
-  @media (--is-light) {
+  [data-theme='light'] & {
     --background-color-oklch: var(--white-oklch);
   }
 
@@ -44,7 +44,7 @@
     mask-composite: exclude;
 
     border: 1px solid transparent;
-    border-radius: var(--input-border-radius);
+    border-radius: var(--brad);
     opacity: var(--opacity-increasing);
     transition: opacity 300ms var(--ease-out-5);
   }
@@ -118,7 +118,7 @@
     box-shadow: var(--shadow-accent-5);
     transition: background 300ms var(--ease-out-5);
 
-    @media (--is-light) {
+    [data-theme='light'] & {
       background: var(--gray-800);
       color: var(--gray-50);
     }
@@ -128,7 +128,7 @@
       background: var(--surface-2);
       --child-border-opacity: 1;
 
-      @media (--is-light) {
+      [data-theme='light'] & {
         background: var(--gray-950);
         color: var(--gray-50);
       }
@@ -137,7 +137,7 @@
     &::before {
       --border-size: 1px;
 
-      @media (--is-light) {
+      [data-theme='light'] & {
         --border-size: 2px;
       }
 

@@ -74,10 +74,10 @@
       --background-opacity: 100%;
     } */
 
-    @media (--is-dark) {
+    [data-theme='dark'] & {
       --border-opacity: 10%;
       --background-opacity: 20%;
-      --hover-background-opacity: 60%;
+      --hover-background-opacity: 40%;
     }
   }
 

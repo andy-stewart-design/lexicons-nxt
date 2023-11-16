@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
+import { cookies } from 'next/headers';
 import '@/styles/main.css';
 import { GeistSans } from 'geist/font/sans';
+import ThemeProvider from '@/components/ThemeProvider/ThemeProvider';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -8,9 +10,11 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const theme = cookies().get('theme')?.value ?? 'dark';
+
   return (
-    <html lang="en">
-      <body className={GeistSans.className}>{children}</body>
+    <html lang="en" className={GeistSans.className}>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </html>
   );
 }

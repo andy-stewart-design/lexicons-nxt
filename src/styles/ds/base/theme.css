@@ -29,7 +29,16 @@
       calc(var(--hue) + 60);
     --analogous-color: oklch(var(--analogous-color-oklch));
 
-    @media (--is-dark) {
+    /* @media (--is-dark) {
+      --foreground-oklch: var(--gray-50-oklch);
+      --surface-1-oklch: var(--gray-700-oklch);
+      --surface-2-oklch: var(--gray-800-oklch);
+      --surface-3-oklch: var(--gray-850-oklch);
+      --surface-4-oklch: var(--gray-900-oklch);
+      --background-oklch: var(--gray-950-oklch);
+    } */
+
+    &:has([data-theme='dark']) {
       --foreground-oklch: var(--gray-50-oklch);
       --surface-1-oklch: var(--gray-700-oklch);
       --surface-2-oklch: var(--gray-800-oklch);
@@ -74,7 +83,6 @@
 
   html {
     background-color: var(--background);
-    min-height: 100dvh;
   }
 
   body {

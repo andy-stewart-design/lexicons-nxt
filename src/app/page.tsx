@@ -10,10 +10,13 @@
 import Nav from '@components/Nav';
 import Sidebar from '@components/Sidebar';
 import IconGallery from '@components/IconGallery';
+import { ThemeContext } from '@/components/ThemeProvider';
 import { useSelect, useSlider, useToggle } from '@hooks/use-input';
 import { useMenuToggle } from '@hooks/use-menu-toggle';
 import type { IconData, IconStyle } from '@constants/icons';
 import classes from './page.module.css';
+import Grain from '@/components/Grain/Grain';
+import { useContext } from 'react';
 
 const icon: IconData = {
   id: 1,
@@ -28,6 +31,8 @@ const icon: IconData = {
 const icons: IconData[] = new Array(100).fill(icon);
 
 export default function Home() {
+  const { theme } = useContext(ThemeContext);
+
   const [showSidebar, toggleShowSidebar, isWidescreen] = useMenuToggle(920);
   const [size, setSize, restSizeProps] = useSlider(32, 24, 48, 2);
   const [iconStyle, setIconStyle] = useSelect('outline') as [IconStyle, (value: string) => void];
@@ -37,26 +42,29 @@ export default function Home() {
   const sectionStyle = getSectionStyle(showSidebar, isWidescreen);
 
   return (
-    <main className={classes['main']}>
-      {/* <div className={classes['gradient-stripe']} /> */}
-      <Nav toggleSidebar={toggleShowSidebar} />
-      <section className={classes['section']} style={sectionStyle}>
-        <Sidebar
-          menuProps={[showSidebar, toggleShowSidebar, isWidescreen]}
-          sizeProps={[size, setSize, restSizeProps]}
-          iconStyleProps={[iconStyle, setIconStyle]}
-          copyProps={[copyAsJSX, setCopyAsJSX]}
-          fillCurrentProps={[fillCurrent, setFillCurrent]}
-        />
-        <IconGallery
-          icons={icons}
-          iconStyle={iconStyle}
-          size={size}
-          copyAsJSX={copyAsJSX}
-          fillCurrent={fillCurrent}
-        />
-      </section>
-    </main>
+    <body data-theme={theme}>
+      <main className={classes['main']}>
+        {/* <div className={classes['gradient-stripe']} /> */}
+        <Nav toggleSidebar={toggleShowSidebar} />
+        <section className={classes['section']} style={sectionStyle}>
+          <Sidebar
+            menuProps={[showSidebar, toggleShowSidebar, isWidescreen]}
+            sizeProps={[size, setSize, restSizeProps]}
+            iconStyleProps={[iconStyle, setIconStyle]}
+            copyProps={[copyAsJSX, setCopyAsJSX]}
+            fillCurrentProps={[fillCurrent, setFillCurrent]}
+          />
+          <IconGallery
+            icons={icons}
+            iconStyle={iconStyle}
+            size={size}
+            copyAsJSX={copyAsJSX}
+            fillCurrent={fillCurrent}
+          />
+        </section>
+        {/* <Grain /> */}
+      </main>
+    </body>
   );
 }
 

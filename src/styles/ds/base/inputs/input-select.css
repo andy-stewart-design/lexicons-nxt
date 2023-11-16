@@ -50,8 +50,17 @@
       --background-color: var(--surface-2);
     }
 
-    @media (--is-light) {
+    /* @media (--is-light) {
       --background-color: var(--foreground);
+      --border-color-oklch: var(--background-oklch);
+      --border-opacity: 25%;
+      --border: var(--border-width) var(--border-style)
+        oklch(var(--border-color-oklch) / var(--border-opacity));
+      --text-color: var(--background);
+    } */
+
+    [data-theme='light'] & {
+      --background-color: var(--gray-950);
       --border-color-oklch: var(--background-oklch);
       --border-opacity: 25%;
       --border: var(--border-width) var(--border-style)

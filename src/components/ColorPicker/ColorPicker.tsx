@@ -22,8 +22,6 @@ export default function ColorPicker() {
     root.setProperty('--hue', String(hue));
     root.setProperty('--chroma', String(chroma));
     root.setProperty('--lightness', `${lightness}%`);
-
-    console.log(getComputedStyle(document.documentElement).getPropertyValue('--accent-color'));
   }, [hue, chroma, lightness]);
 
   return (

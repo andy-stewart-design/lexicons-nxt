@@ -7,7 +7,7 @@
   --track-size: calc(var(--thumb-size) * 1.75);
   --track-padding: 3px;
 
-  @media (--is-light) {
+  [data-theme='light'] & {
     --thumb-color: var(--white);
   }
 
@@ -29,7 +29,7 @@
   [role='switch'] {
     --thumb-position: 0%;
 
-    @media (--is-light) {
+    [data-theme='light'] & {
       --background-opacity: 70%;
     }
 

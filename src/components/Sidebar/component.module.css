@@ -16,7 +16,7 @@
 
     z-index: var(--z-3);
 
-    @media (--is-light) {
+    [data-theme='light'] & {
       background-color: var(--white);
     }
 
@@ -25,6 +25,10 @@
       width: 100%;
       translate: 0%;
       background-color: var(--background);
+
+      [data-theme='light'] & {
+        background-color: var(--background);
+      }
     }
   }
 
