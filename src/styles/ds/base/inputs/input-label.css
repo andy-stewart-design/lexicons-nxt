@@ -3,7 +3,7 @@
   .label {
     font-size: var(--font-xs);
     font-weight: 520;
-    line-height: 1;
+    line-height: 1.143;
     cursor: pointer;
     user-select: none;
   }

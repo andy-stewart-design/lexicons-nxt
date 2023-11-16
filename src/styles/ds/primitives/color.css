@@ -1,27 +1,54 @@
 @layer ds {
   :where(html) {
-    --black-oklch: 5% 0.015 270;
+    --hue: 325;
+    --chroma: 0.33;
+    --lightness: 68%;
+
+    --analogous-hue: calc(var(--hue) + 75);
+
+    --black-oklch: 5% 0.015 var(--analogous-hue);
     --black: oklch(var(--black-oklch));
 
-    --gray-950-oklch: 18% 0.015 270;
+    --gray-950-oklch: 18% 0.007 var(--analogous-hue);
     --gray-950: oklch(var(--gray-950-oklch));
 
-    --gray-900-oklch: 21% 0.025 270;
+    --gray-900-oklch: 21% 0.007 var(--analogous-hue);
     --gray-900: oklch(var(--gray-900-oklch));
 
-    --gray-850-oklch: 26% 0.025 270;
+    --gray-850-oklch: 25% 0.01 var(--analogous-hue);
     --gray-850: oklch(var(--gray-850-oklch));
 
-    --gray-800-oklch: 30% 0.025 270;
+    --gray-800-oklch: 29% 0.01 var(--analogous-hue);
     --gray-800: oklch(var(--gray-800-oklch));
 
-    --gray-700-oklch: 37% 0.025 270;
+    --gray-700-oklch: 36% 0.01 var(--analogous-hue);
     --gray-700: oklch(var(--gray-700-oklch));
 
-    --gray-50-oklch: 97% 0.005 100;
+    --gray-600-oklch: 44% 0.01 var(--analogous-hue);
+    --gray-600: oklch(var(--gray-600-oklch));
+
+    --gray-500-oklch: 50% 0.015 var(--analogous-hue);
+    --gray-500: oklch(var(--gray-500-oklch));
+
+    --gray-400-oklch: 58% 0.015 var(--analogous-hue);
+    --gray-400: oklch(var(--gray-400-oklch));
+
+    --gray-300-oklch: 69% 0.0125 var(--analogous-hue);
+    --gray-300: oklch(var(--gray-300-oklch));
+
+    --gray-200-oklch: 78% 0.01 var(--analogous-hue);
+    --gray-200: oklch(var(--gray-200-oklch));
+
+    --gray-150-oklch: 87% 0.0075 var(--analogous-hue);
+    --gray-150: oklch(var(--gray-150-oklch));
+
+    --gray-100-oklch: 92% 0.005 var(--analogous-hue);
+    --gray-100: oklch(var(--gray-100-oklch));
+
+    --gray-50-oklch: 97% 0.005 var(--analogous-hue);
     --gray-50: oklch(var(--gray-50-oklch));
 
-    --cyan-oklch: 85% 0.19 200;
-    --cyan: oklch(var(--cyan-oklch));
+    --white-oklch: 100% 0.001 var(--analogous-hue);
+    --white: oklch(var(--white-oklch));
   }
 }

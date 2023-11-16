@@ -2,29 +2,42 @@
   --tooltip-offset: var(--space-6);
 
   position: relative;
-  color: oklch(var(--foreground-oklch) / 60%);
   border-radius: var(--space-96);
+  opacity: 0.5;
+  transition: color 200ms var(--ease-out-5), opacity 200ms var(--ease-out-5);
+  transition-delay: 0ms;
+
+  &:is(:hover, :focus, :focus-visible) {
+    color: var(--accent-color);
+    opacity: 1;
+  }
+
+  &:is(:hover) {
+    transition-delay: 200ms;
+  }
 
   div[role='tooltip'] {
+    --offset: var(--space-xs);
+
     position: absolute;
 
     padding-inline: var(--space-16);
     padding-block: var(--space-12);
-    background: var(--surface-2);
+    background: var(--accent-color-dark);
     inline-size: max-content;
     max-inline-size: 25ch;
-    border-radius: var(--input-border-radius);
+    border-radius: var(--brad);
     box-shadow: var(--shadow-4);
 
     font-size: var(--font-2xs);
     line-height: var(--leading-4);
     text-align: center;
-    color: var(--foreground);
+    color: var(--white);
 
     z-index: var(--z-3);
     opacity: 0;
     pointer-events: none;
-    transition: opacity 200ms var(--ease-out-5);
+    transition: opacity 200ms var(--ease-out-5), translate 200ms var(--ease-out-5);
     transition-delay: 0ms;
 
     &[data-position='top'],
@@ -59,6 +72,11 @@
   &:is(:hover, :focus, :focus-visible) {
     div[role='tooltip'] {
       opacity: 1;
+    }
+  }
+
+  &:is(:hover) {
+    div[role='tooltip'] {
       transition-delay: 200ms;
     }
   }

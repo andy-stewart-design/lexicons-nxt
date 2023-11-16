@@ -11,16 +11,20 @@
     translate: -100%;
     transition: translate 400ms var(--ease-out-5), visibility 400ms var(--ease-out-5);
 
-    background-color: var(--gray-900);
+    background-color: var(--surface-3);
     border-right: var(--border-light);
 
     z-index: var(--z-3);
+
+    @media (--is-light) {
+      background-color: var(--white);
+    }
 
     @media (--screen-md) {
       position: absolute;
       width: 100%;
       translate: 0%;
-      background-color: var(--gray-950);
+      background-color: var(--background);
     }
   }
 
@@ -73,6 +77,11 @@
           display: none;
           visibility: hidden;
         }
+      }
+
+      @media (--screen-md) {
+        --padding-block-start: var(--space-2xl);
+        --padding-block-end: var(--space-2xl);
       }
     }
   }

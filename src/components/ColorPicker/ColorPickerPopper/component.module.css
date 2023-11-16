@@ -1,14 +1,29 @@
 .container {
   --content-width: var(--space-296);
+  --background-color: var(--surface-1);
+  --text-color: var(--foreground);
+
+  @media (--screen-md) {
+    --background-color: var(--surface-2);
+  }
+
+  @media (--is-light) {
+    --background-color: var(--foreground);
+    --border-color-oklch: var(--background-oklch);
+    --border-opacity: 25%;
+    --border: var(--border-width) var(--border-style)
+      oklch(var(--border-color-oklch) / var(--border-opacity));
+    --text-color: var(--background);
+  }
 
   position: relative;
   display: flex;
   flex-direction: column-reverse;
-  /* width: var(--content-width); */
   width: var(--sidebar-popper-width);
 
-  background: var(--gray-800);
-  border-radius: var(--input-border-radius);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border-radius: var(--border-radius);
   transform-origin: top left;
   box-shadow: var(--shadow-3);
   animation-duration: 300ms;

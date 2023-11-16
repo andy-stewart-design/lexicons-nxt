@@ -25,14 +25,14 @@
   [data-radix-popper-content-wrapper],
   [data-switch-group],
   [role='switch'] {
-    --background-color-oklch: var(--surface-2-oklch);
-    --background-opacity: 40%;
+    --background-color-oklch: var(--surface-1-oklch);
+    --background-opacity: 50%;
 
     --border-width: 1px;
     --border-style: solid;
     --border-color-oklch: var(--foreground-oklch);
-    --border-opacity: 10%;
-    --border-radius: var(--space-2xs);
+    --border-opacity: 5%;
+    --border-radius: var(--brad);
 
     --padding-inline-start: var(--space-md);
     --padding-inline-end: var(--padding-inline-start);
@@ -67,6 +67,16 @@
     --background-color: oklch(var(--background-color-oklch) / var(--background-opacity));
     --border: var(--border-width) var(--border-style)
       oklch(var(--border-color-oklch) / var(--border-opacity));
+
+    /* @media (--screen-md) {
+      --background-opacity: 100%;
+    } */
+
+    @media (--is-dark) {
+      --border-opacity: 10%;
+      --background-opacity: 20%;
+      --hover-background-opacity: 60%;
+    }
   }
 
   .input-container {

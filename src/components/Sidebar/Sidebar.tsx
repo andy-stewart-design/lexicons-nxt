@@ -53,10 +53,7 @@ export default function Sidebar({
           </section>
 
           <section>
-            <ColorPicker
-              primaryColor="--accent-color-oklch"
-              secondaryColor="--analogous-color-oklch"
-            />
+            <ColorPicker />
           </section>
 
           <section>

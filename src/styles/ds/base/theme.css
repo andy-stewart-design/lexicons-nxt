@@ -1,36 +1,42 @@
 @layer theme {
   :where(html) {
     /* -------- COLOR -------- */
-    --foreground-oklch: var(--gray-50-oklch);
+    --foreground-oklch: var(--gray-950-oklch);
     --foreground: oklch(var(--foreground-oklch));
 
-    --background-oklch: var(--gray-950-oklch);
+    --background-oklch: var(--gray-50-oklch);
     --background: oklch(var(--background-oklch));
 
-    --surface-1-oklch: var(--gray-700-oklch);
+    --surface-1-oklch: var(--gray-100-oklch);
     --surface-1: oklch(var(--surface-1-oklch));
 
-    --surface-2-oklch: var(--gray-800-oklch);
+    --surface-2-oklch: var(--gray-150-oklch);
     --surface-2: oklch(var(--surface-2-oklch));
 
-    --surface-3-oklch: var(--gray-850-oklch);
+    --surface-3-oklch: var(--gray-200-oklch);
     --surface-3: oklch(var(--surface-3-oklch));
 
-    --surface-4-oklch: var(--gray-900-oklch);
+    --surface-4-oklch: var(--gray-300-oklch);
     --surface-4: oklch(var(--surface-4-oklch));
 
-    --hue: 200;
-    --lightness: 85%;
-    --accent-color-oklch: 85% 0.4 200;
+    --accent-color-oklch: var(--lightness) var(--chroma) var(--hue);
     --accent-color: oklch(var(--accent-color-oklch));
 
-    --analogous-color-oklch: 50% 0.19 260;
+    --accent-color-dark-oklch: min(50%, var(--lightness)) var(--chroma) var(--hue);
+    --accent-color-dark: oklch(var(--accent-color-dark-oklch));
+
+    --analogous-color-oklch: min(50%, var(--lightness)) min(0.3, var(--chroma))
+      calc(var(--hue) + 60);
     --analogous-color: oklch(var(--analogous-color-oklch));
 
-    /* @media (prefers-color-scheme: dark) {
+    @media (--is-dark) {
       --foreground-oklch: var(--gray-50-oklch);
+      --surface-1-oklch: var(--gray-700-oklch);
+      --surface-2-oklch: var(--gray-800-oklch);
+      --surface-3-oklch: var(--gray-850-oklch);
+      --surface-4-oklch: var(--gray-900-oklch);
       --background-oklch: var(--gray-950-oklch);
-    } */
+    }
 
     /* -------- SPACE -------- */
     --space-2xs: var(--space-4);
@@ -51,9 +57,11 @@
     }
 
     /* -------- BORDERS -------- */
-    --border-transparent: 1px solid oklch(100% 0 0 / 0%);
-    --border-xlight: 1px solid oklch(100% 0 0 / 7%);
-    --border-light: 1px solid oklch(100% 0 0 / 10%);
+    --border-transparent: 1px solid oklch(var(--foreground-oklch) / 0%);
+    --border-xlight: 1px solid oklch(var(--foreground-oklch) / 7%);
+    --border-light: 1px solid oklch(var(--foreground-oklch) / 10%);
+    --border-accent: 1px solid oklch(var(--accent-color-oklch) / 100%);
+    --brad: var(--space-xs);
 
     /* -------- SIDEBAR POPOVER STYLES -------- */
     --sidebar-width: 100vw;

@@ -13,3 +13,6 @@
 @custom-media --screen-lg (width >= 1024px);
 @custom-media --screen-xl (width >= 1280px);
 @custom-media --screen-2xl (width >= 1536px);
+
+@custom-media --is-dark (prefers-color-scheme: dark);
+@custom-media --is-light (prefers-color-scheme: light);

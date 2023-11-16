@@ -9,6 +9,8 @@
     border-width: 0;
     border-style: solid;
     border-color: currentColor;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   /* 

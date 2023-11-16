@@ -1,12 +1,11 @@
 'use client';
 
-// TODO: Light mode
 // TODO: Theme select
-// TODO: Pull out button component
 // TODO: Info modal
 // TODO: Icon Database
 // TODO: Social media accounts
 // TODO: Toast messages
+// TODO: Pull out button component
 
 import Nav from '@components/Nav';
 import Sidebar from '@components/Sidebar';

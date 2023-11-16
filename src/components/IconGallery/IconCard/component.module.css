@@ -1,6 +1,7 @@
 .card {
   --background-opacity: 0;
-  --background: oklch(var(--surface-2-oklch) / var(--background-opacity));
+  --background-color-oklch: var(--surface-2-oklch);
+  --background: oklch(var(--background-color-oklch) / var(--background-opacity));
   --opacity-increasing: 0;
   --opacity-decreasing: 1;
 
@@ -8,8 +9,12 @@
   background-color: var(--background);
 
   border: var(--border-light);
-  border-radius: var(--input-border-radius);
+  border-radius: var(--brad);
   transition: background 300ms var(--ease-out-5);
+
+  @media (--is-light) {
+    --background-color-oklch: var(--white-oklch);
+  }
 
   &:hover,
   &:has(button:focus-visible) {
@@ -112,13 +117,29 @@
     box-shadow: var(--shadow-5);
     transition: background 300ms var(--ease-out-5);
 
+    @media (--is-light) {
+      background: var(--gray-800);
+      color: var(--gray-50);
+    }
+
     &:hover,
     &:focus-visible {
       background: var(--surface-2);
       --child-border-opacity: 1;
+
+      @media (--is-light) {
+        background: var(--gray-950);
+        color: var(--gray-50);
+      }
     }
 
     &::before {
+      --border-size: 1px;
+
+      @media (--is-light) {
+        --border-size: 2px;
+      }
+
       content: '';
       position: absolute;
       top: -1px;
@@ -137,7 +158,7 @@
       -webkit-mask-composite: xor;
       mask-composite: exclude;
 
-      border: 1px solid transparent;
+      border: var(--border-size) solid transparent;
       border-radius: var(--space-96);
       opacity: var(--child-border-opacity);
       transition: opacity 300ms var(--ease-out-5);

@@ -2,10 +2,10 @@ export function Information() {
   return (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
       <path
-        d="M8 15C11.866 15 15 11.866 15 8C15 4.13401 11.866 1 8 1C4.13401 1 1 4.13401 1 8C1 11.866 4.13401 15 8 15ZM7.25 4V5.5H8.75V4H7.25ZM7.25 7V12H8.75V7H7.25Z"
-        fill="currentColor"
-        fillRule="evenodd"
-        clipRule="evenodd"
+        d="M8 7.5V11M8 5V6.5M14 8C14 11.3137 11.3137 14 8 14C4.68629 14 2 11.3137 2 8C2 4.68629 4.68629 2 8 2C11.3137 2 14 4.68629 14 8Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
       />
     </svg>
   );

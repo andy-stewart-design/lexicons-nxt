@@ -7,6 +7,10 @@
   --track-size: calc(var(--thumb-size) * 1.75);
   --track-padding: 3px;
 
+  @media (--is-light) {
+    --thumb-color: var(--white);
+  }
+
   /* ------------------------------------------ */
   /* ------------------------------------------ */
 
@@ -24,6 +28,10 @@
 
   [role='switch'] {
     --thumb-position: 0%;
+
+    @media (--is-light) {
+      --background-opacity: 70%;
+    }
 
     appearance: none;
 
@@ -69,7 +77,7 @@
     }
 
     &:checked {
-      --thumb-position: calc(var(--track-size) - 100% - 1px);
+      --thumb-position: calc(var(--track-size) - 100% - 2px);
       --background-color-oklch: var(--active-background-color-oklch);
       --background-opacity: 80%;
     }

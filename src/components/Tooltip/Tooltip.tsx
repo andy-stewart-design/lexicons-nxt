@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { Information } from '@/icons/20';
+import { Information } from '@/icons/16';
 import classes from './component.module.css';
 
 type TooltipPosition = 'top' | 'bottom' | 'left' | 'right';
