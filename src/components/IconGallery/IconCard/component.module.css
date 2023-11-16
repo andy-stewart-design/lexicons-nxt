@@ -10,7 +10,7 @@
 
   border: var(--border-light);
   border-radius: var(--brad);
-  transition: background 300ms var(--ease-out-5);
+  transition: background 300ms var(--ease-out-5), box-shadow 300ms var(--ease-out-5);
 
   @media (--is-light) {
     --background-color-oklch: var(--white-oklch);
@@ -21,6 +21,7 @@
     --opacity-increasing: 1;
     --opacity-decreasing: 0.4;
     --background-opacity: 0.4;
+    box-shadow: var(--shadow-accent-5);
   }
 
   &::before {
@@ -114,7 +115,7 @@
     border-radius: var(--space-96);
     font-size: var(--font-sm);
     font-weight: var(--font-medium);
-    box-shadow: var(--shadow-5);
+    box-shadow: var(--shadow-accent-5);
     transition: background 300ms var(--ease-out-5);
 
     @media (--is-light) {
