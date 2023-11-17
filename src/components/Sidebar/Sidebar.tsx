@@ -10,6 +10,7 @@ import type { UseSliderReturn, UseSelectReturn, UseToggleReturn } from '@hooks/u
 import type { UseMenuToggleReturn } from '@hooks/use-menu-toggle';
 import { iconStyles } from '@constants/icons';
 import classes from './component.module.css';
+import ThemeSwitch from '../ThemeSwitch';
 
 interface SidebarProps extends ComponentProps<'div'> {
   menuProps: UseMenuToggleReturn;
@@ -54,6 +55,7 @@ export default function Sidebar({
 
           <section>
             <ColorPicker />
+            <ThemeSwitch />
           </section>
 
           <section>

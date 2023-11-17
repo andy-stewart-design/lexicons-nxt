@@ -1,6 +1,5 @@
 'use client';
 
-// TODO: Theme select
 // TODO: Info modal
 // TODO: Icon Database
 // TODO: Social media accounts

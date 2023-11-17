@@ -24,7 +24,8 @@
   [role='combobox'],
   [data-radix-popper-content-wrapper],
   [data-switch-group],
-  [role='switch'] {
+  [role='switch'],
+  [role='radiogroup'] label {
     --background-color-oklch: var(--surface-1-oklch);
     --background-opacity: 50%;
 

@@ -2,6 +2,7 @@
 
 @import './inputs/input-label.css';
 @import './inputs/input-number.css';
+@import './inputs/input-radiogroup.css';
 @import './inputs/input-range.css';
 @import './inputs/input-select.css';
 @import './inputs/input-switch.css';
