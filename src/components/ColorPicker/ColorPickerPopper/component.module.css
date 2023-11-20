@@ -7,7 +7,7 @@
     --background-color: var(--surface-2);
   }
 
-  @media (--is-light) {
+  [data-theme='light'] & {
     --background-color: var(--foreground);
     --border-color-oklch: var(--background-oklch);
     --border-opacity: 25%;

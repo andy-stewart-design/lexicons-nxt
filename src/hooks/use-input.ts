@@ -55,7 +55,7 @@ export const useSlider: SliderSetupHook = (
 // Input: Toggle ----------------------------------------
 // ------------------------------------------------------
 
-export type UseToggleReturn = [boolean, (e: ChangeEvent<HTMLInputElement>) => void];
+export type UseToggleReturn = [boolean, () => void];
 
 export type ToggleSetupHook = (initialValue?: boolean) => UseToggleReturn;
 

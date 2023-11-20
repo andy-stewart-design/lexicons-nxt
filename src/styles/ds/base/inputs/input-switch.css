@@ -70,8 +70,8 @@
         background var(--transition-timing) var(--transition-ease);
     }
 
-    &:hover,
-    [data-switch-group] label:hover + & {
+    &:not(:checked):hover,
+    [data-switch-group] label:hover + &:not(:checked) {
       --background-opacity: var(--hover-background-opacity);
       --border-opacity: var(--hover-border-opacity);
     }

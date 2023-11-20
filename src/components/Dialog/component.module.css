@@ -1,0 +1,61 @@
+.dialog {
+  position: fixed;
+  display: grid;
+  gap: var(--space-lg);
+
+  background-color: var(--surface-2);
+  border: var(--border-light);
+  border-radius: var(--brad);
+  color: var(--foreground);
+
+  padding-inline: var(--padding-inline-start) var(--padding-inline-end);
+  padding-block: var(--padding-block-start) var(--padding-block-end);
+  max-width: 50ch;
+
+  box-shadow: 0 0 0 100vmax oklch(var(--black-oklch) / 70%);
+  z-index: 100000000000;
+
+  [data-theme='light'] & {
+    background-color: var(--white);
+  }
+
+  &[data-state='opening'] {
+    animation: animate-in 300ms var(--ease-out-5) forwards;
+  }
+
+  &[data-state='closing'] {
+    animation: animate-out 300ms var(--ease-out-5) forwards;
+  }
+
+  &[data-state='closed'] {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.close-container {
+  display: flex;
+  justify-content: flex-end;
+
+  & > p {
+    font-size: var(--font-xs);
+    font-weight: var(--font-medium);
+    flex-grow: 1;
+  }
+}
+
+@keyframes animate-in {
+  from {
+    translate: 0 24px;
+    scale: 1;
+    opacity: 0;
+  }
+}
+
+@keyframes animate-out {
+  to {
+    translate: 0 0;
+    scale: 0.8;
+    opacity: 0;
+  }
+}

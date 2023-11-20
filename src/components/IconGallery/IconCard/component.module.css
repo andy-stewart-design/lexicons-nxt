@@ -137,10 +137,6 @@
     &::before {
       --border-size: 1px;
 
-      [data-theme='light'] & {
-        --border-size: 2px;
-      }
-
       content: '';
       position: absolute;
       top: -1px;
@@ -163,6 +159,10 @@
       border-radius: var(--space-96);
       opacity: var(--child-border-opacity);
       transition: opacity 300ms var(--ease-out-5);
+    }
+
+    [data-theme='light'] &::before {
+      --border-size: 2px;
     }
   }
 }

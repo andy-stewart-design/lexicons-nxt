@@ -1,21 +1,20 @@
 'use client';
 
-// TODO: Info modal
+// TODO: Toast messages
 // TODO: Icon Database
 // TODO: Social media accounts
-// TODO: Toast messages
 // TODO: Pull out button component
 
+import { useContext, useRef, useState } from 'react';
 import Nav from '@components/Nav';
 import Sidebar from '@components/Sidebar';
 import IconGallery from '@components/IconGallery';
-import { ThemeContext } from '@/components/ThemeProvider';
+import { ThemeContext } from '@components/ThemeProvider';
+import AboutDialog from '@components/AboutDialog';
 import { useSelect, useSlider, useToggle } from '@hooks/use-input';
 import { useMenuToggle } from '@hooks/use-menu-toggle';
 import type { IconData, IconStyle } from '@constants/icons';
 import classes from './page.module.css';
-import Grain from '@/components/Grain/Grain';
-import { useContext } from 'react';
 
 const icon: IconData = {
   id: 1,
@@ -29,22 +28,39 @@ const icon: IconData = {
 };
 const icons: IconData[] = new Array(100).fill(icon);
 
-export default function Home() {
-  const { theme } = useContext(ThemeContext);
+type ModalState = 'closed' | 'closing' | 'open' | 'opening';
 
+export default function Home() {
   const [showSidebar, toggleShowSidebar, isWidescreen] = useMenuToggle(920);
+  const [showModal, setShowModal] = useState<ModalState>('closed');
+  const showModalTimer = useRef<NodeJS.Timeout | null>(null);
+
   const [size, setSize, restSizeProps] = useSlider(32, 24, 48, 2);
   const [iconStyle, setIconStyle] = useSelect('outline') as [IconStyle, (value: string) => void];
   const [copyAsJSX, setCopyAsJSX] = useToggle(false);
   const [fillCurrent, setFillCurrent] = useToggle(true);
 
+  const { theme } = useContext(ThemeContext);
+
   const sectionStyle = getSectionStyle(showSidebar, isWidescreen);
+
+  function handleSetShowModal() {
+    if (showModal === 'closed' || showModal === 'closing') {
+      setShowModal('opening');
+      if (showModalTimer.current) clearTimeout(showModalTimer.current);
+      showModalTimer.current = setTimeout(() => setShowModal('open'), 300);
+    } else if (showModal === 'open' || showModal === 'opening') {
+      setShowModal('closing');
+      if (showModalTimer.current) clearTimeout(showModalTimer.current);
+      showModalTimer.current = setTimeout(() => setShowModal('closed'), 300);
+    }
+  }
 
   return (
     <body data-theme={theme}>
       <main className={classes['main']}>
         {/* <div className={classes['gradient-stripe']} /> */}
-        <Nav toggleSidebar={toggleShowSidebar} />
+        <Nav toggleSidebar={toggleShowSidebar} toggleDialog={handleSetShowModal} />
         <section className={classes['section']} style={sectionStyle}>
           <Sidebar
             menuProps={[showSidebar, toggleShowSidebar, isWidescreen]}
@@ -61,7 +77,7 @@ export default function Home() {
             fillCurrent={fillCurrent}
           />
         </section>
-        {/* <Grain /> */}
+        <AboutDialog showModal={showModal} setShowModal={handleSetShowModal} />
       </main>
     </body>
   );

@@ -13,3 +13,7 @@
 .gap-6 {
   gap: var(--space-6);
 }
+
+.flex-grow {
+  flex-grow: 1;
+}

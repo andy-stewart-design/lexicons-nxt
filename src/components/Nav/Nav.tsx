@@ -6,9 +6,10 @@ import SearchInput from './SearchInput';
 
 interface NavProps {
   toggleSidebar: () => void;
+  toggleDialog: () => void;
 }
 
-export default function Nav({ toggleSidebar }: NavProps) {
+export default function Nav({ toggleSidebar, toggleDialog }: NavProps) {
   return (
     <nav className={classes['nav']}>
       <div className={classes['logo-container']}>
@@ -28,7 +29,7 @@ export default function Nav({ toggleSidebar }: NavProps) {
           <At />
           <VisuallyHidden>Follow us on Threads</VisuallyHidden>
         </button>
-        <button>
+        <button onClick={toggleDialog}>
           <Hamburger />
           <VisuallyHidden>More information</VisuallyHidden>
         </button>

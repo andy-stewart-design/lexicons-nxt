@@ -83,13 +83,14 @@
 
   html {
     background-color: var(--background);
+    transition: background 250ms var(--ease-out-3);
   }
 
   body {
     --body-padding: var(--space-24);
 
     color: var(--foreground);
-    /* padding: var(--body-padding); */
     min-height: 100dvh;
+    /* padding: var(--body-padding); */
   }
 }

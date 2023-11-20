@@ -9,7 +9,8 @@
     max-width: var(--sidebar-max-width);
 
     translate: -100%;
-    transition: translate 400ms var(--ease-out-5), visibility 400ms var(--ease-out-5);
+    transition: translate 400ms var(--ease-out-5), visibility 400ms var(--ease-out-5),
+      background 250ms var(--ease-out-3);
 
     background-color: var(--surface-3);
     border-right: var(--border-light);
