@@ -2,7 +2,7 @@
 
 // TODO: Toast messages
 // TODO: Icon Database
-// TODO: Social media accounts
+// TODO: Social (Threads, Twitter, Github, Figma)
 // TODO: Pull out button component
 
 import { useContext, useRef, useState } from 'react';
