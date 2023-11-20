@@ -1,0 +1,17 @@
+.toaster {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+
+  display: grid;
+  place-items: center;
+
+  padding: var(--padding-inline-start);
+  z-index: var(--z-toast);
+
+  & > :is(li) {
+    grid-area: 1/1;
+    inline-size: 100%;
+    block-size: 100%;
+  }
+}

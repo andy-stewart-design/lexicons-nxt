@@ -1,0 +1,55 @@
+.toast {
+  --animation-timing: 400ms;
+
+  --padding-inline-start: var(--space-md);
+  --padding-inline-end: var(--padding-inline-start);
+  --padding-block-start: var(--space-sm);
+  --padding-block-end: var(--padding-block-start);
+
+  transition: translate var(--animation-timing) var(--ease-out-5),
+    scale var(--animation-timing) var(--ease-out-5),
+    opacity var(--animation-timing) var(--ease-out-5);
+
+  &[data-active='false'] {
+    opacity: 0;
+  }
+
+  button {
+    display: block;
+    position: relative;
+    background-color: var(--accent-color-dark);
+    color: var(--white);
+    border: var(--border-light);
+    border-radius: var(--brad);
+
+    padding-inline: var(--padding-inline-start) var(--padding-inline-end);
+    padding-block: var(--padding-block-start) var(--padding-block-end);
+    min-width: var(--space-264);
+    text-align: center;
+
+    opacity: 0;
+    animation: toast-slide-in var(--animation-timing) var(--ease-out-5) forwards;
+    transition: box-shadow var(--animation-timing) var(--ease-out-5);
+
+    &:after {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      background-color: oklch(var(--background-oklch) / var(--overlay-opacity));
+      border-radius: var(--brad);
+
+      transition: background-color var(--animation-timing) var(--ease-out-5);
+    }
+  }
+}
+
+@keyframes toast-slide-in {
+  from {
+    translate: 20px 0;
+    opacity: 0;
+  }
+  to {
+    translate: 0px 0;
+    opacity: 1;
+  }
+}

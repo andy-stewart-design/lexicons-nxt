@@ -2,12 +2,12 @@
 
 import { createContext, Dispatch, ReactNode, SetStateAction, useState } from 'react';
 
-interface Theme {
+interface ThemeContext {
   theme: string;
   setTheme: Dispatch<SetStateAction<string>>;
 }
 
-export const ThemeContext = createContext<Theme>({ theme: '', setTheme: () => {} });
+export const ThemeContext = createContext<ThemeContext>({ theme: '', setTheme: () => {} });
 
 interface ProviderProps {
   children: ReactNode;

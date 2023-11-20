@@ -1,6 +1,7 @@
 'use client';
 
 // TODO: Toast messages
+// TODO: Fix dialog types
 // TODO: Icon Database
 // TODO: Social (Threads, Twitter, Github, Figma)
 // TODO: Pull out button component
@@ -11,10 +12,12 @@ import Sidebar from '@components/Sidebar';
 import IconGallery from '@components/IconGallery';
 import { ThemeContext } from '@components/ThemeProvider';
 import AboutDialog from '@components/AboutDialog';
+import Toaster from '@components/Toaster';
 import { useSelect, useSlider, useToggle } from '@hooks/use-input';
 import { useMenuToggle } from '@hooks/use-menu-toggle';
 import type { IconData, IconStyle } from '@constants/icons';
 import classes from './page.module.css';
+import { ToastContext } from '@components/ToastProvider';
 
 const icon: IconData = {
   id: 1,
@@ -77,6 +80,7 @@ export default function Home() {
             fillCurrent={fillCurrent}
           />
         </section>
+        <Toaster />
         <AboutDialog showModal={showModal} setShowModal={handleSetShowModal} />
       </main>
     </body>
