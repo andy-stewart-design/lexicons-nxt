@@ -1,16 +1,14 @@
 import { ComponentProps } from 'react';
-import Dialog from '@components/Dialog';
-
-type ModalState = 'closed' | 'closing' | 'open' | 'opening';
+import Dialog, { type ModalState } from '@components/Dialog';
 
 interface DialogProps extends ComponentProps<'dialog'> {
   showModal: ModalState;
-  setShowModal: () => void;
+  setShowDialog: () => void;
 }
 
-export default function AboutDialog({ showModal, setShowModal }: DialogProps) {
+export default function AboutDialog({ showModal, setShowDialog }: DialogProps) {
   return (
-    <Dialog showModal={showModal} setShowModal={setShowModal} title="About">
+    <Dialog showModal={showModal} setShowDialog={setShowDialog} title="About Lexicons">
       <p>
         Lexicons is an open-source icon set created by{' '}
         <a href="https://www.andystewart.design/" target="_blank">
