@@ -1,11 +1,10 @@
 'use client';
 
-// TODO: Fix dialog types
 // TODO: Icon Database
 // TODO: Social (Threads, Twitter, Github, Figma)
 // TODO: Pull out button component
 
-import { useContext } from 'react';
+import { CSSProperties, useContext } from 'react';
 import Nav from '@components/Nav';
 import Sidebar from '@components/Sidebar';
 import IconGallery from '@components/IconGallery';
@@ -17,6 +16,7 @@ import { useMenuToggle } from '@hooks/use-menu-toggle';
 import { useDialog } from '@hooks/use-dialog';
 import type { IconData, IconStyle } from '@constants/icons';
 import classes from './page.module.css';
+import { ModalState } from '@/components/Dialog';
 
 const icon: IconData = {
   id: 1,
@@ -41,13 +41,11 @@ export default function Home() {
 
   const { theme } = useContext(ThemeContext);
 
-  const sectionStyle = getSectionStyle(showSidebar, isWidescreen);
-
   return (
-    <body data-theme={theme}>
+    <body data-theme={theme} style={getBodyStyle(showModal)}>
       <main className={classes['main']}>
         <Nav toggleSidebar={toggleShowSidebar} toggleDialog={setShowDialog} />
-        <section className={classes['section']} style={sectionStyle}>
+        <section className={classes['section']} style={getSectionStyle(showSidebar, isWidescreen)}>
           <Sidebar
             menuProps={[showSidebar, toggleShowSidebar, isWidescreen]}
             sizeProps={[size, setSize, restSizeProps]}
@@ -68,6 +66,20 @@ export default function Home() {
       </main>
     </body>
   );
+}
+
+function getBodyStyle(showModal: ModalState) {
+  if (showModal === 'open' || showModal === 'opening') {
+    return {
+      height: '100dvh',
+      overflow: 'hidden',
+    };
+  } else {
+    return {
+      height: 'auto',
+      overflow: 'auto',
+    };
+  }
 }
 
 function getSectionStyle(showSidebar: boolean | null, isWidescreen: boolean | null) {

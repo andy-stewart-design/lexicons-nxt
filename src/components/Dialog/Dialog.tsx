@@ -21,7 +21,7 @@ export default function Dialog({ children, showModal, setShowDialog, title }: Di
       ref={dialogRef}
       onCancel={setShowDialog}
       className={classes['dialog']}
-      inert={showModal ? undefined : ''}
+      inert={showModal === 'open' || showModal === 'opening' ? undefined : ''}
       data-state={showModal}
     >
       <div className={classes['close-container']}>

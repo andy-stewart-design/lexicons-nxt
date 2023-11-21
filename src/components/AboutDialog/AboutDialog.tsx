@@ -19,8 +19,8 @@ export default function AboutDialog({ showModal, setShowDialog }: DialogProps) {
         systems have compromises).
       </p>
       <p>
-        If you have feedback or would like to contribute to the project, please reach out. While not
-        required, attribution is always greatly appreciated.
+        If you have feedback or are interested in contributing, please reach out. This project is a
+        labor of love, and while not required, attribution is always always appreciated.
       </p>
     </Dialog>
   );
