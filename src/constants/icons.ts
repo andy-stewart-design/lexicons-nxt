@@ -1,7 +1,7 @@
 export const iconStyles = [
   {
-    value: 'outline',
-    label: 'Outline',
+    value: 'monoline',
+    label: 'Monoline',
   },
   {
     value: 'solid',
@@ -13,12 +13,19 @@ export const iconStyles = [
   },
 ];
 
-export type IconStyle = 'outline' | 'solid' | 'two_tone';
+export type IconStyle = 'monoline' | 'solid' | 'two_tone';
+
+export interface TagData {
+  id: string;
+  name: string;
+}
 
 export interface IconData {
-  id: number;
+  id: string;
   name: string;
-  path_outline: string;
-  path_tint: string;
+  display_name: string;
+  path_monoline: string;
+  path_two_tone: string | null;
   path_solid: string;
+  tags: TagData[];
 }

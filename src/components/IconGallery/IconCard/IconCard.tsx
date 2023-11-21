@@ -33,7 +33,7 @@ export default function IconCard(props: CardProps) {
         <SVG {...props} />
       </div>
       <div className={classes['text-container']}>
-        <p className="label">{icon.name}</p>
+        <p className="label">{icon.display_name}</p>
       </div>
       <div className={classes['button-container']}>
         <button onClick={handleCopy}>
@@ -50,24 +50,24 @@ export default function IconCard(props: CardProps) {
 }
 
 function SVG({ icon, iconStyle, size }: CardProps) {
-  const showOutline = iconStyle === 'two_tone' || iconStyle === 'outline';
+  const showMonoline = iconStyle === 'two_tone' || iconStyle === 'monoline';
 
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       {iconStyle === 'solid' && icon.path_solid && (
         <path d={icon.path_solid} fill="currentColor" fillRule="evenodd" clipRule="evenodd" />
       )}
-      {iconStyle === 'two_tone' && icon.path_tint && (
+      {iconStyle === 'two_tone' && icon.path_two_tone && (
         <path
-          d={icon.path_tint}
+          d={icon.path_two_tone}
           fill="currentColor"
           opacity="0.4"
           fillRule="evenodd"
           clipRule="evenodd"
         />
       )}
-      {showOutline && icon.path_outline && (
-        <path d={icon.path_outline} fill="currentColor" fillRule="evenodd" clipRule="evenodd" />
+      {showMonoline && icon.path_monoline && (
+        <path d={icon.path_monoline} fill="currentColor" fillRule="evenodd" clipRule="evenodd" />
       )}
     </svg>
   );

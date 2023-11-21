@@ -51,7 +51,7 @@ function formatSVG(
   copyAsJSX: boolean,
   fillCurrent: boolean
 ) {
-  const showOutline = iconStyle === 'two_tone' || iconStyle === 'outline';
+  const showOutline = iconStyle === 'two_tone' || iconStyle === 'monoline';
   const fillRule = copyAsJSX ? 'fillRule' : 'fill-rule';
   const clipRule = copyAsJSX ? 'clipRule' : 'clip-rule';
   const fillColor = fillCurrent ? 'currentColor' : getAccentColor();
@@ -64,13 +64,13 @@ function formatSVG(
       : '';
 
   const tonedPath =
-    iconStyle === 'two_tone' && icon.path_tint
-      ? `<path d="${icon.path_tint}" fill="${fillColor}" opacity="0.4" ${fillRule}="evenodd" ${clipRule}="evenodd" />`
+    iconStyle === 'two_tone' && icon.path_two_tone
+      ? `<path d="${icon.path_two_tone}" fill="${fillColor}" opacity="0.4" ${fillRule}="evenodd" ${clipRule}="evenodd" />`
       : '';
 
   const outlinePath =
-    showOutline && icon.path_outline
-      ? `<path d="${icon.path_outline}" fill="${fillColor}" ${fillRule}="evenodd" ${clipRule}="evenodd" />`
+    showOutline && icon.path_monoline
+      ? `<path d="${icon.path_monoline}" fill="${fillColor}" ${fillRule}="evenodd" ${clipRule}="evenodd" />`
       : '';
 
   if (copyAsJSX) return formatJSX(icon.name, svg + solidPath + tonedPath + outlinePath + '</svg>');

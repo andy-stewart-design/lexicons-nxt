@@ -1,0 +1,29 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model Icon {
+  id           String @id @default(cuid())
+  name         String @unique
+  display_name String @unique
+
+  path_monoline String  @db.VarChar(1200)
+  path_two_tone String? @db.VarChar(1200)
+  path_solid    String  @db.VarChar(1200)
+
+  tags Tag[]
+}
+
+model Tag {
+  id           String @id @default(cuid())
+  name         String @unique
+  display_name String @unique
+
+  icons Icon[]
+}

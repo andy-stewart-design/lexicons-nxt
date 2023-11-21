@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { cookies } from 'next/headers';
 import ThemeProvider from '@components/ThemeProvider';
 import ToastProvider from '@components/ToastProvider';
+import IconProvider from '@/components/IconProvider/IconProvider';
+import prisma from '@utils/db';
 import { GeistSans } from 'geist/font/sans';
 import '@/styles/main.css';
 
@@ -12,11 +14,18 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const theme = cookies().get('theme')?.value ?? 'dark';
+  const icons = await prisma.icon.findMany({
+    include: {
+      tags: true,
+    },
+  });
 
   return (
     <html lang="en" className={GeistSans.className}>
       <ThemeProvider theme={theme}>
-        <ToastProvider>{children}</ToastProvider>
+        <ToastProvider>
+          <IconProvider icons={icons}>{children}</IconProvider>
+        </ToastProvider>
       </ThemeProvider>
     </html>
   );
