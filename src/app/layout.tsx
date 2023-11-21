@@ -14,17 +14,23 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const theme = cookies().get('theme')?.value ?? 'dark';
+
   const icons = await prisma.icon.findMany({
     include: {
       tags: true,
     },
+  });
+  const icons_abc = icons.sort(function (a, b) {
+    var textA = a.name.toLocaleLowerCase();
+    var textB = b.name.toLocaleLowerCase();
+    return textA < textB ? -1 : textA > textB ? 1 : 0;
   });
 
   return (
     <html lang="en" className={GeistSans.className}>
       <ThemeProvider theme={theme}>
         <ToastProvider>
-          <IconProvider icons={icons}>{children}</IconProvider>
+          <IconProvider icons={icons_abc}>{children}</IconProvider>
         </ToastProvider>
       </ThemeProvider>
     </html>
