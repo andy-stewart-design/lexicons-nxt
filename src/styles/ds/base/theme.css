@@ -61,6 +61,8 @@
     --padding-block-start: var(--padding-inline-start);
     --padding-block-end: var(--padding-block-start);
 
+    --nav-height: var(--space-96);
+
     @media (--screen-md) {
       --padding-inline-start: var(--space-xl);
     }

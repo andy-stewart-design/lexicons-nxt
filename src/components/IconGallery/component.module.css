@@ -21,3 +21,18 @@
     --padding-block-end: var(--space-2xl);
   }
 }
+
+.loading {
+  height: calc(100vh - var(--nav-height));
+  place-items: center;
+
+  svg {
+    animation: rotate 500ms linear infinite;
+  }
+}
+
+@keyframes rotate {
+  to {
+    rotate: 1turn;
+  }
+}
