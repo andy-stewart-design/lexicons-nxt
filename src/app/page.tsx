@@ -1,11 +1,11 @@
-// TODO: State mgmt refactor
 // TODO: Search Bar
 // TODO: Social (Threads, Twitter, Github, Figma)
 // TODO: Pull out button component
 
+import { Suspense } from 'react';
 import Nav from '@components/Nav';
 import Sidebar from '@components/Sidebar';
-import IconGallery from '@components/IconGallery';
+import IconGallery, { Loading } from '@components/IconGallery';
 import Toaster from '@components/Toaster';
 import AboutDialog from '@components/AboutDialog';
 import classes from './page.module.css';
@@ -18,7 +18,9 @@ export default function Home() {
         <Nav />
         <MainContent>
           <Sidebar />
-          <IconGallery />
+          <Suspense fallback={<Loading />}>
+            <IconGallery />
+          </Suspense>
         </MainContent>
         <Toaster />
         <AboutDialog />
@@ -26,17 +28,3 @@ export default function Home() {
     </body>
   );
 }
-
-// function getBodyStyle(showModal: ModalState) {
-//   if (showModal === 'open' || showModal === 'opening') {
-//     return {
-//       height: '100dvh',
-//       overflow: 'hidden',
-//     };
-//   } else {
-//     return {
-//       height: 'auto',
-//       overflow: 'auto',
-//     };
-//   }
-// }

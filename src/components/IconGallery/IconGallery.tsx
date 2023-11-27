@@ -3,6 +3,8 @@ import IconCard from './IconCard';
 import classes from './component.module.css';
 
 export default async function IconGallery() {
+  await new Promise((resolve) => setTimeout(resolve, 10000));
+
   const icons = await prisma.icon.findMany({
     include: {
       tags: true,
@@ -26,4 +28,8 @@ export default async function IconGallery() {
       ))}
     </div>
   );
+}
+
+export function Loading() {
+  return <div className={classes['gallery']}>Loading...</div>;
 }
