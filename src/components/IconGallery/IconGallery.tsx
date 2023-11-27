@@ -16,7 +16,10 @@ export default function IconGallery({ ...delegated }: IconGalleryProps) {
 
   return (
     <div className={classes['gallery']}>
-      <p className="label">Displaying {icons.length} Icons</p>
+      <div className="flex flex-align-start flex-justify-between">
+        <p className="label">Showing {icons.length} Icons</p>
+        <p className="label">v.0.1</p>
+      </div>
       {icons.map((icon, i) => (
         <IconCard key={i} icon={icon} {...delegated} />
       ))}

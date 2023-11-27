@@ -25,10 +25,10 @@ export default function Nav({ toggleSidebar, toggleDialog }: NavProps) {
       </div>
 
       <div className={classes['contact-container']}>
-        <button>
+        {/* <button>
           <At />
           <VisuallyHidden>Follow us on Threads</VisuallyHidden>
-        </button>
+        </button> */}
         <button onClick={toggleDialog}>
           <Hamburger />
           <VisuallyHidden>More information</VisuallyHidden>

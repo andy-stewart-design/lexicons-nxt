@@ -30,7 +30,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html lang="en" className={GeistSans.className}>
       <ThemeProvider theme={theme}>
         <ToastProvider>
-          <IconProvider icons={icons_abc}>{children}</IconProvider>
+          <IconProvider icons={[...icons_abc]}>{children}</IconProvider>
         </ToastProvider>
       </ThemeProvider>
     </html>

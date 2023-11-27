@@ -13,9 +13,9 @@ model Icon {
   name         String @unique
   display_name String @unique
 
-  path_monoline String  @db.VarChar(1200)
-  path_two_tone String? @db.VarChar(1200)
-  path_solid    String  @db.VarChar(1200)
+  path_monoline String  @db.Text
+  path_two_tone String? @db.Text
+  path_solid    String  @db.Text
 
   tags Tag[]
 }
