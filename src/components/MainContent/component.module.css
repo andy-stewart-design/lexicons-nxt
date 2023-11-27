@@ -1,0 +1,11 @@
+.section {
+  display: grid;
+  grid-template-columns: 0 1fr;
+  transition: grid-template-columns 400ms var(--ease-out-5);
+
+  @media (--screen-md) {
+    display: grid;
+    position: relative;
+    grid-template-columns: var(--sidebar-max-width) 1fr;
+  }
+}

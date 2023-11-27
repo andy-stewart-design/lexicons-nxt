@@ -1,16 +1,19 @@
+import prisma from '@utils/db';
 import IconCard from './IconCard';
 import classes from './component.module.css';
-import { useContext } from 'react';
-import { IconContext } from '../IconProvider/IconProvider';
 
-interface IconGalleryProps {
-  size: number;
-  copyAsJSX: boolean;
-  fillCurrent: boolean;
-}
+export default async function IconGallery() {
+  const icons = await prisma.icon.findMany({
+    include: {
+      tags: true,
+    },
+  });
 
-export default function IconGallery({ ...delegated }: IconGalleryProps) {
-  const { icons } = useContext(IconContext);
+  const icons_abc = icons.sort(function (a, b) {
+    var textA = a.name.toLocaleLowerCase();
+    var textB = b.name.toLocaleLowerCase();
+    return textA < textB ? -1 : textA > textB ? 1 : 0;
+  });
 
   return (
     <div className={classes['gallery']}>
@@ -18,8 +21,8 @@ export default function IconGallery({ ...delegated }: IconGalleryProps) {
         <p className="label">Showing {icons.length} Icons</p>
         <p className="label">v.0.1</p>
       </div>
-      {icons.map((icon, i) => (
-        <IconCard key={i} icon={icon} {...delegated} />
+      {icons_abc.map((icon, i) => (
+        <IconCard key={i} icon={icon} />
       ))}
     </div>
   );

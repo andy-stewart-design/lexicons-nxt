@@ -25,6 +25,7 @@
       "@hooks/*": ["./src/hooks/*"],
       "@icons/*": ["./src/icons/*"],
       "@public/*": ["./public/*"],
+      "@state/*": ["./src/components/Providers/*"],
       "@styles/*": ["./src/styles/*"],
       "@utils/*": ["./src/utils/*"]
     }

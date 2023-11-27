@@ -1,3 +1,5 @@
+'use client';
+
 import { useContext } from 'react';
 import { ToastContext } from '@components/ToastProvider';
 import Toast from '@components/Toaster/Toast';

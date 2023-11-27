@@ -1,3 +1,5 @@
+'use client';
+
 import { ComponentProps, useRef } from 'react';
 import VisuallyHidden from '@components/VisuallyHidden';
 import { useEnhancedDialog } from '@/hooks/use-enhanced-dialog';

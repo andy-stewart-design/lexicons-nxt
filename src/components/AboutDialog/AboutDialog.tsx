@@ -1,12 +1,12 @@
-import { ComponentProps } from 'react';
-import Dialog, { type ModalState } from '@components/Dialog';
+'use client';
 
-interface DialogProps extends ComponentProps<'dialog'> {
-  showModal: ModalState;
-  setShowDialog: () => void;
-}
+import { useContext } from 'react';
+import Dialog from '@components/Dialog';
+import { AboutModalDisplayContext } from '@state/AboutModalDisplayProvider';
 
-export default function AboutDialog({ showModal, setShowDialog }: DialogProps) {
+export default function AboutDialog() {
+  const { showModal, setShowDialog } = useContext(AboutModalDisplayContext);
+
   return (
     <Dialog showModal={showModal} setShowDialog={setShowDialog} title="About Lexicons">
       <p>

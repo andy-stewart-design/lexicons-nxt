@@ -1,15 +1,18 @@
-import { At, Adjustments, Hamburger } from '@icons/24';
-import classes from './component.module.css';
-import VisuallyHidden from '../VisuallyHidden';
+'use client';
+
+import { useContext } from 'react';
+import { SidebarDisplayContext } from '@state/SidebarDisplayProvider';
+import { AboutModalDisplayContext } from '@state/AboutModalDisplayProvider';
 import LexiconsLogo from './LexiconsLogo';
 import SearchInput from './SearchInput';
+import VisuallyHidden from '@components/VisuallyHidden';
+import { At, Adjustments, Hamburger } from '@icons/24';
+import classes from './component.module.css';
 
-interface NavProps {
-  toggleSidebar: () => void;
-  toggleDialog: () => void;
-}
+export default function Nav() {
+  const { toggleShowSidebar } = useContext(SidebarDisplayContext);
+  const { setShowDialog } = useContext(AboutModalDisplayContext);
 
-export default function Nav({ toggleSidebar, toggleDialog }: NavProps) {
   return (
     <nav className={classes['nav']}>
       <div className={classes['logo-container']}>
@@ -18,7 +21,7 @@ export default function Nav({ toggleSidebar, toggleDialog }: NavProps) {
 
       <div className={classes['filter-container']}>
         <SearchInput />
-        <button onClick={toggleSidebar}>
+        <button onClick={toggleShowSidebar}>
           <Adjustments />
           <VisuallyHidden>Show/hide filter panel</VisuallyHidden>
         </button>
@@ -29,7 +32,7 @@ export default function Nav({ toggleSidebar, toggleDialog }: NavProps) {
           <At />
           <VisuallyHidden>Follow us on Threads</VisuallyHidden>
         </button> */}
-        <button onClick={toggleDialog}>
+        <button onClick={setShowDialog}>
           <Hamburger />
           <VisuallyHidden>More information</VisuallyHidden>
         </button>

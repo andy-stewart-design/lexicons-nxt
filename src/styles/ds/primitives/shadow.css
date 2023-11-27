@@ -3,7 +3,7 @@
     --shadow-black-color: var(--black-oklch);
     --shadow-black-strength: 1%;
 
-    &:has([data-theme='dark']) {
+    &[data-theme='dark'] {
       --shadow-black-strength: 20%;
     }
 

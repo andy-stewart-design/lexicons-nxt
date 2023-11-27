@@ -10,6 +10,7 @@ export default function ThemeSwitch() {
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
     setTheme(e.target.value);
     setCookie('theme', e.target.value);
+    document.documentElement.dataset.theme = e.target.value;
   }
 
   return (

@@ -1,45 +1,32 @@
 'use client';
 
+import { useContext, type CSSProperties, type ComponentProps } from 'react';
 import ColorPicker from '@components/ColorPicker';
-import ComboNumericInput from '../ComboNumericInput';
+import ComboNumericInput from '@components/ComboNumericInput';
 import Select from '@components/Select';
 import Switch from '@components/Switch';
 import Tooltip from '@components/Tooltip';
-import { useContext, type CSSProperties, type ComponentProps } from 'react';
-import type { UseSliderReturn, UseToggleReturn } from '@hooks/use-input';
-import type { UseMenuToggleReturn } from '@hooks/use-menu-toggle';
+import ThemeSwitch from '@components/ThemeSwitch';
+import { IconStyleContext } from '@state/IconStyleProvider';
+import { IconSizeContext } from '@state/IconSizeProvider/IconSizeProvider';
+import { CopyModeContext } from '@state/CopyModeProvider';
 import { iconStyles } from '@constants/icons';
 import classes from './component.module.css';
-import ThemeSwitch from '../ThemeSwitch';
-import { IconStyleContext } from '../Providers/IconStyleProvider';
+import { SidebarDisplayContext } from '../Providers/SidebarDisplayProvider';
 
-interface SidebarProps extends ComponentProps<'div'> {
-  menuProps: UseMenuToggleReturn;
-  sizeProps: UseSliderReturn;
-  copyProps: UseToggleReturn;
-  fillCurrentProps: UseToggleReturn;
-}
-
-export default function Sidebar({
-  menuProps,
-  sizeProps,
-  copyProps,
-  fillCurrentProps,
-}: SidebarProps) {
-  const [isOpen, toggleSidebar, isWidescreen] = menuProps;
-  const [size, setSize, restSizeProps] = sizeProps;
-  const [copyAsJSX, setCopyAsJSX] = copyProps;
-  const [currentColor, setCurrentColor] = fillCurrentProps;
-
-  const sidebarStyle = getSidebarStyle(isOpen);
-  const overlayStyle = !isOpen || isWidescreen ? {} : getOverlayStyle(isOpen);
-
+export default function Sidebar() {
+  const { showSidebar, toggleShowSidebar, isWidescreen } = useContext(SidebarDisplayContext);
   const { iconStyle, setIconStyle } = useContext(IconStyleContext);
+  const { size, setSize, restSizeProps } = useContext(IconSizeContext);
+  const { copyAsJSX, setCopyAsJSX, fillCurrent, setFillCurrent } = useContext(CopyModeContext);
+
+  const sidebarStyle = getSidebarStyle(showSidebar);
+  const overlayStyle = !showSidebar || isWidescreen ? {} : getOverlayStyle(showSidebar);
 
   return (
     <>
       {!isWidescreen && (
-        <div className={classes['overlay']} style={overlayStyle} onClick={toggleSidebar} />
+        <div className={classes['overlay']} style={overlayStyle} onClick={toggleShowSidebar} />
       )}
       <div className={classes['sidebar']} style={sidebarStyle}>
         <div className={classes['sticky']}>
@@ -65,7 +52,7 @@ export default function Sidebar({
                 <Tooltip text="Determines if icons should be copied/downloaded as SVG (HTML) or JSX (React)" />
               </span>
             </Switch>
-            <Switch checked={currentColor} onChange={setCurrentColor}>
+            <Switch checked={fillCurrent} onChange={setFillCurrent}>
               <span className="flex flex-justify-start flex-align-center gap-6">
                 Use currentColor
                 <Tooltip text="Controls whether the exported icon's color should be hard-coded or inherited" />
@@ -75,7 +62,7 @@ export default function Sidebar({
 
           <section>
             <p className="label">Filters</p>
-            <button onClick={toggleSidebar}>
+            <button onClick={toggleShowSidebar}>
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                 <path d="M4 16L16 4M4 4L10 10L16 16" stroke="currentColor" strokeWidth="1.5" />
               </svg>

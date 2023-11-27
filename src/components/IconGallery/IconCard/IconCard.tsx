@@ -6,19 +6,20 @@ import { copySvg, downloadSvg } from '@utils/svg';
 import type { IconData, IconStyle } from '@constants/icons';
 import classes from './component.module.css';
 import { ToastContext } from '@components/ToastProvider';
-import { IconStyleContext } from '@/components/Providers/IconStyleProvider';
+import { IconStyleContext } from '@state/IconStyleProvider';
+import { IconSizeContext } from '@state/IconSizeProvider';
+import { CopyModeContext } from '@state/CopyModeProvider';
 
 interface CardProps extends ComponentProps<'div'> {
   icon: IconData;
-  size: number;
-  copyAsJSX: boolean;
-  fillCurrent: boolean;
 }
 
 export default function IconCard(props: CardProps) {
-  const { icon, size, copyAsJSX, fillCurrent } = props;
+  const { icon } = props;
   const { iconStyle } = useContext(IconStyleContext);
+  const { size } = useContext(IconSizeContext);
   const { addToast } = useContext(ToastContext);
+  const { copyAsJSX, fillCurrent } = useContext(CopyModeContext);
 
   function handleCopy() {
     copySvg(icon, size, iconStyle, copyAsJSX, fillCurrent);
@@ -33,7 +34,7 @@ export default function IconCard(props: CardProps) {
   return (
     <div className={classes['card']}>
       <div className={classes['icon-container']}>
-        <SVG iconStyle={iconStyle} {...props} />
+        <SVG iconStyle={iconStyle} size={size} {...props} />
       </div>
       <div className={classes['text-container']}>
         <p className="label">{icon.display_name}</p>
