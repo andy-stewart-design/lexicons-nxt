@@ -1,7 +1,7 @@
 import { ChangeEvent, useContext } from 'react';
 import RadioGroup, { RadioGroupItem, RadioGroupLabel } from '@components/RadioGroup';
 import Tooltip from '@components/Tooltip';
-import { ThemeContext } from '@components/ThemeProvider';
+import { ThemeContext } from '@/components/Providers/ThemeProvider';
 import { setCookie } from '@utils/cookies';
 
 export default function ThemeSwitch() {

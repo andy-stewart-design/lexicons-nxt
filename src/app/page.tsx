@@ -10,11 +10,10 @@ import Sidebar from '@components/Sidebar';
 import IconGallery from '@components/IconGallery';
 import Toaster from '@components/Toaster';
 import AboutDialog from '@components/AboutDialog';
-import { ThemeContext } from '@components/ThemeProvider';
-import { useSelect, useSlider, useToggle } from '@hooks/use-input';
+import { ThemeContext } from '@/components/Providers/ThemeProvider';
+import { useSlider, useToggle } from '@hooks/use-input';
 import { useMenuToggle } from '@hooks/use-menu-toggle';
 import { useDialog } from '@hooks/use-dialog';
-import { iconStyles, type IconStyle } from '@constants/icons';
 import classes from './page.module.css';
 import { ModalState } from '@/components/Dialog';
 
@@ -23,10 +22,6 @@ export default function Home() {
   const [showModal, setShowDialog] = useDialog('closed');
 
   const [size, setSize, restSizeProps] = useSlider(32, 24, 48, 2);
-  const [iconStyle, setIconStyle] = useSelect(iconStyles.at(0)?.value) as [
-    IconStyle,
-    (value: string) => void
-  ];
   const [copyAsJSX, setCopyAsJSX] = useToggle(false);
   const [fillCurrent, setFillCurrent] = useToggle(true);
 
@@ -40,16 +35,10 @@ export default function Home() {
           <Sidebar
             menuProps={[showSidebar, toggleShowSidebar, isWidescreen]}
             sizeProps={[size, setSize, restSizeProps]}
-            iconStyleProps={[iconStyle, setIconStyle]}
             copyProps={[copyAsJSX, setCopyAsJSX]}
             fillCurrentProps={[fillCurrent, setFillCurrent]}
           />
-          <IconGallery
-            iconStyle={iconStyle}
-            size={size}
-            copyAsJSX={copyAsJSX}
-            fillCurrent={fillCurrent}
-          />
+          <IconGallery size={size} copyAsJSX={copyAsJSX} fillCurrent={fillCurrent} />
         </section>
         <Toaster />
         <AboutDialog showModal={showModal} setShowDialog={setShowDialog} />

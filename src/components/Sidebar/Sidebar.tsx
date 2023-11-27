@@ -5,17 +5,17 @@ import ComboNumericInput from '../ComboNumericInput';
 import Select from '@components/Select';
 import Switch from '@components/Switch';
 import Tooltip from '@components/Tooltip';
-import type { CSSProperties, ComponentProps } from 'react';
-import type { UseSliderReturn, UseSelectReturn, UseToggleReturn } from '@hooks/use-input';
+import { useContext, type CSSProperties, type ComponentProps } from 'react';
+import type { UseSliderReturn, UseToggleReturn } from '@hooks/use-input';
 import type { UseMenuToggleReturn } from '@hooks/use-menu-toggle';
 import { iconStyles } from '@constants/icons';
 import classes from './component.module.css';
 import ThemeSwitch from '../ThemeSwitch';
+import { IconStyleContext } from '../Providers/IconStyleProvider';
 
 interface SidebarProps extends ComponentProps<'div'> {
   menuProps: UseMenuToggleReturn;
   sizeProps: UseSliderReturn;
-  iconStyleProps: UseSelectReturn;
   copyProps: UseToggleReturn;
   fillCurrentProps: UseToggleReturn;
 }
@@ -23,18 +23,18 @@ interface SidebarProps extends ComponentProps<'div'> {
 export default function Sidebar({
   menuProps,
   sizeProps,
-  iconStyleProps,
   copyProps,
   fillCurrentProps,
 }: SidebarProps) {
   const [isOpen, toggleSidebar, isWidescreen] = menuProps;
   const [size, setSize, restSizeProps] = sizeProps;
-  const [iconStyle, setIconStyle] = iconStyleProps;
   const [copyAsJSX, setCopyAsJSX] = copyProps;
   const [currentColor, setCurrentColor] = fillCurrentProps;
 
   const sidebarStyle = getSidebarStyle(isOpen);
   const overlayStyle = !isOpen || isWidescreen ? {} : getOverlayStyle(isOpen);
+
+  const { iconStyle, setIconStyle } = useContext(IconStyleContext);
 
   return (
     <>

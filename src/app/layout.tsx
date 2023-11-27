@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
 import { cookies } from 'next/headers';
-import ThemeProvider from '@components/ThemeProvider';
+import ThemeProvider from '@/components/Providers/ThemeProvider';
 import ToastProvider from '@components/ToastProvider';
 import IconProvider from '@/components/IconProvider/IconProvider';
 import prisma from '@utils/db';
 import { GeistSans } from 'geist/font/sans';
 import '@/styles/main.css';
+import IconStyleProvider from '@/components/Providers/IconStyleProvider';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -30,7 +31,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html lang="en" className={GeistSans.className}>
       <ThemeProvider theme={theme}>
         <ToastProvider>
-          <IconProvider icons={[...icons_abc]}>{children}</IconProvider>
+          <IconStyleProvider>
+            <IconProvider icons={[...icons_abc]}>{children}</IconProvider>
+          </IconStyleProvider>
         </ToastProvider>
       </ThemeProvider>
     </html>

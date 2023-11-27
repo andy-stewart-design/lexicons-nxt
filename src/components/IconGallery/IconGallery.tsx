@@ -1,11 +1,9 @@
 import IconCard from './IconCard';
-import { type IconStyle } from '@constants/icons';
 import classes from './component.module.css';
 import { useContext } from 'react';
 import { IconContext } from '../IconProvider/IconProvider';
 
 interface IconGalleryProps {
-  iconStyle: IconStyle;
   size: number;
   copyAsJSX: boolean;
   fillCurrent: boolean;

@@ -1,4 +1,11 @@
-export const iconStyles = [
+export type IconStyle = 'monoline' | 'solid' | 'two_tone';
+
+export interface IconStyles {
+  value: IconStyle;
+  label: string;
+}
+
+export const iconStyles: Array<IconStyles> = [
   {
     value: 'monoline',
     label: 'Monoline',
@@ -12,8 +19,6 @@ export const iconStyles = [
     label: 'Two-tone',
   },
 ];
-
-export type IconStyle = 'monoline' | 'solid' | 'two_tone';
 
 export interface TagData {
   id: string;
