@@ -29,6 +29,8 @@
       calc(var(--hue) + 60);
     --analogous-color: oklch(var(--analogous-color-oklch));
 
+    --interface-text: var(--gray-50);
+
     /* @media (--is-dark) {
       --foreground-oklch: var(--gray-50-oklch);
       --surface-1-oklch: var(--gray-700-oklch);

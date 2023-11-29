@@ -4,6 +4,7 @@
   background-color: var(--accent-color);
   border-radius: var(--input-border-radius) var(--input-border-radius) 0 0;
   padding: var(--space-16);
+  color: var(--interface-text);
   text-align: left;
 
   font-weight: var(--font-medium);

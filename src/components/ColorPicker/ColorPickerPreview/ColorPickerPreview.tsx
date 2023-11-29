@@ -8,13 +8,11 @@ interface PreviewProps {
 }
 
 export default function ColorPickerPreview({ hue, chroma, lightness }: PreviewProps) {
-  const color = lightness > 70 ? 'var(--gray-950)' : 'var(--gray-50)';
   const currentColor = `oklch(${lightness}% ${chroma} ${hue})`;
 
   return (
     <button
       className={classes['button']}
-      style={{ color }}
       onClick={() => navigator.clipboard.writeText(currentColor)}
     >
       {currentColor}

@@ -1,15 +1,15 @@
-import prisma from '@utils/db';
 import IconCard from './IconCard';
 import classes from './component.module.css';
+import { fetchIcons } from '@utils/prisma';
 
-export default async function IconGallery() {
-  const icons = await prisma.icon.findMany({
-    include: {
-      tags: true,
-    },
-  });
+interface IconGalleryProps {
+  query: string;
+}
 
-  const icons_abc = icons.sort(function (a, b) {
+export default async function IconGallery({ query }: IconGalleryProps) {
+  const icons = await fetchIcons(query);
+
+  const icons_abc = [...icons].sort(function (a, b) {
     var textA = a.name.toLocaleLowerCase();
     var textB = b.name.toLocaleLowerCase();
     return textA < textB ? -1 : textA > textB ? 1 : 0;

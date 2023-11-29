@@ -19,9 +19,12 @@ export default function ColorPicker() {
 
   useEffect(() => {
     const root = document.documentElement.style;
+    const interfaceText = lightness > 70 ? 'var(--gray-950)' : 'var(--gray-50)';
+
     root.setProperty('--hue', String(hue));
     root.setProperty('--chroma', String(chroma));
     root.setProperty('--lightness', `${lightness}%`);
+    root.setProperty('--interface-text', interfaceText);
   }, [hue, chroma, lightness]);
 
   return (

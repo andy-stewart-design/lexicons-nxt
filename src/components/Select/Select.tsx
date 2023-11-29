@@ -3,6 +3,7 @@
 import { ComponentProps, ForwardRefExoticComponent, RefAttributes, forwardRef } from 'react';
 import * as RadSelect from '@radix-ui/react-select';
 import { ChevronDown } from '@icons/16';
+import { iconStyles } from '@/constants/icons';
 
 interface Props extends ComponentProps<'select'> {
   options: {
@@ -14,12 +15,16 @@ interface Props extends ComponentProps<'select'> {
 }
 
 export default function Select({ value, onValueChange, options }: Props) {
+  const label = iconStyles.filter((style) => style.value === value)[0]?.label ?? '';
+
   return (
     <div className="input-container">
       <p className="label">Icon Style</p>
       <RadSelect.Root value={value} onValueChange={onValueChange}>
-        <RadSelect.Trigger aria-label="Food">
-          <RadSelect.Value placeholder="Select a style" />
+        <RadSelect.Trigger aria-label="Icon Style">
+          <RadSelect.Value asChild>
+            <span>{label}</span>
+          </RadSelect.Value>
           <RadSelect.Icon>
             <ChevronDown />
           </RadSelect.Icon>

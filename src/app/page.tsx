@@ -1,4 +1,4 @@
-// TODO: Search Bar
+// TODO: Icons
 // TODO: Social (Threads, Twitter, Github, Figma)
 // TODO: Pull out button component
 
@@ -11,7 +11,13 @@ import AboutDialog from '@components/AboutDialog';
 import classes from './page.module.css';
 import MainContent from '@/components/MainContent/MainContent';
 
-export default function Home() {
+interface PageProps {
+  searchParams: { [key: string]: string | string[] | undefined };
+}
+
+export default function Home({ searchParams }: PageProps) {
+  const query = typeof searchParams.query === 'string' ? searchParams.query : '';
+
   return (
     <body>
       <main className={classes['main']}>
@@ -19,7 +25,7 @@ export default function Home() {
         <MainContent>
           <Sidebar />
           <Suspense fallback={<Loading />}>
-            <IconGallery />
+            <IconGallery query={query} />
           </Suspense>
         </MainContent>
         <Toaster />
