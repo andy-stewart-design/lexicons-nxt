@@ -64,21 +64,11 @@ function SVG({ icon, iconStyle, size }: SVGProps) {
 
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
-      {iconStyle === 'solid' && icon.path_solid && (
-        <path d={icon.path_solid} fill="currentColor" fillRule="evenodd" clipRule="evenodd" />
-      )}
+      {iconStyle === 'solid' && icon.path_solid && <path d={icon.path_solid} fill="currentColor" />}
       {iconStyle === 'two_tone' && icon.path_two_tone && (
-        <path
-          d={icon.path_two_tone}
-          fill="currentColor"
-          opacity="0.4"
-          fillRule="evenodd"
-          clipRule="evenodd"
-        />
+        <path d={icon.path_two_tone} fill="currentColor" opacity="0.4" />
       )}
-      {showMonoline && icon.path_monoline && (
-        <path d={icon.path_monoline} fill="currentColor" fillRule="evenodd" clipRule="evenodd" />
-      )}
+      {showMonoline && icon.path_monoline && <path d={icon.path_monoline} fill="currentColor" />}
     </svg>
   );
 }
