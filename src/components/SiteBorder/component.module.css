@@ -1,0 +1,12 @@
+.border {
+  position: fixed;
+  inset: calc(var(--body-border-size) * -1);
+  border-top: calc(var(--body-border-size) * 2) solid var(--accent-color);
+  z-index: 100000000000000;
+  pointer-events: none;
+
+  @media (--screen-md) {
+    border: calc(var(--body-border-size) * 2) solid var(--accent-color);
+    border-radius: var(--space-48);
+  }
+}

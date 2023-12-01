@@ -35,7 +35,7 @@
 
   .sticky {
     position: sticky;
-    top: 0;
+    top: var(--body-border-size);
 
     display: flex;
     flex-direction: column;
@@ -46,22 +46,29 @@
     section {
       --padding-block-start: var(--space-xl);
       --padding-block-end: var(--space-xl);
+      --section-gap: var(--space-24);
 
       order: 2;
       position: relative;
       display: grid;
-      gap: var(--space-24);
+      gap: var(--section-gap);
       padding-inline: var(--padding-inline-start) var(--padding-inline-end);
       padding-block: var(--padding-block-start) var(--padding-block-end);
       border-top: var(--border-light);
 
       @media (--screen-md) {
-        gap: var(--space-28);
+        --section-gap: var(--space-28);
       }
 
       &:first-of-type {
         @media (--screen-md) {
           border: none;
+        }
+      }
+
+      &:nth-last-of-type(2) {
+        --section-gap: var(--space-16);
+        @media (--screen-md) {
         }
       }
 

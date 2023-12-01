@@ -13,5 +13,5 @@ export function getContrast(hexcolor: string) {
   var yiq = (r * 299 + g * 587 + b * 114) / 1000;
 
   // Check contrast
-  return yiq >= 120 ? 'black' : 'white';
+  return yiq >= 120 ? 'var(--black)' : 'var(--white)';
 }

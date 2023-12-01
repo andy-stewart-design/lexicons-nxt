@@ -5,12 +5,14 @@
 
 import { Suspense } from 'react';
 import Nav from '@components/Nav';
+import MainContent from '@/components/MainContent/MainContent';
 import Sidebar from '@components/Sidebar';
 import IconGallery, { Loading } from '@components/IconGallery';
 import Toaster from '@components/Toaster';
 import AboutDialog from '@components/AboutDialog';
+import SiteBorder from '@/components/SiteBorder';
 import classes from './page.module.css';
-import MainContent from '@/components/MainContent/MainContent';
+import Body from '@/components/Body';
 
 interface PageProps {
   searchParams: { [key: string]: string | string[] | undefined };
@@ -20,7 +22,7 @@ export default function Home({ searchParams }: PageProps) {
   const query = typeof searchParams.query === 'string' ? searchParams.query : '';
 
   return (
-    <body>
+    <Body>
       <main className={classes['main']}>
         <Nav />
         <MainContent>
@@ -31,7 +33,8 @@ export default function Home({ searchParams }: PageProps) {
         </MainContent>
         <Toaster />
         <AboutDialog />
+        <SiteBorder />
       </main>
-    </body>
+    </Body>
   );
 }

@@ -67,9 +67,11 @@
     --padding-block-end: var(--padding-block-start);
 
     --nav-height: var(--space-96);
+    --body-border-size: var(--space-8);
 
     @media (--screen-md) {
       --padding-inline-start: var(--space-xl);
+      --body-border-size: var(--space-16);
     }
 
     /* -------- BORDERS -------- */

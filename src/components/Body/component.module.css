@@ -1,0 +1,7 @@
+.body {
+  padding-top: var(--body-border-size);
+
+  @media (--screen-md) {
+    padding: var(--body-border-size);
+  }
+}
