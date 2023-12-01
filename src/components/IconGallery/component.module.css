@@ -2,13 +2,14 @@
   --padding-block-start: var(--space-xl);
   --padding-block-end: var(--space-xl);
   --icon-card-min-width: 160px;
+  --grid-gap: var(--space-sm);
 
   grid-column: 2 / -1;
 
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-columns: repeat(auto-fit, minmax(var(--icon-card-min-width), 1fr));
-  gap: var(--space-16);
+  gap: var(--grid-gap);
 
   padding-inline: var(--padding-inline-start) var(--padding-inline-end);
   padding-block: var(--padding-block-start) var(--padding-block-end);
@@ -21,13 +22,14 @@
     --icon-card-min-width: 200px;
   }
 
-  @media (--screen-2xl) {
-    --icon-card-min-width: 280px;
-  }
-
   @media (--screen-md) {
     --padding-block-start: var(--space-2xl);
     --padding-block-end: var(--space-2xl);
+    --grid-gap: var(--space-md);
+  }
+
+  @media (--screen-2xl) {
+    --icon-card-min-width: 280px;
   }
 }
 

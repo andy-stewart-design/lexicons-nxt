@@ -61,9 +61,9 @@
     --space-xl: var(--space-32);
     --space-2xl: var(--space-40);
 
-    --padding-inline-start: var(--space-lg);
+    --padding-inline-start: var(--space-md);
     --padding-inline-end: var(--padding-inline-start);
-    --padding-block-start: var(--padding-inline-start);
+    --padding-block-start: var(--space-lg);
     --padding-block-end: var(--padding-block-start);
 
     --nav-height: var(--space-96);

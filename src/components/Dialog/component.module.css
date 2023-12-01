@@ -10,6 +10,7 @@
 
   padding-inline: var(--padding-inline-start) var(--padding-inline-end);
   padding-block: var(--padding-block-start) var(--padding-block-end);
+  width: calc(100vw - var(--padding-inline-start) * 2);
   max-width: 50ch;
 
   box-shadow: 0 0 0 100vmax oklch(var(--black-oklch) / 70%);
