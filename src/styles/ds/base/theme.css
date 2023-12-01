@@ -26,7 +26,7 @@
     --accent-color-dark: oklch(var(--accent-color-dark-oklch));
 
     --analogous-color-oklch: min(50%, var(--lightness)) min(0.3, var(--chroma))
-      calc(var(--hue) + 60);
+      calc(var(--hue) + 45);
     --analogous-color: oklch(var(--analogous-color-oklch));
 
     --interface-text-color: var(--gray-50);
@@ -67,7 +67,7 @@
     --padding-block-end: var(--padding-block-start);
 
     --nav-height: var(--space-96);
-    --body-border-size: var(--space-8);
+    --body-border-size: var(--space-12);
 
     @media (--screen-md) {
       --padding-inline-start: var(--space-xl);

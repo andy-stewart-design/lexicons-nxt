@@ -1,12 +1,34 @@
 .border {
   position: fixed;
-  inset: calc(var(--body-border-size) * -1);
-  border-top: calc(var(--body-border-size) * 2) solid var(--accent-color);
+  inset: 0;
+  height: var(--body-border-size);
+  background: linear-gradient(
+    to right in oklab,
+    var(--accent-color) 0%,
+    var(--analogous-color) 100%
+  );
+  /* border-top: calc(var(--body-border-size) * 2) solid var(--accent-color); */
   z-index: 100000000000000;
   pointer-events: none;
 
   @media (--screen-md) {
-    border: calc(var(--body-border-size) * 2) solid var(--accent-color);
+    inset: calc(var(--body-border-size) * -1);
+    height: auto;
+    /* border: calc(var(--body-border-size) * 2) solid var(--accent-color); */
+
+    background: linear-gradient(
+        to bottom right in oklab,
+        var(--accent-color) 0%,
+        var(--analogous-color) 100%
+      )
+      border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+
+    border: calc(var(--body-border-size) * 2) solid transparent;
     border-radius: var(--space-48);
+    /* opacity: 0.5; */
   }
 }

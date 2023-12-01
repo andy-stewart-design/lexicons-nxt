@@ -21,6 +21,10 @@
     --icon-card-min-width: 200px;
   }
 
+  @media (--screen-2xl) {
+    --icon-card-min-width: 280px;
+  }
+
   @media (--screen-md) {
     --padding-block-start: var(--space-2xl);
     --padding-block-end: var(--space-2xl);
