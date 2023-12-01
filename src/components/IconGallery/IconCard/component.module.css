@@ -78,6 +78,9 @@
     text-align: center;
     opacity: min(0.75, var(--opacity-decreasing));
     transition: opacity 300ms var(--ease-out-5);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 

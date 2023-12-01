@@ -1,12 +1,13 @@
 .gallery {
   --padding-block-start: var(--space-xl);
   --padding-block-end: var(--space-xl);
+  --icon-card-min-width: 160px;
 
   grid-column: 2 / -1;
 
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(var(--icon-card-min-width), 1fr));
   gap: var(--space-16);
 
   padding-inline: var(--padding-inline-start) var(--padding-inline-end);
@@ -14,6 +15,10 @@
 
   & > :first-child {
     grid-column: 1 / -1;
+  }
+
+  @media (--screen-xs) {
+    --icon-card-min-width: 200px;
   }
 
   @media (--screen-md) {

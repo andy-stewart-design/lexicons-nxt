@@ -18,8 +18,8 @@ export default async function IconGallery({ query }: IconGalleryProps) {
   return (
     <div className={classes['gallery']}>
       <div className="flex flex-align-start flex-justify-between">
-        <p className="label">Showing {icons.length} Icons</p>
-        <p className="label">v.0.1</p>
+        <p className="label">{icons.length} Icons</p>
+        <p className="label">v0.1.0</p>
       </div>
       {icons_abc.map((icon, i) => (
         <IconCard key={i} icon={icon} />
