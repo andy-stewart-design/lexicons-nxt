@@ -23,7 +23,7 @@ interface ProviderProps {
 
 export default function ThemeProvider({ children }: ProviderProps) {
   const [copyAsJSX, setCopyAsJSX] = useToggle(false);
-  const [fillCurrent, setFillCurrent] = useToggle(true);
+  const [fillCurrent, setFillCurrent] = useToggle(false);
 
   return (
     <CopyModeContext.Provider value={{ copyAsJSX, setCopyAsJSX, fillCurrent, setFillCurrent }}>
