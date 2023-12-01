@@ -39,7 +39,7 @@
   --track-background: linear-gradient(to right, var(--black) 0%, var(--gray-50) 100%);
 }
 
-.saturation {
+.chroma {
   --start: oklch(var(--lightness) 0 var(--hue));
   --end: oklch(100% 0.5 var(--hue));
 

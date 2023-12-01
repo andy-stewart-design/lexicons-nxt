@@ -25,7 +25,7 @@
   }
 
   &:nth-of-type(2)::before {
-    content: 'S';
+    content: 'C';
   }
 
   &:nth-of-type(3)::before {

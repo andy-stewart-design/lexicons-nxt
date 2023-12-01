@@ -30,7 +30,7 @@ export default function ColorPickerPopper({
             {...restChromaProps}
             value={chroma}
             onChange={setChroma}
-            label="saturation"
+            label="chroma"
           />
           <ColorPickerRangeInput
             {...restLightnessProps}

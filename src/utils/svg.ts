@@ -1,4 +1,5 @@
 import type { IconData, IconStyle } from '@constants/icons';
+import { formatHex } from 'culori';
 
 export async function copySvg(
   icon: IconData,
@@ -52,25 +53,25 @@ function formatSVG(
   fillCurrent: boolean
 ) {
   const showOutline = iconStyle === 'two_tone' || iconStyle === 'monoline';
-  const fillRule = copyAsJSX ? 'fillRule' : 'fill-rule';
-  const clipRule = copyAsJSX ? 'clipRule' : 'clip-rule';
+  // const fillRule = copyAsJSX ? 'fillRule' : 'fill-rule';
+  // const clipRule = copyAsJSX ? 'clipRule' : 'clip-rule';
   const fillColor = fillCurrent ? 'currentColor' : getAccentColor();
 
   const svg = `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">`;
 
   const solidPath =
     iconStyle === 'solid' && icon.path_solid
-      ? `<path d="${icon.path_solid}" fill="${fillColor}" ${fillRule}="evenodd" ${clipRule}="evenodd" />`
+      ? `<path d="${icon.path_solid}" fill="${fillColor}" />`
       : '';
 
   const tonedPath =
     iconStyle === 'two_tone' && icon.path_two_tone
-      ? `<path d="${icon.path_two_tone}" fill="${fillColor}" opacity="0.4" ${fillRule}="evenodd" ${clipRule}="evenodd" />`
+      ? `<path d="${icon.path_two_tone}" fill="${fillColor}" opacity="0.4" />`
       : '';
 
   const outlinePath =
     showOutline && icon.path_monoline
-      ? `<path d="${icon.path_monoline}" fill="${fillColor}" ${fillRule}="evenodd" ${clipRule}="evenodd" />`
+      ? `<path d="${icon.path_monoline}" fill="${fillColor}" />`
       : '';
 
   if (copyAsJSX) return formatJSX(icon.name, svg + solidPath + tonedPath + outlinePath + '</svg>');
@@ -91,5 +92,6 @@ function formatJSX(name: string, svg: string) {
 
 function getAccentColor() {
   const accentColor = getComputedStyle(document.documentElement).getPropertyValue('--accent-color');
-  return accentColor ?? 'currentColor';
+
+  return formatHex(accentColor) ?? 'currentColor';
 }
