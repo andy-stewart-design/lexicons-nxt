@@ -2,10 +2,12 @@
 
 import { useEffect } from 'react';
 import { Root as ColorPickerRoot } from '@radix-ui/react-popover';
+import { formatHex } from 'culori';
 import ColorPickerInputs from './ColorPickerInputs';
 import ColorPickerPopper from './ColorPickerPopper';
 import Tooltip from '@components/Tooltip';
-import { useSlider } from '@/hooks/use-input';
+import { useSlider } from '@hooks/use-input';
+import { getContrast } from '@utils/color-contrast';
 
 export interface ColorPickerProps {
   primaryColor: string;
@@ -19,12 +21,16 @@ export default function ColorPicker() {
 
   useEffect(() => {
     const root = document.documentElement.style;
-    const interfaceText = lightness > 70 ? 'var(--gray-950)' : 'var(--gray-50)';
+
+    const accentColor = `oklch(${lightness}% ${chroma} ${hue})`;
+    const accentColorRGB = formatHex(accentColor);
+    const interfaceText = getContrast(accentColorRGB!);
+    console.log(interfaceText);
 
     root.setProperty('--hue', String(hue));
     root.setProperty('--chroma', String(chroma));
     root.setProperty('--lightness', `${lightness}%`);
-    root.setProperty('--interface-text', interfaceText);
+    root.setProperty('--interface-text-color', interfaceText);
   }, [hue, chroma, lightness]);
 
   return (

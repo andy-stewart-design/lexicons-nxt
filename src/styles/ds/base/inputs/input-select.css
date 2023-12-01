@@ -101,7 +101,7 @@
     line-height: 1;
 
     &[data-highlighted] {
-      color: var(--interface-text);
+      color: var(--interface-text-color);
       background: var(--accent-color);
       outline: none;
     }

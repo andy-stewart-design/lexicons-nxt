@@ -1,5 +1,4 @@
 // TODO: Icons
-// TODO: Preserve icon color on export (culori)
 // TODO: SEO Stuff
 // TODO: Social (Threads, Twitter, Github, Figma)
 // TODO: Pull out button component

@@ -56,7 +56,7 @@
 
       input:checked + & {
         background-color: var(--accent-color);
-        color: var(--interface-text);
+        color: var(--interface-text-color);
       }
 
       input:focus-visible + & {

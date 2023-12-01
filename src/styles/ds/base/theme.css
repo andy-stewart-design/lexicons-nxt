@@ -29,7 +29,10 @@
       calc(var(--hue) + 60);
     --analogous-color: oklch(var(--analogous-color-oklch));
 
-    --interface-text: var(--gray-50);
+    --interface-text-color: var(--gray-50);
+    --interface-text-transition-timing: 300ms;
+    --interface-text-transition-ease: var(--ease-out-3);
+    --interface-text-transition-delay: 200ms;
 
     /* @media (--is-dark) {
       --foreground-oklch: var(--gray-50-oklch);

@@ -55,6 +55,10 @@
       padding-block: var(--padding-block-start) var(--padding-block-end);
       border-top: var(--border-light);
 
+      @media (--screen-md) {
+        gap: var(--space-28);
+      }
+
       &:first-of-type {
         @media (--screen-md) {
           border: none;
