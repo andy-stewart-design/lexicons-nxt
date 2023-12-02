@@ -116,8 +116,13 @@
     min-width: var(--space-120);
     border: var(--border-light);
     border-radius: var(--space-96);
+
     font-size: var(--font-sm);
     font-weight: var(--font-medium);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
     box-shadow: var(--shadow-accent-5);
     transition: background 300ms var(--ease-out-5);
 

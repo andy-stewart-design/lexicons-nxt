@@ -61,13 +61,18 @@
     --space-xl: var(--space-32);
     --space-2xl: var(--space-40);
 
-    --padding-inline-start: var(--space-md);
+    --padding-inline-start: var(--space-sm);
     --padding-inline-end: var(--padding-inline-start);
     --padding-block-start: var(--space-lg);
     --padding-block-end: var(--padding-block-start);
 
     --nav-height: var(--space-96);
     --body-border-size: var(--space-12);
+
+    @media (--screen-sm) {
+      --padding-inline-start: var(--space-md);
+      --body-border-size: var(--space-16);
+    }
 
     @media (--screen-md) {
       --padding-inline-start: var(--space-xl);

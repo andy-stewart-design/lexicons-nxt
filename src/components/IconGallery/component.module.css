@@ -1,7 +1,7 @@
 .gallery {
   --padding-block-start: var(--space-xl);
   --padding-block-end: var(--space-xl);
-  --icon-card-min-width: 160px;
+  --icon-card-min-width: var(--space-160);
   --grid-gap: var(--space-sm);
 
   grid-column: 2 / -1;
@@ -19,7 +19,7 @@
   }
 
   @media (--screen-xs) {
-    --icon-card-min-width: 200px;
+    --icon-card-min-width: var(--space-200);
   }
 
   @media (--screen-md) {
