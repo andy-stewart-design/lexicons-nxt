@@ -1,6 +1,7 @@
 // TODO: Icons
 // TODO: SEO Stuff
 // TODO: Social (Threads, Twitter, Github, Figma)
+// TODO: Switch icon cards to container queries (button text size)
 // TODO: Pull out button component
 
 import { Suspense } from 'react';
