@@ -2,13 +2,13 @@
 
 import { useContext } from 'react';
 import Dialog from '@components/Dialog';
-import { AboutModalDisplayContext } from '@state/AboutModalDisplayProvider';
+import { AboutDialogDisplayContext } from '@/components/Providers/AboutDialogDisplayProvider';
 
 export default function AboutDialog() {
-  const { showModal, setShowDialog } = useContext(AboutModalDisplayContext);
+  const { showDialog, setShowDialog } = useContext(AboutDialogDisplayContext);
 
   return (
-    <Dialog showModal={showModal} setShowDialog={setShowDialog} title="About Lexicons">
+    <Dialog showModal={showDialog} setShowDialog={setShowDialog} title="About Lexicons">
       <p>
         Lexicons is an open-source icon set created by{' '}
         <a href="https://www.andystewart.design/" target="_blank">

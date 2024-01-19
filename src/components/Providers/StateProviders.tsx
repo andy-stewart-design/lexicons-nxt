@@ -4,7 +4,7 @@ import IconSizeProvider from '@state/IconSizeProvider';
 import ThemeProvider from '@state/ThemeProvider';
 import ToastProvider from '@components/ToastProvider';
 import SidebarDisplayProvider from '@state/SidebarDisplayProvider';
-import AboutModalDisplayProvider from '@state/AboutModalDisplayProvider';
+import AboutDialogDisplayProvider from '@/components/Providers/AboutDialogDisplayProvider';
 import CopyModeProvider from '@state/CopyModeProvider';
 
 interface StateProvidersProps extends ComponentProps<'div'> {
@@ -18,9 +18,9 @@ export default function StateProviders({ theme, children }: StateProvidersProps)
         <IconStyleProvider>
           <IconSizeProvider>
             <SidebarDisplayProvider>
-              <AboutModalDisplayProvider>
+              <AboutDialogDisplayProvider>
                 <CopyModeProvider>{children}</CopyModeProvider>
-              </AboutModalDisplayProvider>
+              </AboutDialogDisplayProvider>
             </SidebarDisplayProvider>
           </IconSizeProvider>
         </IconStyleProvider>

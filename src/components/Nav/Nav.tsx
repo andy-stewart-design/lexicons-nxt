@@ -2,7 +2,7 @@
 
 import { useContext } from 'react';
 import { SidebarDisplayContext } from '@state/SidebarDisplayProvider';
-import { AboutModalDisplayContext } from '@state/AboutModalDisplayProvider';
+import { AboutDialogDisplayContext } from '@/components/Providers/AboutDialogDisplayProvider';
 import LexiconsLogo from './LexiconsLogo';
 import SearchInput from './SearchInput';
 import VisuallyHidden from '@components/VisuallyHidden';
@@ -11,7 +11,7 @@ import classes from './component.module.css';
 
 export default function Nav() {
   const { toggleShowSidebar } = useContext(SidebarDisplayContext);
-  const { setShowDialog } = useContext(AboutModalDisplayContext);
+  const { setShowDialog } = useContext(AboutDialogDisplayContext);
 
   return (
     <nav className={classes['nav']}>
