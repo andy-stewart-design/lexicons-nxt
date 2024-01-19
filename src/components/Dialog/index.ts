@@ -1,1 +1,1 @@
-export { default, type ModalState } from './Dialog';
+export { default, CloseButton, Title } from './Dialog';

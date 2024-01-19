@@ -1,5 +1,3 @@
-/* @layer reset, ds, theme; */
-
 /* setup */
 @import './ds/primitives/layers.css';
 @import './ds/primitives/mediaqueries.css';

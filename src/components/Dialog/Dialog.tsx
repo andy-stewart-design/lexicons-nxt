@@ -1,40 +1,28 @@
 'use client';
 
-import { ComponentProps, useRef } from 'react';
-import VisuallyHidden from '@components/VisuallyHidden';
-import { useEnhancedDialog } from '@/hooks/use-enhanced-dialog';
-import { Close } from '@icons/20';
+import { ComponentProps } from 'react';
+import { Portal, Overlay, Content, Close as RadixClose } from '@radix-ui/react-dialog';
 import classes from './component.module.css';
 
-export type ModalState = 'closed' | 'closing' | 'open' | 'opening';
-
-interface DialogProps extends ComponentProps<'dialog'> {
-  showModal: ModalState;
-  setShowDialog: () => void;
-  title?: string | undefined;
+interface DialogProps extends ComponentProps<'div'> {
+  title: string;
 }
 
-export default function Dialog({ children, showModal, setShowDialog, title }: DialogProps) {
-  const dialogRef = useRef<HTMLDialogElement>(null);
-  useEnhancedDialog({ dialogRef, showModal, setShowDialog });
-
+export default function Dialog({ children, title, className }: DialogProps) {
   return (
-    <dialog
-      ref={dialogRef}
-      onCancel={setShowDialog}
-      className={classes['dialog']}
-      inert={showModal === 'open' || showModal === 'opening' ? undefined : ''}
-      data-state={showModal}
-    >
-      <div className={classes['close-container']}>
-        {title && <p>{title}</p>}
-        <button onClick={setShowDialog}>
-          <Close />
-          <VisuallyHidden>Close modal</VisuallyHidden>
-        </button>
-      </div>
-
-      {children}
-    </dialog>
+    <Portal>
+      <Overlay className={classes.overlay} />
+      <Content className={`${classes.content} ${className}`}>{children}</Content>
+    </Portal>
   );
 }
+
+export function CloseButton({ children, ...delegated }: ComponentProps<'button'>) {
+  return (
+    <RadixClose asChild>
+      <button {...delegated}>{children}</button>
+    </RadixClose>
+  );
+}
+
+export { Title } from '@radix-ui/react-dialog';

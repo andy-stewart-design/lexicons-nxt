@@ -1,1 +1,1 @@
-export { default, AboutDialogDisplayContext } from './AboutDialogDisplayProvider';
+export { default } from './AboutDialogDisplayProvider';

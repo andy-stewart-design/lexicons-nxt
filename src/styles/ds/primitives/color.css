@@ -1,6 +1,5 @@
 @layer ds {
-  :where(html),
-  ::backdrop {
+  :where(html) {
     --hue: 325;
     --chroma: 0.33;
     --lightness: 68%;

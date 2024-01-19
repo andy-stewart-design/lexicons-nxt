@@ -1,0 +1,49 @@
+.dialog {
+  background: var(--surface-3);
+  border: var(--border-light);
+  border-radius: var(--brad);
+  max-width: 45ch;
+  box-shadow: var(--shadow-black-5);
+  overflow: hidden;
+  transform-origin: center;
+
+  &[data-state='open'] {
+    animation: dialog-content-show var(--dialog-animation-timing) var(--dialog-animation-ease);
+  }
+
+  &[data-state='closed'] {
+    animation: dialog-content-hide var(--dialog-animation-timing) var(--dialog-animation-ease);
+  }
+}
+
+.image {
+  aspect-ratio: 2 / 1;
+  background: var(--black);
+}
+
+.content {
+  display: grid;
+  gap: var(--space-16);
+
+  padding: var(--space-24);
+}
+
+.close {
+  position: absolute;
+  top: var(--space-24);
+  right: var(--space-24);
+}
+
+@keyframes dialog-content-show {
+  from {
+    opacity: 0;
+    scale: 0.9;
+  }
+}
+
+@keyframes dialog-content-hide {
+  to {
+    opacity: 0;
+    scale: 0.9;
+  }
+}
