@@ -2,7 +2,7 @@
   .overlay,
   .content {
     --dialog-animation-timing: 300ms;
-    --dialog-animation-ease: var(--ease-out-3);
+    --dialog-animation-ease: var(--ease-out-4);
   }
 
   .overlay {
@@ -19,6 +19,7 @@
     &[data-state='closed'] {
       animation: dialog-overlay-hide var(--dialog-animation-timing) var(--dialog-animation-ease);
     }
+    z-index: var(--z-5);
   }
 
   .content {
@@ -26,6 +27,7 @@
     top: 50%;
     left: 50%;
     translate: -50% -50%;
+    z-index: var(--z-5);
   }
 }
 

@@ -6,9 +6,11 @@ import classes from './component.module.css';
 export default function AboutDialog() {
   return (
     <Dialog title="About Lexicons" className={classes.dialog}>
-      <div className={classes.image} />
+      <div className={classes.fpo}>
+        <p className="label">Image to come</p>
+      </div>
       <div className={classes.content}>
-        <Title>About Lexicons</Title>
+        <Title className="label">About Lexicons</Title>
         <p>
           Lexicons is an open-source icon set created by{' '}
           <a href="https://www.andystewart.design/" target="_blank">

@@ -16,9 +16,12 @@
   }
 }
 
-.image {
+.fpo {
+  display: grid;
+  place-items: center;
   aspect-ratio: 2 / 1;
   background: var(--black);
+  opacity: 0.4;
 }
 
 .content {
@@ -37,7 +40,7 @@
 @keyframes dialog-content-show {
   from {
     opacity: 0;
-    scale: 0.9;
+    translate: -50% -40%;
   }
 }
 

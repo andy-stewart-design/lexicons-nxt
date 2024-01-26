@@ -9,7 +9,7 @@
     --black-oklch: 5% 0.015 var(--analogous-hue);
     --black: oklch(var(--black-oklch));
 
-    --gray-950-oklch: 18% 0.007 var(--analogous-hue);
+    --gray-950-oklch: 15% 0.007 var(--analogous-hue);
     --gray-950: oklch(var(--gray-950-oklch));
 
     --gray-900-oklch: 21% 0.007 var(--analogous-hue);

@@ -1,7 +1,6 @@
-// TODO: Icons
+// TODO: Switch tooltips to radix?
 // TODO: SEO Stuff
-// TODO: Social (Threads, Twitter, Github, Figma)
-// TODO: Switch icon cards to container queries (button text size)
+// TODO: Social (Github, Figma)
 // TODO: Pull out button component
 
 import { Suspense } from 'react';

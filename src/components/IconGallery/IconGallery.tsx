@@ -1,6 +1,7 @@
 import IconCard from './IconCard';
-import classes from './component.module.css';
 import { fetchIcons } from '@utils/prisma';
+import { shuffle } from '@/utils/arrays';
+import classes from './component.module.css';
 
 interface IconGalleryProps {
   query: string;
@@ -9,19 +10,15 @@ interface IconGalleryProps {
 export default async function IconGallery({ query }: IconGalleryProps) {
   const icons = await fetchIcons(query);
 
-  const icons_abc = [...icons].sort(function (a, b) {
-    var textA = a.name.toLocaleLowerCase();
-    var textB = b.name.toLocaleLowerCase();
-    return textA < textB ? -1 : textA > textB ? 1 : 0;
-  });
+  const iconsRandomized = shuffle(icons);
 
   return (
     <div className={classes['gallery']}>
       <div className="flex flex-align-start flex-justify-between">
         <p className="label">{icons.length} Icons</p>
-        <p className="label">v0.1.0</p>
+        <p className="label">v0.1.1</p>
       </div>
-      {icons_abc.map((icon, i) => (
+      {iconsRandomized.map((icon, i) => (
         <IconCard key={i} icon={icon} />
       ))}
     </div>

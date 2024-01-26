@@ -82,7 +82,7 @@
     /* -------- BORDERS -------- */
     --border-transparent: 1px solid oklch(var(--foreground-oklch) / 0%);
     --border-xlight: 1px solid oklch(var(--foreground-oklch) / 7%);
-    --border-light: 1px solid oklch(var(--foreground-oklch) / 10%);
+    --border-light: 1px solid oklch(var(--foreground-oklch) / 15%);
     --border-accent: 1px solid oklch(var(--accent-color-oklch) / 100%);
     --brad: var(--space-xs);
 

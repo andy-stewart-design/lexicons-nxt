@@ -7,14 +7,12 @@
     var(--accent-color) 0%,
     var(--analogous-color) 100%
   );
-  /* border-top: calc(var(--body-border-size) * 2) solid var(--accent-color); */
-  z-index: 100000000000000;
+  z-index: var(--z-4);
   pointer-events: none;
 
   @media (--screen-md) {
     inset: calc(var(--body-border-size) * -1);
     height: auto;
-    /* border: calc(var(--body-border-size) * 2) solid var(--accent-color); */
 
     background: linear-gradient(
         to bottom right in oklab,
