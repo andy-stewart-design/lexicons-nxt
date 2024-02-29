@@ -36,7 +36,11 @@
 }
 
 .lightness {
-  --track-background: linear-gradient(to right, var(--black) 0%, var(--gray-50) 100%);
+  --track-background: linear-gradient(
+    to right,
+    var(--black) 0%,
+    oklch(var(--lightness) var(--chroma) var(--hue)) 100%
+  );
 }
 
 .chroma {
