@@ -30,8 +30,8 @@
 .hue {
   --track-background: linear-gradient(
     to right in oklch longer hue,
-    oklch(100% 0.5 0),
-    oklch(100% 0.5 0)
+    oklch(70% 0.3 0),
+    oklch(70% 0.3 0)
   );
 }
 
@@ -41,7 +41,7 @@
 
 .chroma {
   --start: oklch(var(--lightness) 0 var(--hue));
-  --end: oklch(100% 0.5 var(--hue));
+  --end: oklch(70% 0.5 var(--hue));
 
   --track-background: linear-gradient(to right, var(--start) 0%, var(--end) 100%);
 }
