@@ -1,4 +1,3 @@
-// TODO: Switch tooltips to radix?
 // TODO: SEO Stuff
 // TODO: Social (Github, Figma)
 // TODO: Pull out button component
@@ -18,7 +17,7 @@ interface PageProps {
   searchParams: { [key: string]: string | string[] | undefined };
 }
 
-export default function Home({ searchParams }: PageProps) {
+export default async function Home({ searchParams }: PageProps) {
   const query = typeof searchParams.query === 'string' ? searchParams.query : '';
 
   return (

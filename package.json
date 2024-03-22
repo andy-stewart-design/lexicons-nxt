@@ -12,12 +12,14 @@
     "prismaStudio": "dotenv -e .env.local npx prisma studio"
   },
   "dependencies": {
+    "@libsql/client": "^0.5.6",
     "@prisma/client": "5.8.1",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-popover": "^1.0.7",
     "@radix-ui/react-select": "^2.0.0",
     "culori": "^4.0.0",
     "dotenv-cli": "^7.3.0",
+    "drizzle-orm": "^0.30.4",
     "geist": "^1.2.1",
     "just-debounce-it": "^3.2.0",
     "next": "14.1.0",
@@ -32,6 +34,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.4.17",
+    "drizzle-kit": "^0.20.14",
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
     "postcss": "^8.4.33",

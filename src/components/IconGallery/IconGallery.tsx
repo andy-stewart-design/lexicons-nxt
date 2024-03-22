@@ -1,6 +1,10 @@
 import IconCard from './IconCard';
 import { fetchIcons } from '@utils/prisma';
+import { db } from '@/db';
+import { like, or } from 'drizzle-orm';
+import { iconTable, tagTable } from '@/db/schema';
 import { shuffle } from '@/utils/arrays';
+import type { IconData } from '@/constants/icons';
 import classes from './component.module.css';
 
 interface IconGalleryProps {
@@ -8,7 +12,11 @@ interface IconGalleryProps {
 }
 
 export default async function IconGallery({ query }: IconGalleryProps) {
-  const icons = await fetchIcons(query);
+  // const icons = await fetchIcons(query);
+  const icons = await db
+    .select()
+    .from(iconTable)
+    .where(like(iconTable.name, `%${query}%`));
 
   const iconsRandomized = shuffle(icons);
 
@@ -19,7 +27,7 @@ export default async function IconGallery({ query }: IconGalleryProps) {
         <p className="label">v0.1.1</p>
       </div>
       {iconsRandomized.map((icon, i) => (
-        <IconCard key={i} icon={icon} />
+        <IconCard key={i} icon={icon as IconData} />
       ))}
     </div>
   );
